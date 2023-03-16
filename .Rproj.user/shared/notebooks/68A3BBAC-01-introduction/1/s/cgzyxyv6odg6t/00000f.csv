@@ -1,0 +1,11 @@
+"0","#| label: read-table"
+"0","#| echo: true"
+"0","#| eval: true"
+"0","#| output-location: fragment"
+"0","spp_data  <- read.table(file = ""data/especies.xlsx"", sep = """", h = TRUE)"
+"2","Warning: line 1 appears to contain embedded nulls"
+"2","Warning: line 3 appears to contain embedded nulls"
+"2","Warning: line 4 appears to contain embedded nulls"
+"2","Error in read.table(file = ""data/especies.xlsx"", sep = """", h = TRUE) : 
+  more columns than column names
+"

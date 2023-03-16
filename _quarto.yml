@@ -1,0 +1,14 @@
+project:
+  title: "inference-slides"
+  
+format:
+  html:
+    theme:
+      light:
+       - minty
+    code-link: true
+    code-copy: hover
+    mainfont: Petrona
+    monofont: JetBrains
+    highlight-style: ayu
+

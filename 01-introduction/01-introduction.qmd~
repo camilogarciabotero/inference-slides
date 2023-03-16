@@ -1,0 +1,51 @@
+---
+title: An introduction to R
+subtitle: camilogarciabotero.github.io/julia-intro
+author:
+  - name: Camilo García-Botero
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro Castellanos
+  - name: Angie Tovar
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - Inferencia e Informática - Uniandes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    smaller: false
+    highlight-style: ayu
+   # theme: fonts.scss
+    code-annotations: select
+---
+
+# R and Rstudio
+
+# Rmarkdown and Dynamic Documents
+
+# Installing Packages
+
+# Important Syntaxes
+
+# Main Objects in R
+
+## Vectors
+
+## Matrices
+
+## Lists
+
+# Managing Data
+
+## Manully Generated Data
+
+## Importing Data
+
+# Descriptive Stats
+
+# Inspecting Data

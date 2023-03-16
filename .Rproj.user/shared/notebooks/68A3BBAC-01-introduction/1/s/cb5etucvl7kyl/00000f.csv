@@ -1,0 +1,10 @@
+"0","#| label: expression-01-table
+#| echo: true
+#| eval: true
+#| output-location: fragment
+2+3*2-2^3
+"
+"1","[1]"
+"1"," 0"
+"1","
+"
