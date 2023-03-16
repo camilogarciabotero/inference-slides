@@ -629,8 +629,7 @@ Levels: Control Treat</code></pre>
 </div>
 </section><section id="importing-data" class="slide level2 center"><h2>Importing Data</h2>
 <p>There are many function to <em>import</em> data to the <code>R</code> session. <code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> is one of the basic ones:</p>
-</section><section class="slide level2 center"><div class="cell columns column-output-location">
-<div class="column">
+</section><section class="slide level2 center"><div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spp_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span></span>
 <span>  file <span class="op">=</span> <span class="st">"data/especies.txt"</span>,</span>
 <span>  sep <span class="op">=</span> <span class="st">"\t"</span>,</span>
@@ -638,14 +637,13 @@ Levels: Control Treat</code></pre>
 <span><span class="op">)</span></span>
 <span><span class="va">spp_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="column fragment">
+<div class="cell fragment">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["Zona"],"name":[1],"type":["int"],"align":["right"]},{"label":["Especie"],"name":[2],"type":["chr"],"align":["left"]},{"label":["Prob_presencia"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["variacion"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"C_fitzingeri","3":"0.54351728","4":"82"},{"1":"1","2":"D_ebraccatus","3":"0.89637866","4":"67"},{"1":"1","2":"E_pustulosus","3":"0.56498335","4":"66"},{"1":"1","2":"O_histrionica","3":"0.35385389","4":"49"},{"1":"1","2":"S_phaeota","3":"0.81607732","4":"29"},{"1":"2","2":"C_fitzingeri","3":"0.62611546","4":"37"},{"1":"2","2":"D_ebraccatus","3":"0.28887135","4":"NA"},{"1":"2","2":"E_pustulosus","3":"0.35659823","4":"15"},{"1":"2","2":"O_histrionica","3":"0.19117277","4":"71"},{"1":"2","2":"S_phaeota","3":"0.06980294","4":"47"},{"1":"3","2":"C_fitzingeri","3":"0.92721311","4":"18"},{"1":"3","2":"D_ebraccatus","3":"0.37424265","4":"74"},{"1":"3","2":"E_pustulosus","3":"0.51620392","4":"76"},{"1":"3","2":"O_histrionica","3":"0.12374543","4":"12"},{"1":"3","2":"S_phaeota","3":"NA","4":"60"},{"1":"4","2":"C_fitzingeri","3":"0.59814444","4":"89"},{"1":"4","2":"D_ebraccatus","3":"0.46591582","4":"59"},{"1":"4","2":"E_pustulosus","3":"0.01995742","4":"49"},{"1":"4","2":"O_histrionica","3":"0.75770155","4":"NA"},{"1":"4","2":"S_phaeota","3":"0.24580174","4":"11"},{"1":"5","2":"C_fitzingeri","3":"0.73126880","4":"60"},{"1":"5","2":"D_ebraccatus","3":"0.32123528","4":"26"},{"1":"5","2":"E_pustulosus","3":"0.28538406","4":"41"},{"1":"5","2":"O_histrionica","3":"0.84075416","4":"83"},{"1":"5","2":"S_phaeota","3":"0.19432776","4":"88"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
-</div>
 </div>
 </div>
 </div>
@@ -768,7 +766,7 @@ Levels: Control Treat</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>So,the vector now is bigger:</p>
+<p>So, the vector is now bigger:</p>
 <div class="cell">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

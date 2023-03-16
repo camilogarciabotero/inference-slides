@@ -1,6 +1,6 @@
 ---
 title: An introduction to R
-subtitle: camilogarciabotero.github.io/julia-intro
+subtitle: https://bit.ly/3ZRsbnA
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
