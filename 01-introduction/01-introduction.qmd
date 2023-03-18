@@ -25,7 +25,7 @@ format:
     df-print: paged
     scrollable: true
     #smaller: false
-    # theme: fonts.scss
+    theme: ../theme.scss
 ---
 
 # R and Rstudio
