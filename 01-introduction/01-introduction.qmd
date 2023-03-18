@@ -42,7 +42,7 @@ format:
 
 ![An script example](figs/script-fig.png)
 
-# Rmarkdown and Dynamic Documents
+# Rmarkdown and Dynamic Documents {.smaller}
 
 ------------------------------------------------------------------------
 
@@ -148,6 +148,8 @@ name <- "camilo"
 name
 ```
 
+. . .
+
 ```{r}
 #| label: assign-mode
 #| echo: true
@@ -167,7 +169,7 @@ A *vector* is a concatenation of other objects of the same type.
 
 time <- c(34, 13, 65, 10) # <1>
 
-season <-c("dry", "semidry", "rainy")
+season <- c("dry", "semidry", "rainy")
 
 heights  <- c(1.60, 1.63, 1.85 ,1.72)
 
@@ -438,6 +440,7 @@ summary(spp_data)
 ***
 Let's create an histogram, using base `hist()` function:
 ```{r}
+#| code-fold: true
 hist(x = spp_data$Prob_presencia)
 ```
 
