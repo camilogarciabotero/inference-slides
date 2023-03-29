@@ -28,7 +28,34 @@ format:
     theme: ../theme.scss
 ---
 
-# R and Rstudio
+# (Un)Tidy data - a horror story
+
+## 1. Empty cells
+
+## 2. Inconsistency
+
+## 3. Complicated layout
+
+## 4. Multiple id-row
+
+## 6. Summaries
+
+## 7. True Horror data
+
+# A Tidy data set
+
+# Intro to the Tidyverse
+
+## Process
+
+## Ecosystem
+
+## Main functions
+
+###
+###
+###
+###
 
 ------------------------------------------------------------------------
 
