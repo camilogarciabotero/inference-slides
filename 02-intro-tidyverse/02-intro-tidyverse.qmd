@@ -17,457 +17,398 @@ format:
     center: true
     slide-number: true
     fig-align: center
-    code-line-numbers: false
+    code-line-numbers: false`
     overview: true
     code-link: true
     code-annotations: hover
     highlight-style: ayu
     df-print: paged
     scrollable: true
-    #smaller: false
+    fig-height: 8
+    fig-width: 8
+    fig-dpi: 320
     theme: ../theme.scss
+    bibliography: ../references.bib
 ---
 
-# (Un)Tidy data - a horror story
+# (Un)Tidy data - a horror story^[A story from @broman2018data]
 
 ## 1. Empty cells
 
+![](figs/empty-cells-data.png){fig-align="center" width="500"}
+
 ## 2. Inconsistency
+
+![](figs/inconsistency-data.png){fig-align="center" width="500"}
 
 ## 3. Complicated layout
 
+![](figs/complicated-layout.png){fig-align="center" width="600"}
+
 ## 4. Multiple id-row
+
+![](figs/multi-id-data.png){fig-align="center" width="600"}
 
 ## 6. Summaries
 
+![](figs/summary-data.png){fig-align="center" width="600"}
+
 ## 7. True Horror data
+
+![Horror data](figs/horror-data.png){fig-align="center" width="700"}
 
 # A Tidy data set
 
-# Intro to the Tidyverse
-
-## Process
-
-## Ecosystem
-
-## Main functions
-
-###
-###
-###
-###
+![Tidy data](figs/tidy-data.png){fig-align="center" width="800"}
 
 ------------------------------------------------------------------------
 
-![R console](figs/r-fig.png){fig-align="center"}
+![Tidy data principles. Fuente: https://r4ds.had.co.nz/tidy-data.html](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 
-![Rstudio IDE](figs/rstudio-fig.png)
+![Make friends with tidy data](figs/tidy-data-cartoon.png)
 
-------------------------------------------------------------------------
+# The Tidyverse
 
-![An script example](figs/script-fig.png)
+***
 
-# Rmarkdown and Dynamic Documents {.smaller}
+![](figs/tidyverse-hexlogo.png){fig-align="center" width="800"}
 
-------------------------------------------------------------------------
+***
 
-The YAML block
+![](figs/tidy-process.png){fig-align="center" width="800"}
 
-``` r
----
-title: ”My fancy title"
-author: "Camilo García"
-format: html
-date: 2022-10-05
----
-```
+***
 
-. . .
+![](figs/tidy-ecosystem.png){fig-align="center" width="800"}
 
-Simple text (in Markdown)
 
-``` r
-# Introduction
 
-This is **Bold** and *italics*
-```
+# Manipulating data with the Tidyverse
 
-. . .
+## The Palmer Penguins Data Set
 
-Code
+![](figs/palmer-penguins.png)
 
+***
+
+![](figs/penguines-measures.png)
+
+***
+
+Importing libraries:
 ```{r}
+#| label: libraries
 #| echo: true
-#| label: demo-code
-#| eval: false
-
+#| 
 library(tidyverse)
-mtcars |> head()
+library(palmerpenguins)
 ```
 
-. . .
+***
 
-LaTeX
+## Data wrangling and cleaning {.smaller }
 
-``` bash
-$$
-\sum_{i}^{n} x^{i}
-$$
-```
+![](figs/data-wrangling.png){fig-align="center" width="500"}
 
-::: footer
+***
+:::{.incremental}
+- `filter()` : it *filters* the observations *(rows)* by satisfying a criterion
+- `mutate()` : creates a new variable (column) based on existing variables.
+- `select()`: selects variables *(columns)*
+- `group_by()`: groups observations according to the categories of a variable.
+- `drop_na()`: gets rid of NA values in the entire dataset or in certain variables.
+- `summarise()`: reduces multiple values to a single value based on an operation (e.g. `mean()`)
 :::
 
-------------------------------------------------------------------------
+***
 
-![](figs/quarto-fig.png){fig-align="center"}
+A common set of operation are written as:
 
-# Installing Packages
-
-------------------------------------------------------------------------
-
-Two main commands are used to manage packages in R:
-
-1.  Installation:
-
-```{r}
-#| label: installation
-#| eval: false
-#| echo: true
-install.packages("pkgname")
+```{.r}
+tibble |> 
+  function |> 
+  function ...
 ```
+## Let's try them out
 
-. . .
+What are the max and min body sizes for Adelie and Gentoo penguins?
 
-2.  Loading the package:
-
-```{r}
-#| label: loading
-#| eval: false
-#| echo: true
-library(pkgname)
-```
-
-# Getting Help
+##  {auto-animate="true"}
 
 ```{r}
-#| label: help
-#| eval: false
-#| echo: true
-help(function)
-?function
-help.search(“keyword”)
-```
-
-# Important Syntax
-
-## Creating Objects
-
-Anything that is created in `R` whether it is a vector, matrix, function, data, figures, strings (character), etc. can be *assigned* into an *object* using the `<-` operator:
-
-```{r}
-#| label: assign
-#| echo: true
-#| output-location: fragment
-name <- "camilo"
-name
-```
-
-. . .
-
-```{r}
-#| label: assign-mode
-#| echo: true
-#| output-location: fragment
-typeof(name)
-```
-
-# Main Objects in R
-
-## Vectors
-
-A *vector* is a concatenation of other objects of the same type.
-
-```{r}
-#| label: vectors
-#| echo: true
-
-time <- c(34, 13, 65, 10) # <1>
-
-season <- c("dry", "semidry", "rainy")
-
-heights  <- c(1.60, 1.63, 1.85 ,1.72)
-
-```
-
-## Matrices
-
-A *matrix* is an *array* of objects that are ordered in rows and columns
-
-```{r}
-#| label: matrixes
+#| label: 00-data
 #| echo: true
 #| eval: true
-#| code-line-numbers: "2|3,4,4|6,7,8"
-#| output-location: fragment
-mx <- matrix(
-    c(23, 58, 98, 54, 68, 74),
-    nrow = 2,
-    ncol = 3,
-    byrow = FALSE,
-    dimnames = list(
-        rows = c("rw1", "rw2"),
-        cols = c("cl1", "cl2", "cl3")
+#| fig-align: center
+penguins
+```
+
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 01-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species == "Adelie" | species == "Gentoo")
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 02-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species ==  "Adelie" | species == "Gentoo") |>
+  select(species, body_mass_g)
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 03-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species == "Adelie" | species == "Gentoo") |>
+  select(species, body_mass_g) |>
+  group_by(species) 
+```
+
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 04-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species == "Adelie" | species == "Gentoo") |>
+  select(species, body_mass_g) |>
+  group_by(species) |> 
+  drop_na(body_mass_g)
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 05-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species == "Adelie" | species == "Gentoo") |>
+  select(species, body_mass_g) |>
+  group_by(species) |> 
+  drop_na(body_mass_g) |> 
+  summarise(max_weight_g = max(body_mass_g), min_weight_g = min(body_mass_g))
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 06-data
+#| echo: true
+#| eval: true
+#| fig-align: center
+penguins |> 
+  filter(species == "Adelie" | species == "Gentoo") |>
+  select(species, body_mass_g) |>
+  group_by(species) |> 
+  drop_na(body_mass_g) |> 
+  summarise(max_weight_g = max(body_mass_g), min_weight_g = min(body_mass_g)) |>
+  mutate(max_wight_kg = max_weight_g/1000)
+```
+
+
+# Data visualization with `ggplot2`
+
+***
+
+![](figs/ggplot-layers.png){fig-align="center"}
+
+***
+
+![](figs/ggplot-skeleton.png){fig-align="center"}
+
+***
+
+Importing libraries:
+```{r}
+#| echo: true
+library(ggplot2)
+library(palmerpenguins)
+```
+
+***
+
+```{r}
+#| label: full-plot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+#| code-fold: true
+
+ggplot(
+    data = penguins,
+    aes(
+        x = flipper_length_mm,
+        y = bill_length_mm
+    )
+) +
+  geom_point(
+      aes(
+          color = species,
+          shape = species
+      ),
+      size = 3,
+      alpha = 0.8
+  ) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs(
+      title = "Flipper and bill length",
+      subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+      x = "Flipper length (mm)",
+      y = "Bill length (mm)",
+      color = "Penguin species",
+      shape = "Penguin species"
+  ) +
+  theme(
+      legend.position = c(0.85, 0.15),
+      plot.title.position = "plot",
+      plot.caption = element_text(hjust = 0, face = "italic"),
+      plot.caption.position = "plot"
+  )
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: 00-plot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+#| code-line-numbers: "1-6"
+ggplot(data = penguins,
+    aes(
+        x = flipper_length_mm,
+        y = bill_length_mm
     )
 )
-
-mx
 ```
 
-## Lists
-
-A *list* is a set of ordered *components* (objects with assignments)
+##  {auto-animate="true"}
 
 ```{r}
-#| label: lists
-#| echo: true
-#| output-location: fragment
-student_info  <- list(name = "Alejandro", exam = 5, quizzes = c(4,5,3.5,4.2))
-student_info
-```
-
-# Managing Data
-
-## Manually Generated Data
-
-The `seq()` function can be used to create a *sequence* of data:
-
-```{r}
-#| label: seq-data
-#| echo: true
-#| output-location: fragment
-data  <- seq(1,100,10) 
-data
-```
-
-. . .
-
-The `rep()` function creates *repetitions* of an object $n$ times
-
-```{r}
-#| label: rep-data
-#| echo: true
-#| output-location: fragment
-data  <- rep("Ho", 3)
-data
-```
-
-------------------------------------------------------------------------
-
-You can also generate factors/levels using the `gl()` function.
-
-```{r}
-#| label: gl-data-ex
-#| echo: true
-#| eval: false
-gl(
-    n, # levels 
-    k, # replications
-    length = n * k,
-    labels = c("contro", "treatment"),
-    ordered = FALSE
-)
-```
-
-let's try an example:
-
-. . .
-
-```{r}
-#| label: gl-data
+#| label: 01-plot
 #| echo: true
 #| eval: true
-## First control, then treatment:
-#| output-location: fragment
-experiment <- gl(2, 8, labels = c("Control", "Treat"))
-
-experiment
+#| fig-align: center
+#| output-location: column
+#| code-line-numbers: "7-12"
+ggplot(data = penguins,
+    aes(
+        x = flipper_length_mm,
+        y = bill_length_mm
+    )
+) +
+  geom_point(
+      aes(
+          color = species,
+          shape = species
+      )
+  )
 ```
 
-------------------------------------------------------------------------
-
-The `data.frame` object is a native structure/object to store table like data
+##  {auto-animate="true"}
 
 ```{r}
-#| label: df-intro-02
+#| label: 02-plot
 #| echo: true
 #| eval: true
-#| code-line-numbers: "1,2|4|6"
-#| output-location: fragment
-size  <- c(34,50,40)
-color  <- c("blue", "red", "orange")
-
-frogs  <- data.frame(size, color)
-
-frogs
+#| fig-align: center
+#| output-location: column
+#| code-line-numbers: "13-19"
+ggplot(data = penguins,
+    aes(
+        x = flipper_length_mm,
+        y = bill_length_mm
+    )
+) +
+  geom_point(
+      aes(
+          color = species,
+          shape = species
+      )
+  ) +
+  scale_color_manual(
+    values = c(
+      "darkorange", 
+      "purple",
+      "cyan4"
+      )
+  )
 ```
 
-## Importing Data
+##  {auto-animate="true"}
 
-There are many function to *import* data to the `R` session. `read.table()` is one of the basic ones:
+```{r}
+#| label: 03-plot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column
+#| code-line-numbers: "20-28"
+ggplot(data = penguins,
+    aes(
+        x = flipper_length_mm,
+        y = bill_length_mm
+    )
+) +
+  geom_point(
+      aes(
+          color = species,
+          shape = species
+      )
+  ) +
+  scale_color_manual(
+    values = c(
+      "darkorange", 
+      "purple",
+      "cyan4"
+      )
+  ) +
+  labs(
+      title = "Flipper and bill length",
+      subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+      x = "Flipper length (mm)",
+      y = "Bill length (mm)",
+      color = "Penguin species",
+      shape = "Penguin species"
+  )
+```
+
 
 ***
 
-```{r}
-#| label: read-table
-#| echo: true
-#| eval: true
-#| output-location: fragment
-spp_data <- read.table(
-  file = "data/especies.txt",
-  sep = "\t",
-  h = TRUE
-)
-spp_data
-```
+![](figs/ggplot-geoms-cartoon.png){fig-align="center"}
 
 ***
 
-We can select subsets of the data set using many strategies.
-
-. . .
-
-1. The `$` operator for column subseting:
-```{r}
-#| label: dollar-op
-#| echo: true
-#| eval: true
-#| output-location: fragment
-spp_data$Especie
-```
-***
-
-2. The indexed way:
-
-```{r}
-#| label: index-sub
-#| echo: true
-#| eval: true
-#| output-location: fragment
-spp_data[,2]
-```
+![](figs/ggplot-theme-reference.png){fig-align="center"}
 
 ***
 
-3. Using a `subset()` and a condition:
-```{r}
-#| label: subset-table
-#| echo: true
-#| eval: true
-#| output-location: fragment
-subset(spp_data, Prob_presencia > 0)
-```
+![visit in https://exts.ggplot2.tidyverse.org/gallery/](figs/ggplot-gallery.png){fig-align="center"}
 
-# Common Operations
-
-***
-
-```{r}
-#| label: operation-table
-#| echo: true
-#| eval: true
-85+12
-56-29
-8*8
-70/100
-2^4
-```
-
-***
-
-Importance of precedence
-
-```{r}
-#| label: expression-01-table
-#| echo: true
-#| eval: true
-#| output-location: fragment
-2+3*2-2^3
-```
-
-. . .
-
-```{r}
-#| label: expression-02-table
-#| echo: true
-#| eval: true
-#| output-location: fragment
-((2+3)*2-2)^3
-```
-
-***
-
-Operations with *vectors*:
-
-```{r}
-#| label: df-intro
-#| echo: true
-#| eval: true
-#| code-line-numbers: "1|3"
-#| output-location: fragment
-time <- c(34, 13, 65, 10)
-time + 5
-```
-
-. . .
-
-What if you want to add another value to the vector:
-
-```{r}
-#| label: vector-add
-#| echo: true
-#| eval: true
-#| output-location: fragment
-time[5] = 5
-time
-```
-. . . 
-
-So, the vector is now bigger:
-```{r}
-#| label: vector-length
-#| echo: true
-#| eval: true
-#| output-location: fragment
-length(time)
-```
-
-# Descriptive Stats
-
-***
-
-The simplest way to generate descriptive stats of a dataset is using `summary()` function.
-
-```{r}
-#| label: summary-length
-#| echo: true
-#| eval: true
-#| output-location: fragment
-summary(spp_data)
-```
-
-# Inspecting Data
-
-***
-
-[![From Data to Viz](figs/data-to-vis.png)](https://www.data-to-viz.com/index.html)
-
-***
-Let's create an histogram, using base `hist()` function:
-```{r}
-#| code-fold: true
-hist(x = spp_data$Prob_presencia)
-```
-
+## References

@@ -7,5 +7,8 @@
   },
   "01-introduction/01-introduction.qmd": {
     "01-introduction.html": "1310d12c"
+  },
+  "02-intro-tidyverse/02-intro-tidyverse.qmd": {
+    "02-intro-tidyverse.html": "6c97e578"
   }
 }
