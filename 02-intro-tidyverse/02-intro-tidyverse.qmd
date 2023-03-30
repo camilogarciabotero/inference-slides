@@ -1,6 +1,6 @@
 ---
 title: An introduction to the Tidyverse
-subtitle: ""
+subtitle: "https://bit.ly/3LWSBQK"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
