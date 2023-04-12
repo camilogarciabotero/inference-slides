@@ -1,0 +1,103 @@
+---
+title: Descriptive Stats
+subtitle: "https://bit.ly/3LWSBQK"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro C.
+    email: a.castellanoss@uniandes.edu.co
+  - name: Angie T.
+    email: am.tovar11@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - Inferencia e Informática - Uniandes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 8
+    fig-width: 8
+    fig-dpi: 320
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+# Generalities
+
+# Summary stats
+
+***
+
+![](../02-intro-tidyverse/figs/palmer-penguins.png)
+
+# Mean & Median
+
+***
+
+**Sample mean:**
+$$
+\overline{Y} = \frac{1}{n}\sum^{n}_{i=1}Y_{i}
+$$
+
+. . .
+
+You can create the function:
+```{r}
+#| echo: true
+sample_mean <- function(y){sum(y)/length(y)}
+```
+
+. . .
+
+Or simply use a predefined one:
+
+```{r}
+#| echo: true
+#| eval: false
+mean()
+```
+
+***
+
+**Sample variance (unbiased):**
+$$
+S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(Y_{i}-\overline{Y})^{2}
+$$
+
+
+***
+
+```{r}
+library(palmerpenguins)
+```
+
+. . .
+
+```{r}
+
+```
+
+# Variance & Standard deviation
+
+# Variance coefficient
+
+# Using dplyr for summarizing
+
+# Informative plots
+
+## Histograms
+
+## Box and Violin plots
+
+## Scatter plots
+
+# Some visualization recommendations

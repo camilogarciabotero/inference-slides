@@ -10,5 +10,8 @@
   },
   "02-intro-tidyverse/02-intro-tidyverse.qmd": {
     "02-intro-tidyverse.html": "6c97e578"
+  },
+  "03-descriptive-stats/03-descriptive-stats.qmd": {
+    "03-descriptive-stats.html": "381c328c"
   }
 }
