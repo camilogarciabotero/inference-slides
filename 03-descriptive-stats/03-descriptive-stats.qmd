@@ -88,8 +88,8 @@ mean(penguins$year, na.rm=TRUE)
 $$
 median=
 \begin{cases}
-x_{(n+1)/2} &\text{if $n \equiv 0$}     \\
-\frac{(x_{n/2} + x_{((n/2)+1)})}{2} &\text{if $n \equiv 1$}
+x_{(n+1)/2} &\text{if $n \equiv 1$}     \\
+\frac{(x_{n/2} + x_{((n/2)+1)})}{2} &\text{if $n \equiv 0$}
 \end{cases}
 $$
 
