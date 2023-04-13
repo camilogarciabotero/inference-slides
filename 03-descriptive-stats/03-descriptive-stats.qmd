@@ -11,7 +11,7 @@ author:
 format:
   revealjs:
     footer: |
-      BIOL2205 - Inferencia e Informática - Uniandes
+      BIOL2205 - IeI - Universidad de los Andes
     standalone: true
     preview-links: auto
     center: true
@@ -39,13 +39,17 @@ format:
 
 ![](../02-intro-tidyverse/figs/palmer-penguins.png)
 
+```{r}
+#| eval: true
+library(palmerpenguins)
+```
 # Mean & Median
 
 ***
 
 **Sample mean:**
 $$
-\overline{Y} = \frac{1}{n}\sum^{n}_{i=1}Y_{i}
+\overline{x} = \frac{1}{n}\sum^{n}_{i=1}x_{i}
 $$
 
 . . .
@@ -53,51 +57,340 @@ $$
 You can create the function:
 ```{r}
 #| echo: true
-sample_mean <- function(y){sum(y)/length(y)}
+new_mean <- function(x){sum(x)/length(x)}
 ```
 
 . . .
 
-Or simply use a predefined one:
+```{r}
+#| label: sample_mean
+#| echo: true
+#| eval: true
+#| fig-align: center
+new_mean(penguins$year)
+```
+
+. . .
+
+Or simply use a predefined `mean`:
+```{r}
+#| label: mean
+#| echo: true
+#| eval: true
+#| fig-align: center
+mean(penguins$year, na.rm=TRUE)
+```
+
+
+***
+
+**Sample median:**
+$$
+median=
+\begin{cases}
+x_{(n+1)/2} &\text{if $n \equiv 0$}     \\
+\frac{(x_{n/2} + x_{((n/2)+1)})}{2} &\text{if $n \equiv 1$}
+\end{cases}
+$$
+
+. . . 
+
+In R a freshly defined function:
 
 ```{r}
+#| label: new-median-function
 #| echo: true
-#| eval: false
-mean()
+#| eval: true
+#| fig-align: center
+new_median <- function(x) {
+  if(length(x) %% 2 != 0){ #<1>
+   (sort(x)[length(x)/2] + sort(x)[(length(x)/2)+1])/2 #<2> 
+      } else{
+       sort(x)[ceiling(length(x)/2)] #<3>
+    }
+   }
 ```
+1. The operator `%%` is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.
+2. Equation for n if it is odd
+3. Equatio for n if it is even
+
+. . .
+
+```{r}
+#| label: new-median
+#| echo: true
+#| eval: true
+#| fig-align: center
+new_median(penguins$body_mass_g)
+```
+
+. . .
+
+Or the predefined function
+
+```{r}
+#| label: median
+#| echo: true
+#| eval: true
+#| fig-align: center
+median(penguins$body_mass_g, na.rm = TRUE)
+```
+
+# Variance, Standard deviation & Variation coefficient
 
 ***
 
 **Sample variance (unbiased):**
 $$
-S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(Y_{i}-\overline{Y})^{2}
+S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}
 $$
 
+. . .
+
+```{r}
+#| label: variance
+#| echo: true
+#| eval: true
+#| fig-align: center
+var(penguins$body_mass_g, na.rm=TRUE)
+```
 
 ***
 
+**Standard deviation**
+
+$$
+S = \sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}}
+$$
+
+. . .
+
 ```{r}
-library(palmerpenguins)
+#| label: sd
+#| echo: true
+#| eval: true
+#| fig-align: center
+sd(penguins$body_mass_g, na.rm=TRUE)
+```
+
+***
+
+**Variation coefficient**
+
+$$
+CV = \frac{S}{\overline{x}} \times 100
+$$
+
+. . .
+
+```{r}
+#| label: cv-function
+#| echo: true
+#| eval: true
+#| fig-align: center
+cv <- function(x, na.rm=TRUE){(sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))*100}
 ```
 
 . . .
 
 ```{r}
+#| label: cv
+#| echo: true
+#| eval: true
+#| fig-align: center
+cv(penguins$body_mass_g, na.rm=TRUE)
+```
+
+
+# Using `dplyr` for summarizing stats
+
+***
+
+```{r}
+#| echo: true
+library(dplyr)
+```
+
+. . .
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-01
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species)
+```
+
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-02
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)
+        )
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-03
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE)
+        )
 
 ```
 
-# Variance & Standard deviation
+##  {auto-animate="true"}
 
-# Variance coefficient
+```{r}
+#| label: summary-04
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE)
+        )
+```
 
-# Using dplyr for summarizing
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-05
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE),
+        cv_body_mass_g = cv(body_mass_g, na.rm = TRUE)
+        )
+```
 
 # Informative plots
 
+```{r}
+#| echo: true
+library(ggpubr)
+```
 ## Histograms
+
+```{r}
+#| label: histogram
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+gghistogram(penguins,
+    x = "body_mass_g",
+    add = "mean", 
+    rug = TRUE,
+    color = "species", 
+    fill = "species",
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
 
 ## Box and Violin plots
 
-## Scatter plots
+```{r}
+#| label: boxplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggboxplot(penguins,
+    x = "species", 
+    y = "body_mass_g",
+    color = "species",
+    add = "jitter", 
+    shape = "species",
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
 
-# Some visualization recommendations
+## Violin plots (with stats)
+
+```{r}
+#| label: violinplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggviolin(penguins,
+    x = "species", 
+    y = "body_mass_g",
+    color = "species",
+    shape = "species",
+    add = "boxplot", 
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
+
+## Scatter plot
+
+```{r}
+#| label: scatterplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggscatter(penguins,
+    x = "bill_length_mm",
+    y = "body_mass_g",
+    color = "black", 
+    shape = 21, 
+    size = 3,
+    add = "reg.line", 
+    conf.int = TRUE, 
+    cor.coef = TRUE,
+        add.params = list(
+        color = "blue", 
+        fill = "lightgray"
+        ),
+    cor.coeff.args = list(
+        method = "pearson", 
+        label.x = 30, 
+        label.sep = "\n"
+        )
+)
+
+```
