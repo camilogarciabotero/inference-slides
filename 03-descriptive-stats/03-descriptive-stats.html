@@ -8,7 +8,7 @@
 <link href="03-descriptive-stats_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.240">
+  <meta name="generator" content="quarto-1.3.326">
 
   <meta name="author" content="Camilo G.">
   <meta name="author" content="Alejandro C.">
@@ -487,7 +487,7 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 <div class="fragment">
 <p>In R a freshly defined function:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>new_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>new_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(x) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>){</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>   (<span class="fu">sort</span>(x)[<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>] <span class="sc">+</span> <span class="fu">sort</span>(x)[(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>])<span class="sc">/</span><span class="dv">2</span></span>
 <span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span>{</span>
@@ -498,15 +498,15 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-4">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-4">Equation for n if it is odd</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">Equation for n if it is odd</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-lines="5" data-code-cell="annotated-cell-4">Equatio for n if it is even</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">Equation for n if it is even</span>
 </dd>
 </dl>
 </div>
@@ -583,6 +583,10 @@ CV = \frac{S}{\overline{x}} \times 100
 </div>
 </div>
 </div>
+</section>
+<section id="confidence-intervals" class="slide level2 center">
+<h2>Confidence intervals</h2>
+<p>pending</p>
 </section></section>
 <section>
 <section id="using-dplyr-for-summarizing-stats" class="title-slide slide level1 center">
@@ -809,6 +813,54 @@ CV = \frac{S}{\overline{x}} \times 100
 </div>
 </div>
 </div>
+</section>
+<section id="using-across-for-multiple-summarizations" class="slide level2 smaller center">
+<h2>Using <code>across</code> for multiple summarizations</h2>
+<p>In the current workshop you’re asked to summarize several descriptive stats for different variables in a dataset. To do so programmatically we introduce here the <code>across()</code> function from the <code>dplyr</code> library using the <code>palmerpenuins</code> dataset. Let’s say we want to calculate the mean, median and variance of all <em>numeric</em> variables, per species.</p>
+</section>
+<section class="slide level2 center">
+
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="annotated-cell-22"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-22-1"><a href="#annotated-cell-22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| code-line-numbers: "3|4,5|6,7|8|9|10,11"</span></span>
+<span id="annotated-cell-22-2"><a href="#annotated-cell-22-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="annotated-cell-22-3"><a href="#annotated-cell-22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1">1</button><span id="annotated-cell-22-4" class="code-annotation-target"><a href="#annotated-cell-22-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">.by =</span> species,</span>
+<span id="annotated-cell-22-5"><a href="#annotated-cell-22-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2">2</button><span id="annotated-cell-22-6" class="code-annotation-target"><a href="#annotated-cell-22-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="3">3</button><span id="annotated-cell-22-7" class="code-annotation-target"><a href="#annotated-cell-22-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">median =</span> median, <span class="at">variance =</span> var),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="4">4</button><span id="annotated-cell-22-8" class="code-annotation-target"><a href="#annotated-cell-22-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">.names =</span> <span class="st">"{.fn}_{.col}"</span>,</span>
+<span id="annotated-cell-22-9"><a href="#annotated-cell-22-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="annotated-cell-22-10"><a href="#annotated-cell-22-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="annotated-cell-22-11"><a href="#annotated-cell-22-11" aria-hidden="true" tabindex="-1"></a>    )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="4" data-code-annotation="1">This is argument replaces the <code>group_by</code> verb avoiding one pipe step</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="6" data-code-annotation="2">Here we will iterate through all the columns that are numeric.</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="7" data-code-annotation="3">This is a named list of all the functions we want to execute over the defined columns</span>
+</dd>
+<dt data-target-cell="annotated-cell-22" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-22" data-code-lines="8" data-code-annotation="4">This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function <code>{.fn}</code> that appeared on the <code>.fns</code> list of functions to each name of the columns <code>{.col}</code> separated by the underscore <code>_</code>.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"label":["mean_bill_length_mm"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["median_bill_length_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["variance_bill_length_mm"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mean_bill_depth_mm"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["median_bill_depth_mm"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["variance_bill_depth_mm"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["mean_flipper_length_mm"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["median_flipper_length_mm"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["variance_flipper_length_mm"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["mean_body_mass_g"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["median_body_mass_g"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["variance_body_mass_g"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["mean_year"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["median_year"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["variance_year"],"name":[16],"type":["dbl"],"align":["right"]}],"data":[{"1":"Adelie","2":"38.79139","3":"38.80","4":"7.093725","5":"18.34636","6":"18.40","7":"1.4802366","8":"189.9536","9":"190","10":"42.76450","11":"3700.662","12":"3700","13":"210282.9","14":"2008.013","15":"2008","16":"0.6753224"},{"1":"Gentoo","2":"47.50488","3":"47.30","4":"9.497845","5":"14.98211","6":"15.00","7":"0.9627922","8":"217.1870","9":"216","10":"42.05491","11":"5076.016","12":"5000","13":"254133.2","14":"2008.081","15":"2008","16":"0.6275898"},{"1":"Chinstrap","2":"48.83382","3":"49.55","4":"11.150630","5":"18.42059","6":"18.45","7":"1.2891220","8":"195.8235","9":"196","10":"50.86392","11":"3733.088","12":"3700","13":"147713.5","14":"2007.971","15":"2008","16":"0.7453907"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
@@ -844,7 +896,7 @@ CV = \frac{S}{\overline{x}} \times 100
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
  
         // Display controls in the bottom right corner

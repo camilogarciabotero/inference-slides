@@ -112,7 +112,7 @@ new_median <- function(x) {
 ```
 1. The operator `%%` is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.
 2. Equation for n if it is odd
-3. Equatio for n if it is even
+3. Equation for n if it is even
 
 . . .
 
@@ -201,6 +201,10 @@ cv <- function(x, na.rm=TRUE){(sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))*100}
 cv(penguins$body_mass_g, na.rm=TRUE)
 ```
 
+
+## Confidence intervals
+
+pending
 
 # Using `dplyr` for summarizing stats
 
@@ -394,3 +398,33 @@ ggscatter(penguins,
 )
 
 ```
+
+
+
+## Using `across` for multiple summarizations {.smaller}
+
+In the current workshop you're asked to summarize several descriptive stats for different variables in a dataset. To do so programmatically we introduce here the `across()` function from the `dplyr` library using the `palmerpenuins` dataset. Let's say we want to calculate the mean, median and variance of all *numeric* variables, per species.
+
+***
+
+```{r}
+#| label: across
+#| echo: true
+#| eval: true
+#| fig-align: center
+# #| code-line-numbers: "3|4,5|6,7|8|9|10,11"
+penguins |> 
+    summarise(
+        .by = species, # <1>
+        across(
+            .cols = where(is.numeric), # <2>
+            .fns = list(mean = mean, median = median, variance = var), # <3>
+            .names = "{.fn}_{.col}", # <4>
+            na.rm = TRUE
+        )
+    )
+```
+1. This is argument replaces the `group_by` verb avoiding one pipe step
+2. Here we will iterate through all the columns that are numeric.
+3. This is a named list of all the functions we want to execute over the defined columns
+4. This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function `{.fn}` that appeared on the `.fns` list of functions to each name of the columns `{.col}` separated by the underscore `_`.
