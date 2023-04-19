@@ -257,7 +257,6 @@ library(palmerpenguins)
 #| fig-align: center
 #| output-location: default
 #| code-fold: true
-
 ggplot(
     data = penguins,
     aes(
@@ -412,3 +411,5 @@ ggplot(data = penguins,
 ![visit in https://exts.ggplot2.tidyverse.org/gallery/](figs/ggplot-gallery.png){fig-align="center"}
 
 ## References
+
+

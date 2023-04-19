@@ -13,5 +13,8 @@
   },
   "03-descriptive-stats/03-descriptive-stats.qmd": {
     "03-descriptive-stats.html": "381c328c"
+  },
+  "04-normal-distribution/04-normal-distribution.qmd": {
+    "04-normal-distribution.html": "c96c2127"
   }
 }

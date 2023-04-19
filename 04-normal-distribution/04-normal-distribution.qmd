@@ -1,0 +1,98 @@
+---
+title: Normal distribution, normality and transformation
+subtitle: "https://bit.ly/43qQQ4y"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro C.
+    email: a.castellanoss@uniandes.edu.co
+  - name: Angie T.
+    email: am.tovar11@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - IeI - Universidad de los Andes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 8
+    fig-width: 8
+    fig-dpi: 320
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+```{r}
+#| label: theme-set
+#| eval: true
+library(ggplot2)
+
+simple_theme  <- theme_bw() +
+      theme(
+          plot.background = element_rect(fill = "#FDF6E3"),
+          panel.background = element_rect(fill = "#FDF6E3"),
+          legend.background = element_rect(fill = "#FDF6E3")
+        )
+
+theme_set(simple_theme)
+```
+
+# What is *normality*?
+
+# The normal distributions
+
+# The *standard* normal distribution
+
+------------------------------------------------------------------------
+
+![Where $z = \frac{x - \mu} {\sigma}$ is the standardization process, the result is that $\sigma = 1$ and $\mu = 0$](figs/standard-normal.png){fig-align="center"}
+
+# family of normality functions in `R` {.smaller}
+
+------------------------------------------------------------------------
+
+![](figs/normality-family-functions.png){fig-align="center" width="600"}
+
+-   `dnorm()` is the probability density function (PDF)
+-   `pnorm()` is the cumulative density function
+-   `qnorm()` calculates the quantile of the normal distribution
+-   `rnorm()` generates pseudorandom normal numbers.
+
+------------------------------------------------------------------------
+
+Let's try with an example:
+
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+```
+
+```{r}
+#| label: 01-density
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-fold: true
+ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+    geom_density(alpha = 0.5)
+```
+
+Does the penguins body mass variable follow a normal distribution?
+
+# Normality assessment
+
+***
+
+## The Q-Q plot
+
+
+## The *Shapiro-Wilk* normality test:
