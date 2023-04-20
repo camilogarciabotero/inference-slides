@@ -446,7 +446,7 @@ Angie T.
 </div>
 <div class="fragment">
 <p>Code</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/demo-code_ef12d6982fded203ab84580cb877d570">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="va">mtcars</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -467,19 +467,19 @@ Angie T.
 <ol type="1">
 <li>Installation:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/installation_8d121f39f74ae1f11f83a03b45b3b1b2">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"pkgname"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <ol start="2" type="1">
 <li>Loading the package:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/loading_571e8f8ca36c584d08f7f4975541f12d">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">pkgname</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section><section id="getting-help" class="title-slide slide level1 center"><h1>Getting Help</h1>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/help_3c8e20f2b3ad4c3d756879da9c74915b">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="cf">function</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>?<span class="cf">function</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">help.search</span>(“keyword”)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -488,20 +488,20 @@ Angie T.
 
 </section><section id="creating-objects" class="slide level2 center"><h2>Creating Objects</h2>
 <p>Anything that is created in <code>R</code> whether it is a vector, matrix, function, data, figures, strings (character), etc. can be <em>assigned</em> into an <em>object</em> using the <code>&lt;-</code> operator:</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/assign_8be84d8812f2717e9c2e5d7d268b2299">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"camilo"</span></span>
 <span><span class="va">name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/assign_8be84d8812f2717e9c2e5d7d268b2299">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "camilo"</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/assign-mode_ca55bc6fbde63147b0df86200873f40e">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">name</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/assign-mode_ca55bc6fbde63147b0df86200873f40e">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -511,7 +511,7 @@ Angie T.
 
 </section><section id="vectors" class="slide level2 center"><h2>Vectors</h2>
 <p>A <em>vector</em> is a concatenation of other objects of the same type.</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/vectors_cdd1bb4bbfdd272014e3361a7f92b65f">
 <div class="sourceCode" id="annotated-cell-10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">34</span>, <span class="fl">13</span>, <span class="fl">65</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">season</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dry"</span>, <span class="st">"semidry"</span>, <span class="st">"rainy"</span><span class="op">)</span></span>
@@ -520,7 +520,7 @@ Angie T.
 </div>
 </section><section id="matrices" class="slide level2 center"><h2>Matrices</h2>
 <p>A <em>matrix</em> is an <em>array</em> of objects that are ordered in rows and columns</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/matrixes_2b768b81977645deb46df5ec5bc6d501">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="2|3,4,4|6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>mx <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">58</span>, <span class="dv">98</span>, <span class="dv">54</span>, <span class="dv">68</span>, <span class="dv">74</span>),</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    <span class="at">nrow =</span> <span class="dv">2</span>,</span>
@@ -534,7 +534,7 @@ Angie T.
 <span id="cb12-11"><a href="#cb12-11"></a></span>
 <span id="cb12-12"><a href="#cb12-12"></a>mx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/matrixes_2b768b81977645deb46df5ec5bc6d501">
 <div class="cell-output cell-output-stdout">
 <pre><code>     cols
 rows  cl1 cl2 cl3
@@ -544,11 +544,11 @@ rows  cl1 cl2 cl3
 </div>
 </section><section id="lists" class="slide level2 center"><h2>Lists</h2>
 <p>A <em>list</em> is a set of ordered <em>components</em> (objects with assignments)</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/lists_173b6f354771d253b78d048ee6495dac">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">student_info</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Alejandro"</span>, exam <span class="op">=</span> <span class="fl">5</span>, quizzes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">3.5</span>,<span class="fl">4.2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">student_info</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/lists_173b6f354771d253b78d048ee6495dac">
 <div class="cell-output cell-output-stdout">
 <pre><code>$name
 [1] "Alejandro"
@@ -564,29 +564,29 @@ $quizzes
 
 </section><section id="manually-generated-data" class="slide level2 center"><h2>Manually Generated Data</h2>
 <p>The <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> function can be used to create a <em>sequence</em> of data:</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/seq-data_ac652b643cd9c871db7c383dfcd52ad8">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">100</span>,<span class="fl">10</span><span class="op">)</span> </span>
 <span><span class="va">data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/seq-data_ac652b643cd9c871db7c383dfcd52ad8">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1 11 21 31 41 51 61 71 81 91</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>The <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> function creates <em>repetitions</em> of an object <span class="math inline">\(n\)</span> times</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/rep-data_ea28327b65dd478b3acfb885f22f99bc">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Ho"</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/rep-data_ea28327b65dd478b3acfb885f22f99bc">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Ho" "Ho" "Ho"</code></pre>
 </div>
 </div>
 </div>
 </section><section class="slide level2 center"><p>You can also generate factors/levels using the <code><a href="https://rdrr.io/r/base/gl.html">gl()</a></code> function.</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/gl-data-ex_ce808664ee68f67d7d5f7847ccebedc4">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/gl.html">gl</a></span><span class="op">(</span></span>
 <span>    <span class="va">n</span>, <span class="co"># levels </span></span>
 <span>    <span class="va">k</span>, <span class="co"># replications</span></span>
@@ -597,7 +597,7 @@ $quizzes
 </div>
 <p>let’s try an example:</p>
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/gl-data_db5baba6a107e89389811da870d76098">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## First control, then treatment:</span></span>
 <span><span class="co">#| output-location: fragment</span></span>
 <span><span class="va">experiment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/gl.html">gl</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">8</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Control"</span>, <span class="st">"Treat"</span><span class="op">)</span><span class="op">)</span></span>
@@ -611,7 +611,7 @@ Levels: Control Treat</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><p>The <code>data.frame</code> object is a native structure/object to store table like data</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/df-intro-02_5565693b22d8d438455376c529ae619a">
 <div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1,2|4|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>size  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>,<span class="dv">50</span>,<span class="dv">40</span>)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>color  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"orange"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3"></a></span>
@@ -619,7 +619,7 @@ Levels: Control Treat</code></pre>
 <span id="cb23-5"><a href="#cb23-5"></a></span>
 <span id="cb23-6"><a href="#cb23-6"></a>frogs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/df-intro-02_5565693b22d8d438455376c529ae619a">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -631,7 +631,7 @@ Levels: Control Treat</code></pre>
 </div>
 </section><section id="importing-data" class="slide level2 center"><h2>Importing Data</h2>
 <p>There are many function to <em>import</em> data to the <code>R</code> session. <code><a href="https://rdrr.io/r/utils/read.table.html">read.table()</a></code> is one of the basic ones:</p>
-</section><section class="slide level2 center"><div class="cell">
+</section><section class="slide level2 center"><div class="cell" data-hash="01-introduction_cache/revealjs/read-table_2dcaf23930629ee682a339a2efe55c29">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spp_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span></span>
 <span>  file <span class="op">=</span> <span class="st">"data/especies.txt"</span>,</span>
 <span>  sep <span class="op">=</span> <span class="st">"\t"</span>,</span>
@@ -639,7 +639,7 @@ Levels: Control Treat</code></pre>
 <span><span class="op">)</span></span>
 <span><span class="va">spp_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/read-table_2dcaf23930629ee682a339a2efe55c29">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -654,10 +654,10 @@ Levels: Control Treat</code></pre>
 <ol type="1">
 <li>The <code>$</code> operator for column subseting:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/dollar-op_9347e898f7bf68b670acceb269cdffe6">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spp_data</span><span class="op">$</span><span class="va">Especie</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/dollar-op_9347e898f7bf68b670acceb269cdffe6">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "C_fitzingeri"  "D_ebraccatus"  "E_pustulosus"  "O_histrionica"
  [5] "S_phaeota"     "C_fitzingeri"  "D_ebraccatus"  "E_pustulosus" 
@@ -672,10 +672,10 @@ Levels: Control Treat</code></pre>
 </section><section class="slide level2 center"><ol start="2" type="1">
 <li>The indexed way:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/index-sub_6076e358deea656ad7013d621b00ea28">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spp_data</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/index-sub_6076e358deea656ad7013d621b00ea28">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "C_fitzingeri"  "D_ebraccatus"  "E_pustulosus"  "O_histrionica"
  [5] "S_phaeota"     "C_fitzingeri"  "D_ebraccatus"  "E_pustulosus" 
@@ -689,10 +689,10 @@ Levels: Control Treat</code></pre>
 </section><section class="slide level2 center"><ol start="3" type="1">
 <li>Using a <code><a href="https://rdrr.io/r/base/subset.html">subset()</a></code> and a condition:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/subset-table_e2f7e7556d40a8b23d9678ca2f8c0814">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">spp_data</span>, <span class="va">Prob_presencia</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/subset-table_e2f7e7556d40a8b23d9678ca2f8c0814">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -704,7 +704,7 @@ Levels: Control Treat</code></pre>
 </div>
 </section></section><section><section id="common-operations" class="title-slide slide level1 center"><h1>Common Operations</h1>
 
-</section><section class="slide level2 center"><div class="cell">
+</section><section class="slide level2 center"><div class="cell" data-hash="01-introduction_cache/revealjs/operation-table_ba1c1418835259ddba778e7735b95bae">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">85</span><span class="op">+</span><span class="fl">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 97</code></pre>
@@ -727,41 +727,41 @@ Levels: Control Treat</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><p>Importance of precedence</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/expression-01-table_41a2568e72668c063df16b88335aa718">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span><span class="op">+</span><span class="fl">3</span><span class="op">*</span><span class="fl">2</span><span class="op">-</span><span class="fl">2</span><span class="op">^</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/expression-01-table_41a2568e72668c063df16b88335aa718">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/expression-02-table_a057f2b8cc32493aed5643cf3b30caac">
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="op">(</span><span class="fl">2</span><span class="op">+</span><span class="fl">3</span><span class="op">)</span><span class="op">*</span><span class="fl">2</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/expression-02-table_a057f2b8cc32493aed5643cf3b30caac">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 512</code></pre>
 </div>
 </div>
 </div>
 </section><section class="slide level2 center"><p>Operations with <em>vectors</em>:</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/df-intro_05a5e3d21ad754ab3a63314071c211cb">
 <div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>time <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>, <span class="dv">13</span>, <span class="dv">65</span>, <span class="dv">10</span>)</span>
 <span id="cb44-2"><a href="#cb44-2"></a>time <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/df-intro_05a5e3d21ad754ab3a63314071c211cb">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 39 18 70 15</code></pre>
 </div>
 </div>
 <div class="fragment">
 <p>What if you want to add another value to the vector:</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/vector-add_aa44bacf40fc6008a6473611d1c332f6">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">time</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span> <span class="op">=</span> <span class="fl">5</span></span>
 <span><span class="va">time</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/vector-add_aa44bacf40fc6008a6473611d1c332f6">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 34 13 65 10  5</code></pre>
 </div>
@@ -769,10 +769,10 @@ Levels: Control Treat</code></pre>
 </div>
 <div class="fragment">
 <p>So, the vector is now bigger:</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/vector-length_c026af8e2d5b48b505ad13ca2ea0cd97">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/vector-length_c026af8e2d5b48b505ad13ca2ea0cd97">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -781,10 +781,10 @@ Levels: Control Treat</code></pre>
 </section></section><section><section id="descriptive-stats" class="title-slide slide level1 center"><h1>Descriptive Stats</h1>
 
 </section><section class="slide level2 center"><p>The simplest way to generate descriptive stats of a dataset is using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function.</p>
-<div class="cell">
+<div class="cell" data-hash="01-introduction_cache/revealjs/summary-length_eae3271a8754a1df36ef69f0a2b83c7f">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">spp_data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="01-introduction_cache/revealjs/summary-length_eae3271a8754a1df36ef69f0a2b83c7f">
 <div class="cell-output cell-output-stdout">
 <pre><code>      Zona     Especie          Prob_presencia      variacion    
  Min.   :1   Length:25          Min.   :0.01996   Min.   :11.00  

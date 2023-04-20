@@ -473,7 +473,7 @@ Angie T.
 
 <img data-src="figs/palmer-penguins.png" class="r-stretch"></section><section class="slide level2 center">
 <img data-src="figs/penguines-measures.png" class="r-stretch"></section><section class="slide level2 center"><p>Importing libraries:</p>
-<div class="cell">
+<div class="cell" data-hash="02-intro-tidyverse_cache/revealjs/libraries_0ea26e42ea75bd3f2bee0c1421372ac0">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -503,7 +503,7 @@ Angie T.
 </section><section id="lets-try-them-out" class="slide level2 center"><h2>Let’s try them out</h2>
 <p>What are the max and min body sizes for Adelie and Gentoo penguins?</p>
 </section><section id="section" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/00-data_376616febf930cc0138d657c557507e9">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -515,7 +515,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-1" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/01-data_5d737bd5132aa7cb9e4e52ab0117efe5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb4-1" class="hljs-ln-code"><a href="#cb4-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb4-2" class="hljs-ln-code"><a href="#cb4-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -528,7 +528,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-2" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/02-data_5c69791f20c6e4ee49c3e4e39f778df3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href="#cb5-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb5-2" class="hljs-ln-code"><a href="#cb5-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span>  <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb5-3" class="hljs-ln-code"><a href="#cb5-3"></a>  <span class="fu">select</span>(species, body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -542,7 +542,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-3" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/03-data_b8c80419aae7a9104f763a87878d6603">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href="#cb6-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb6-2" class="hljs-ln-code"><a href="#cb6-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb6-3" class="hljs-ln-code"><a href="#cb6-3"></a>  <span class="fu">select</span>(species, body_mass_g) <span class="sc">|&gt;</span></span>
@@ -557,7 +557,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-4" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/04-data_b555da03ba9dc1248e37eac0e4d35e9c">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3"></a>  <span class="fu">select</span>(species, body_mass_g) <span class="sc">|&gt;</span></span>
@@ -573,7 +573,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-5" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/05-data_f6c8cefbb8b470159a2063754f19de81">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="#cb8-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb8-2" class="hljs-ln-code"><a href="#cb8-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb8-3" class="hljs-ln-code"><a href="#cb8-3"></a>  <span class="fu">select</span>(species, body_mass_g) <span class="sc">|&gt;</span></span>
@@ -590,7 +590,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-6" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/06-data_44133a3830394ec1de583701294be137">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="#cb9-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="cb9-2" class="hljs-ln-code"><a href="#cb9-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-3" class="hljs-ln-code"><a href="#cb9-3"></a>  <span class="fu">select</span>(species, body_mass_g) <span class="sc">|&gt;</span></span>
@@ -613,11 +613,11 @@ Angie T.
 </section><section class="slide level2 center">
 <img data-src="figs/ggplot-layers.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
 <img data-src="figs/ggplot-skeleton.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><p>Importing libraries:</p>
-<div class="cell">
+<div class="cell" data-hash="02-intro-tidyverse_cache/revealjs/unnamed-chunk-9_72aa75df04279c553a23b5a1c6b98038">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section class="slide level2 center"><div class="cell" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/full-plot_bac918c02b541835a8a71975363782dc">
 <details><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb11-2"><a href="#cb11-2"></a>    <span class="at">data =</span> penguins,</span>
 <span id="cb11-3"><a href="#cb11-3"></a>    <span class="fu">aes</span>(</span>
@@ -651,7 +651,7 @@ Angie T.
 </details>
 </div>
 <img data-src="02-intro-tidyverse_files/figure-revealjs/full-plot-1.png" width="2560" class="r-stretch quarto-figure-center"></section><section id="section-7" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell columns column-output-location" data-layout-align="center">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/00-plot_6059e09819d150ac76a121407b549a0a">
 <div class="column">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="1-6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a href="#cb12-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb12-2" class="hljs-ln-code"><a href="#cb12-2"></a>    <span class="fu">aes</span>(</span>
@@ -670,7 +670,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-8" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell columns column-output-location" data-layout-align="center">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/01-plot_2d93ce2732fbec3d9b4e04b02888ddb4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="7-12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb13-2" class="hljs-ln-code"><a href="#cb13-2"></a>    <span class="fu">aes</span>(</span>
@@ -694,7 +694,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-9" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell columns column-output-location" data-layout-align="center">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/02-plot_e85563857920e066966200c90cfb8fbd">
 <div class="column">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="13-19"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb14-1" class="hljs-ln-code"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb14-2" class="hljs-ln-code"><a href="#cb14-2"></a>    <span class="fu">aes</span>(</span>
@@ -725,7 +725,7 @@ Angie T.
 </div>
 </div>
 </section><section id="section-10" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
-<div class="cell columns column-output-location" data-layout-align="center">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="02-intro-tidyverse_cache/revealjs/03-plot_933531e710a3bc4920616040a70e9edc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="20-28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb15-1" class="hljs-ln-code"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb15-2" class="hljs-ln-code"><a href="#cb15-2"></a>    <span class="fu">aes</span>(</span>

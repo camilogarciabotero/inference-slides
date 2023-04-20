@@ -466,7 +466,7 @@ Angie T.
 <span>    <span class="st">"text"</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="st">"mu == 3700"</span><span class="op">)</span>, parse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    x <span class="op">=</span> <span class="fl">36</span>, y <span class="op">=</span> <span class="fl">0.15</span>, size <span class="op">=</span> <span class="fl">6</span>, colour <span class="op">=</span> <span class="st">"red"</span></span>
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell quarto-layout-panel">
+</details><div class="cell quarto-layout-panel" data-hash="04-normal-distribution_cache/revealjs/01-normality_e912330157eab1397318de893ffa86aa">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
@@ -506,7 +506,7 @@ Angie T.
 <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> calculates the quantile of the normal distribution</li>
 </ul></section><section class="slide level2 center"></section><section class="slide level2 center"><p>Let’s try with an example:</p>
 <p>Now, the Adelie penguins display an average bill length of <code>38.8</code> mm and its standard variation is <code>2.6</code> mm. What’s the percentage of penguins of <code>40</code> mm or smaller?</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="04-normal-distribution_cache/revealjs/pnorm_707f5afffcc361b8f6c334bd61b04935">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">40</span>, mean <span class="op">=</span> <span class="fl">38.8</span>, sd <span class="op">=</span> <span class="fl">2.6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6777938</code></pre>
@@ -516,7 +516,7 @@ Angie T.
 
 </section><section id="the-q-q-plot" class="slide level2 center"><h2>The Q-Q plot</h2>
 <p>Is my data really normal? Let’s see the quntile-quantile (Q-Q) plot:</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="04-normal-distribution_cache/revealjs/qqplot-body_5b6961cc54aedb3b4bf5c50bef42b7ca">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span>sample <span class="op">=</span> <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_qq</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_qq_line</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -524,7 +524,7 @@ Angie T.
 </div>
 <img data-src="04-normal-distribution_files/figure-revealjs/qqplot-body-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section id="the-shapiro-wilk-normality-test" class="slide level2 center"><h2>The <em>Shapiro-Wilk</em> normality test:</h2>
 <p>In the <em>Shapiro-Wilk</em> normality test, normality is the null hypothesis, alternatively they follow a <em>do not</em> follow a normal distribution. Therefore, if <span class="math inline">\(p\)</span>-value <span class="math inline">\(&gt;= \alpha\)</span> there is no evidence against normality.</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="04-normal-distribution_cache/revealjs/shapiro_f3a27cf115f88974d9c20393c6e76a90">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">adelie</span><span class="op">$</span><span class="va">bill_length_mm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -550,7 +550,7 @@ W = 0.99289, p-value = 0.6848</code></pre>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="va">normal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="fu">after_stat</span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">.2</span>, fill<span class="op">=</span><span class="st">"#FF6666"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details><div class="cell quarto-layout-panel">
+</details><div class="cell quarto-layout-panel" data-hash="04-normal-distribution_cache/revealjs/lognomals_a4a2cde7d9efc22ede7fa674c0226ae3">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
