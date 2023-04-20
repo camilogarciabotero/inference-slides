@@ -79,8 +79,8 @@ ggplot(adelie, aes(bill_length_mm)) +
     y = "Frequency"
   ) +
   annotate(
-    "text", label = expression("mu == 3700"), parse = TRUE,
-    x = 36, y = 0.15, size = 6, colour = "red"
+    "text", label = expression("mu == 38.8"), parse = TRUE,
+    x = 36, y = 0.16, size = 6, colour = "red"
   )
 
 # Density plot
@@ -98,8 +98,8 @@ ggplot(adelie, aes(bill_length_mm)) +
     y = "Probability"
   ) +
   annotate(
-    "text", label = expression("mu == 3700"), parse = TRUE,
-    x = 36, y = 0.15, size = 6, colour = "red"
+    "text", label = expression("mu == 38.8"), parse = TRUE,
+    x = 36, y = 0.16, size = 6, colour = "red"
   ) 
 ```
 
