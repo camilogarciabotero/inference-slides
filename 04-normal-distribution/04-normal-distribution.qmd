@@ -1,5 +1,5 @@
 ---
-title: Normal distribution, normality and transformation
+title: Normality and Transformations
 subtitle: "https://bit.ly/41MCWbv"
 author:
   - name: Camilo G.
