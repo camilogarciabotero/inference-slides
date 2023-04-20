@@ -24,9 +24,9 @@ format:
     highlight-style: ayu
     df-print: paged
     scrollable: true
-    fig-height: 8
-    fig-width: 8
-    fig-dpi: 320
+    fig-height: 7
+    fig-width: 7
+    fig-dpi: 350
     theme: ../theme.scss
     bibliography: ../references.bib
 ---
@@ -34,19 +34,83 @@ format:
 ```{r}
 #| label: theme-set
 #| eval: true
-library(ggplot2)
+library(tidyverse)
+library(palmerpenguins)
 
 simple_theme  <- theme_bw() +
       theme(
           plot.background = element_rect(fill = "#FDF6E3"),
           panel.background = element_rect(fill = "#FDF6E3"),
-          legend.background = element_rect(fill = "#FDF6E3")
+          legend.background = element_rect(fill = "#FDF6E3"),
+          legend.position="top",
+    axis.title = element_text(size = 14)
         )
 
 theme_set(simple_theme)
 ```
 
-# What is *normality*?
+# What is *normality*? {.smaller}
+
+When the frequencies of a random variable $X$ cluster around a central value, it is said that it follows a *normal* distribution.
+
+```{r}
+#| label: 01-normality
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-fold: true
+#| layout-ncol: 2
+
+adelie  <- penguins |> 
+  filter(species == "Adelie") |> 
+  drop_na()
+
+#Frequency plot
+ggplot(adelie, aes(body_mass_g)) + 
+  geom_histogram(color = "black", fill = "#6FC1FF", bins = 20) +
+  geom_vline(
+    aes(xintercept = mean(body_mass_g, na.rm = TRUE)), 
+    color="red", 
+    linetype="dashed", 
+    size=1
+    ) +
+  labs(
+    x = "Body mass (g)",
+    y = "Frequency"
+  ) +
+  annotate(
+    "text", label = expression("mu == 3700"), parse = TRUE,
+    x = 3450, y = 25, size = 6, colour = "red"
+  )
+
+# Density plot
+ggplot(adelie, aes(body_mass_g)) + 
+  geom_histogram(aes(y = ..density..), bins = 20, color = "black", fill = "#6FC1FF") + 
+  geom_density(alpha=.2, fill="#FF6666") +
+  geom_vline(
+    aes(xintercept = mean(body_mass_g, na.rm = TRUE)), 
+    color="red", 
+    linetype="dashed", 
+    size=1
+    ) +
+  labs(
+    x = "Body mass (g)",
+    y = "Probaility"
+  ) +
+  annotate(
+    "text", label = expression("mu == 3700"), parse = TRUE,
+    x = 3450, y = 12e-4, size = 6, colour = "red"
+  ) 
+```
+
+
+***
+
+In summary a data set variable that appears to follow a normal distribution display three properties:
+
+1. Most values clustered around the average.
+2. Extreme values are less frequent, but not impossibles.
+3. Distribution display are quite symmetric from the mean.
 
 # The normal distributions
 
@@ -54,7 +118,7 @@ theme_set(simple_theme)
 
 ------------------------------------------------------------------------
 
-![Where $z = \frac{x - \mu} {\sigma}$ is the standardization process, the result is that $\sigma = 1$ and $\mu = 0$](figs/standard-normal.png){fig-align="center"}
+![Where $z = \frac{x - \mu} {\sigma}$ is the standardization function, the result is that $\sigma = 1$ and $\mu = 0$](figs/standard-normal.png){fig-align="center"}
 
 # family of normality functions in `R` {.smaller}
 
@@ -72,19 +136,20 @@ theme_set(simple_theme)
 Let's try with an example:
 
 ```{r}
-library(palmerpenguins)
-library(tidyverse)
-```
-
-```{r}
-#| label: 01-density
+#| label: 03-density
 #| echo: true
 #| eval: true
 #| fig-align: center
 #| code-fold: true
-ggplot(penguins, aes(x = body_mass_g, fill = species)) +
-    geom_density(alpha = 0.5)
+set.seed(123)
+
+df  <-  data.frame(x = rnorm(1000, 0,1))
+
+ggplot(df, aes(x = x)) +
+  geom_histogram(aes(y = ..density..),color = "black", fill = "#6FC1FF", bins = 20) +
+  geom_density(alpha=.2, fill="#FF6666") 
 ```
+
 
 Does the penguins body mass variable follow a normal distribution?
 
