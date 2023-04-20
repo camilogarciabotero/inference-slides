@@ -9,7 +9,7 @@
 <link href="04-normal-distribution_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="04-normal-distribution_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.3.333">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Alejandro C.">
 <meta name="author" content="Angie T.">
@@ -395,7 +395,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Normal distribution, normality and transformation</h1>
-  <p class="subtitle">https://bit.ly/43qQQ4y</p>
+  <p class="subtitle">https://bit.ly/41MCWbv</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -432,51 +432,51 @@ Angie T.
 <span>  <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#Frequency plot</span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_vline</span><span class="op">(</span></span>
-<span>    <span class="fu">aes</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>    <span class="fu">aes</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>    color<span class="op">=</span><span class="st">"red"</span>, </span>
 <span>    linetype<span class="op">=</span><span class="st">"dashed"</span>, </span>
 <span>    size<span class="op">=</span><span class="fl">1</span></span>
 <span>    <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="st">"Body mass (g)"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Bill length (mm)"</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">"Frequency"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">annotate</span><span class="op">(</span></span>
 <span>    <span class="st">"text"</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="st">"mu == 3700"</span><span class="op">)</span>, parse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>    x <span class="op">=</span> <span class="fl">3450</span>, y <span class="op">=</span> <span class="fl">25</span>, size <span class="op">=</span> <span class="fl">6</span>, colour <span class="op">=</span> <span class="st">"red"</span></span>
+<span>    x <span class="op">=</span> <span class="fl">36</span>, y <span class="op">=</span> <span class="fl">0.15</span>, size <span class="op">=</span> <span class="fl">6</span>, colour <span class="op">=</span> <span class="st">"red"</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="co"># Density plot</span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">..density..</span><span class="op">)</span>, bins <span class="op">=</span> <span class="fl">20</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">.2</span>, fill<span class="op">=</span><span class="st">"#FF6666"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_vline</span><span class="op">(</span></span>
-<span>    <span class="fu">aes</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">body_mass_g</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>    <span class="fu">aes</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>    color<span class="op">=</span><span class="st">"red"</span>, </span>
 <span>    linetype<span class="op">=</span><span class="st">"dashed"</span>, </span>
 <span>    size<span class="op">=</span><span class="fl">1</span></span>
 <span>    <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="st">"Body mass (g)"</span>,</span>
-<span>    y <span class="op">=</span> <span class="st">"Probaility"</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Probability"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">annotate</span><span class="op">(</span></span>
 <span>    <span class="st">"text"</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="st">"mu == 3700"</span><span class="op">)</span>, parse <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>    x <span class="op">=</span> <span class="fl">3450</span>, y <span class="op">=</span> <span class="fl">12e-4</span>, size <span class="op">=</span> <span class="fl">6</span>, colour <span class="op">=</span> <span class="st">"red"</span></span>
+<span>    x <span class="op">=</span> <span class="fl">36</span>, y <span class="op">=</span> <span class="fl">0.15</span>, size <span class="op">=</span> <span class="fl">6</span>, colour <span class="op">=</span> <span class="st">"red"</span></span>
 <span>  <span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/01-normality-1.png" width="2450"></p>
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/01-normality-1.png" width="1750"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/01-normality-2.png" width="2450"></p>
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/01-normality-2.png" width="1750"></p>
 </figure>
 </div>
 </div>
@@ -488,40 +488,132 @@ Angie T.
 <li>Most values clustered around the average.</li>
 <li>Extreme values are less frequent, but not impossibles.</li>
 <li>Distribution display are quite symmetric from the mean.</li>
-</ol></section></section><section id="the-normal-distributions" class="title-slide slide level1 center"><h1>The normal distributions</h1>
-
-</section><section><section id="the-standard-normal-distribution" class="title-slide slide level1 center"><h1>The <em>standard</em> normal distribution</h1>
+</ol></section></section><section><section id="the-standard-normal-distribution" class="title-slide slide level1 center"><h1>The <em>standard</em> normal distribution</h1>
 
 </section><section class="slide level2 center">
-<img data-src="figs/standard-normal.png" class="r-stretch quarto-figure-center"><p class="caption">Where <span class="math inline">\(z = \frac{x - \mu} {\sigma}\)</span> is the standardization process, the result is that <span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\mu = 0\)</span></p></section></section><section><section id="family-of-normality-functions-in-r" class="title-slide slide level1 smaller center"><h1>family of normality functions in <code>R</code>
+<img data-src="figs/standard-normal.png" class="r-stretch quarto-figure-center"><p class="caption">Where <span class="math inline">\(z = \frac{x - \mu} {\sigma}\)</span> is the standardization function, the result is that <span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\mu = 0\)</span></p></section></section><section><section id="family-of-normality-functions-in-r" class="title-slide slide level1 smaller center"><h1>family of normality functions in <code>R</code>
 </h1>
 
 </section><section class="slide level2 center">
 <img data-src="figs/normality-family-functions.png" width="600" class="r-stretch quarto-figure-center"><ul>
+<li>
+<code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> generates pseudorandom normal numbers.</li>
 <li>
 <code><a href="https://rdrr.io/r/stats/Normal.html">dnorm()</a></code> is the probability density function (PDF)</li>
 <li>
 <code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code> is the cumulative density function</li>
 <li>
 <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> calculates the quantile of the normal distribution</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> generates pseudorandom normal numbers.</li>
-</ul></section><section class="slide level2 center"><p>Let’s try with an example:</p>
+</ul></section><section class="slide level2 center"></section><section class="slide level2 center"><p>Let’s try with an example:</p>
+<p>Now, the Adelie penguins display an average bill length of <code>38.8</code> mm and its standard variation is <code>2.6</code> mm. What’s the percentage of penguins of <code>40</code> mm or smaller?</p>
 <div class="cell" data-layout-align="center">
-<details><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">df</span>  <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">df</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="va">..density..</span><span class="op">)</span>,color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">.2</span>, fill<span class="op">=</span><span class="st">"#FF6666"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">40</span>, mean <span class="op">=</span> <span class="fl">38.8</span>, sd <span class="op">=</span> <span class="fl">2.6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6777938</code></pre>
 </div>
-<img data-src="04-normal-distribution_files/figure-revealjs/03-density-1.png" width="2450" class="r-stretch quarto-figure-center"><p>Does the penguins body mass variable follow a normal distribution?</p>
+</div>
 </section></section><section><section id="normality-assessment" class="title-slide slide level1 center"><h1>Normality assessment</h1>
 
 </section><section id="the-q-q-plot" class="slide level2 center"><h2>The Q-Q plot</h2>
-</section><section id="the-shapiro-wilk-normality-test" class="slide level2 center"><h2>The <em>Shapiro-Wilk</em> normality test:</h2>
+<p>Is my data really normal? Let’s see the quntile-quantile (Q-Q) plot:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span>sample <span class="op">=</span> <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_qq</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_qq_line</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="04-normal-distribution_files/figure-revealjs/qqplot-body-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section id="the-shapiro-wilk-normality-test" class="slide level2 center"><h2>The <em>Shapiro-Wilk</em> normality test:</h2>
+<p>In the <em>Shapiro-Wilk</em> normality test, normality is the null hypothesis, alternatively they follow a <em>do not</em> follow a normal distribution. Therefore, if <span class="math inline">\(p\)</span>-value <span class="math inline">\(&gt;= \alpha\)</span> there is no evidence against normality.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">adelie</span><span class="op">$</span><span class="va">bill_length_mm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  adelie$bill_length_mm
+W = 0.99289, p-value = 0.6848</code></pre>
+</div>
+</div>
+</section></section><section><section id="transformations" class="title-slide slide level1 center"><h1>Transformations</h1>
+
+</section><section id="the-log-normal-distribution" class="slide level2 smaller center"><h2>The Log-Normal distribution</h2>
+<p>By applying a log transformation to a log-normal distribution, we can go back to a normal distribution</p>
+<div>
+<details><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lognormal</span>  <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">rlnorm</a></span><span class="op">(</span><span class="fl">5000</span>, meanlog <span class="op">=</span> <span class="fl">0</span>, sdlog <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">lognormal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="fu">after_stat</span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">.2</span>, fill<span class="op">=</span><span class="st">"#FF6666"</span><span class="op">)</span></span>
+<span><span class="co">#Now transform the original log-normal data</span></span>
+<span><span class="va">normal</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">lognormal</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">normal</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>y <span class="op">=</span> <span class="fu">after_stat</span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"#6FC1FF"</span>, bins <span class="op">=</span> <span class="fl">20</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_density</span><span class="op">(</span>alpha<span class="op">=</span><span class="fl">.2</span>, fill<span class="op">=</span><span class="st">"#FF6666"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/lognomals-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/lognomals-2.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="other-transformations" class="slide level2 smaller center"><h2>Other transformations</h2>
+<table>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 24%">
+<col style="width: 21%">
+<col style="width: 32%">
+</colgroup>
+<thead><tr class="header">
+<th>Transformation</th>
+<th>Function</th>
+<th>R command</th>
+<th>Use</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Logarithmic to the right</td>
+<td><span class="math inline">\(x'=\ln{(x)}\)</span></td>
+<td><code>log(x)</code></td>
+<td>Proportions or skewed to the right</td>
+</tr>
+<tr class="even">
+<td>Arcosin</td>
+<td><span class="math inline">\(x'=\arcsin{(\sqrt{x})}\)</span></td>
+<td><code>asin(sqrt(x))</code></td>
+<td>Proportions or percentages</td>
+</tr>
+<tr class="odd">
+<td>Square root</td>
+<td><span class="math inline">\(x'=\sqrt{x+\frac{1}{2}}\)</span></td>
+<td><code>sqrt(x+1/2)</code></td>
+<td>Counts</td>
+</tr>
+<tr class="even">
+<td>Exponential</td>
+<td><span class="math inline">\(x'=e^{x}\)</span></td>
+<td><code>exp(x)</code></td>
+<td>skewed to the left</td>
+</tr>
+<tr class="odd">
+<td>Reciprocal</td>
+<td><span class="math inline">\(x=\frac{1}{x}\)</span></td>
+<td><code>1/x</code></td>
+<td>skewed to the right</td>
+</tr>
+</tbody>
+</table>
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>

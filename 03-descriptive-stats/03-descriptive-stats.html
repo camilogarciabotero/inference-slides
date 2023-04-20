@@ -8,7 +8,7 @@
 <link href="03-descriptive-stats_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.326">
+  <meta name="generator" content="quarto-1.3.333">
 
   <meta name="author" content="Camilo G.">
   <meta name="author" content="Alejandro C.">
@@ -498,15 +498,15 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="2">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">Equation for n if it is odd</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="3">Equation for n if it is odd</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">Equation for n if it is even</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-4" data-code-lines="5">Equation for n if it is even</span>
 </dd>
 </dl>
 </div>
@@ -821,34 +821,33 @@ CV = \frac{S}{\overline{x}} \times 100
 <section class="slide level2 center">
 
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="annotated-cell-22"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-22-1"><a href="#annotated-cell-22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># #| code-line-numbers: "3|4,5|6,7|8|9|10,11"</span></span>
-<span id="annotated-cell-22-2"><a href="#annotated-cell-22-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="annotated-cell-22-3"><a href="#annotated-cell-22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1">1</button><span id="annotated-cell-22-4" class="code-annotation-target"><a href="#annotated-cell-22-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">.by =</span> species,</span>
-<span id="annotated-cell-22-5"><a href="#annotated-cell-22-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2">2</button><span id="annotated-cell-22-6" class="code-annotation-target"><a href="#annotated-cell-22-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="3">3</button><span id="annotated-cell-22-7" class="code-annotation-target"><a href="#annotated-cell-22-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">median =</span> median, <span class="at">variance =</span> var),</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="4">4</button><span id="annotated-cell-22-8" class="code-annotation-target"><a href="#annotated-cell-22-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">.names =</span> <span class="st">"{.fn}_{.col}"</span>,</span>
-<span id="annotated-cell-22-9"><a href="#annotated-cell-22-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
-<span id="annotated-cell-22-10"><a href="#annotated-cell-22-10" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="annotated-cell-22-11"><a href="#annotated-cell-22-11" aria-hidden="true" tabindex="-1"></a>    )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-22"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-22-1"><a href="#annotated-cell-22-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="annotated-cell-22-2"><a href="#annotated-cell-22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1">1</button><span id="annotated-cell-22-3" class="code-annotation-target"><a href="#annotated-cell-22-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">.by =</span> species,</span>
+<span id="annotated-cell-22-4"><a href="#annotated-cell-22-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">across</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="2">2</button><span id="annotated-cell-22-5" class="code-annotation-target"><a href="#annotated-cell-22-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="3">3</button><span id="annotated-cell-22-6" class="code-annotation-target"><a href="#annotated-cell-22-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">median =</span> median, <span class="at">variance =</span> var),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="4">4</button><span id="annotated-cell-22-7" class="code-annotation-target"><a href="#annotated-cell-22-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">.names =</span> <span class="st">"{.fn}_{.col}"</span>,</span>
+<span id="annotated-cell-22-8"><a href="#annotated-cell-22-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="annotated-cell-22-9"><a href="#annotated-cell-22-9" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="annotated-cell-22-10"><a href="#annotated-cell-22-10" aria-hidden="true" tabindex="-1"></a>    )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-lines="4" data-code-annotation="1">This is argument replaces the <code>group_by</code> verb avoiding one pipe step</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-22" data-code-lines="3">This argument replaces the <code>group_by</code> verb avoiding one pipe step</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-lines="6" data-code-annotation="2">Here we will iterate through all the columns that are numeric.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-22" data-code-lines="5">Here we will iterate through all the columns that that satisfy the condition <code>is.numeric</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-lines="7" data-code-annotation="3">This is a named list of all the functions we want to execute over the defined columns</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-22" data-code-lines="6">This is a named list of all the functions we want to execute over the defined columns</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-lines="8" data-code-annotation="4">This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function <code>{.fn}</code> that appeared on the <code>.fns</code> list of functions to each name of the columns <code>{.col}</code> separated by the underscore <code>_</code>.</span>
+<span data-code-annotation="4" data-code-cell="annotated-cell-22" data-code-lines="7">This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function <code>{.fn}</code> that appeared on the <code>.fns</code> list of functions to each name of the columns <code>{.col}</code> separated by the underscore <code>_</code>.</span>
 </dd>
 </dl>
 </div>
@@ -861,6 +860,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </div>
 </div>
 </div>
+<!-- code-line-numbers: "3|4,5|6,7|8|9|10,11" -->
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
