@@ -1,0 +1,237 @@
+---
+title: Parametric & Non-Parametric tests
+subtitle: "https://bit.ly/41MCWbv"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro C.
+    email: a.castellanoss@uniandes.edu.co
+  - name: Angie T.
+    email: am.tovar11@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - IeI - Universidad de los Andes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 5
+    fig-width: 5
+    fig-dpi: 350
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+```{r}
+#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+library(latex2exp)
+
+simple_theme  <- theme_bw() +
+      theme(
+          plot.background = element_rect(fill = "#FDF6E3"),
+          panel.background = element_rect(fill = "#FDF6E3"),
+          legend.background = element_rect(fill = "#FDF6E3"),
+          legend.position="top",
+    axis.title = element_text(size = 14)
+        )
+
+theme_set(simple_theme)
+```
+
+# How do we test whether *two* samples are different? {.smaller}
+
+------------------------------------------------------------------------
+
+Do male penguins display greater body sizes than female?
+
+```{r}
+#| label: simple-barplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-fold: true
+
+adelie_penguins <- penguins |>
+  filter(species == "Adelie") |>
+  drop_na()
+
+ggplot(adelie_penguins, aes(x = sex, y = body_mass_g, fill = sex)) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2) +
+  labs(
+    y = "Body mass (g)",
+    x = ""
+  )
+```
+
+------------------------------------------------------------------------
+
+::: columns
+**Let's try to *test* the resulting hypotheses:**
+
+::: {.column width="50%"}
+Null hypothesis: $$H_{0}: \mu_{1} = \mu_{2}$$ **No variation** between means
+:::
+
+::: {.column width="50%"}
+Alternative hypothesis: $$H_{A}: \mu_{1} \neq \mu_{2}$$ **Variation** between means
+:::
+:::
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: density-plot-01
+#| echo: false
+#| eval: true
+#| fig-align: center
+
+ggplot(adelie_penguins, aes(x = body_mass_g)) +
+  geom_density(aes(fill = sex), alpha = 0.5) +
+    labs(
+    x = "Body mass (g)",
+    y = "Density"
+  )
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: density-plot-02
+#| echo: false
+#| eval: true
+#| fig-align: center
+
+ggplot(adelie_penguins, aes(x = body_mass_g)) +
+  geom_density(aes(fill = sex), alpha = 0.5) +
+    labs(
+    x = "Body mass (g)",
+    y = "Density"
+  ) +
+  annotate("text", x = 3640, y = 0.00005, label = "What does this gray area mean?", size = 2.5)
+```
+
+## Let's make some important assumptions
+
+1.  The two samples are independent.
+2.  Variables display normal distribution.
+3.  The two samples display equal variances.
+
+------------------------------------------------------------------------
+
+Then,
+
+```{r}
+#| label: density-plot-03
+#| echo: false
+#| eval: true
+#| fig-align: center
+
+ggplot(adelie_penguins, aes(x = body_mass_g)) +
+  geom_density(aes(fill = sex), alpha = 0.5) +
+    labs(
+    x = "Body mass (g)",
+    y = "Density"
+  ) +
+  annotate("text", x = 3220, y = 0.0005, label = TeX(r"($\bar{X}_{1} \sim N(\mu_{1},s^{2}/n_{1})$)"), size = 3) +
+  annotate("text", x = 4120, y = 0.0005, label = TeX(r"($\bar{X}_{2} \sim N(\mu_{2},s^{2}/n_{2})$)"), size = 3)
+```
+
+------------------------------------------------------------------------
+
+And,
+
+```{r}
+#| label: density-plot-04
+#| echo: false
+#| eval: true
+#| fig-align: center
+
+ggplot(adelie_penguins, aes(x = body_mass_g)) +
+  geom_density(aes(fill = sex), alpha = 0.5) +
+    labs(
+    x = "Body mass (g)",
+    y = "Density"
+  ) +
+  annotate("text", x = 3220, y = 0.0005, label = TeX(r"($\bar{X}_{1} \sim N(\mu_{1},s^{2}/n_{1})$)"), size = 3) +
+  annotate("text", x = 4120, y = 0.0005, label = TeX(r"($\bar{X}_{2} \sim N(\mu_{2},s^{2}/n_{2})$)"), size = 3) +
+  annotate("text", x = 3640, y = 0.00020, label = TeX(r"($\bar{X}_{1} - \bar{X}_{2} )"), size = 4)
+```
+
+## Testing the hypothesis in R
+
+------------------------------------------------------------------------
+
+A way to test the hypothesis is using the `t.test()` function:
+
+```{r}
+#| label: t-test
+#| echo: true
+#| eval: true
+#| output-location: fragment
+t.test(body_mass_g ~ sex, adelie_penguins, var.equal = TRUE, paired = TRUE)
+```
+
+------------------------------------------------------------------------
+
+Another alternative is to use the `statExpressions` library:
+
+![](figs/statsexpressions-logo.png){fig-align="center" width="500"}
+
+------------------------------------------------------------------------
+
+```{r}
+#| label: t-test-expression
+#| echo: true
+#| eval: true
+#| output-location: fragment
+library(statsExpressions)
+
+adelie_ttest_table <- two_sample_test(
+  adelie_penguins,
+  x = sex, 
+  y = body_mass_g,
+  type = "np",
+  paired = TRUE
+  )
+
+adelie_ttest_table
+```
+
+. . .
+
+## Adding stats to the barplot! {.smaller}
+
+------------------------------------------------------------------------
+
+```{r}
+#| label: simple-barplot-stats
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-line-numbers: "11"
+adelie_penguins <- penguins |>
+  filter(species == "Adelie") |>
+  drop_na()
+
+ggplot(adelie_penguins, aes(x = sex, y = body_mass_g, fill = sex)) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2) +
+  labs(
+    y = "Body mass (g)",
+    x = "",
+    subtitle = parse(text = adelie_ttest_table$expression),
+  )
+```
