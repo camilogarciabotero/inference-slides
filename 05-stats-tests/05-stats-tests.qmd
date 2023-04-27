@@ -24,8 +24,8 @@ format:
     highlight-style: ayu
     df-print: paged
     scrollable: true
-    fig-height: 5
-    fig-width: 5
+    fig-height: 6
+    fig-width: 6
     fig-dpi: 350
     theme: ../theme.scss
     bibliography: ../references.bib
@@ -37,15 +37,16 @@ format:
 library(tidyverse)
 library(palmerpenguins)
 library(latex2exp)
+library(ggsignif)
 
-simple_theme  <- theme_bw() +
-      theme(
-          plot.background = element_rect(fill = "#FDF6E3"),
-          panel.background = element_rect(fill = "#FDF6E3"),
-          legend.background = element_rect(fill = "#FDF6E3"),
-          legend.position="top",
-    axis.title = element_text(size = 14)
-        )
+simple_theme <- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "top",
+        axis.title = element_text(size = 14)
+    )
 
 theme_set(simple_theme)
 ```
@@ -61,8 +62,7 @@ Do male penguins display greater body sizes than female?
 #| echo: true
 #| eval: true
 #| fig-align: center
-#| code-fold: true
-
+#| output-location: column-fragment
 adelie_penguins <- penguins |>
   filter(species == "Adelie") |>
   drop_na()
@@ -97,7 +97,6 @@ Alternative hypothesis: $$H_{A}: \mu_{1} \neq \mu_{2}$$ **Variation** between me
 #| echo: false
 #| eval: true
 #| fig-align: center
-
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
     labs(
@@ -113,7 +112,6 @@ ggplot(adelie_penguins, aes(x = body_mass_g)) +
 #| echo: false
 #| eval: true
 #| fig-align: center
-
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
     labs(
@@ -170,8 +168,53 @@ ggplot(adelie_penguins, aes(x = body_mass_g)) +
   annotate("text", x = 3640, y = 0.00020, label = TeX(r"($\bar{X}_{1} - \bar{X}_{2} )"), size = 4)
 ```
 
-## Testing the hypothesis in R
 
+## The T Distribution {.smaller}
+
+***
+
+:::: columns
+
+::: {.column width="50%" .smaller}
+
+$$
+\bar{X}_{1} - \bar{X}_{2} \sim N\Bigg[\mu_{1} - \mu_{2},s^{2}\bigg(\frac{1}{n_{1}}+\frac{1}{n_{2}}\bigg)\Bigg]
+$$
+
+If $H_{0}$ is true $\rightarrow$ $\mu_{1} - \mu_{2} = 0$, then
+
+
+$$
+\bar{X}_{1} - \bar{X}_{2} \sim N\Bigg[0,s^{2}\bigg(\frac{1}{n_{1}}+\frac{1}{n_{2}}\bigg)\Bigg]
+$$
+
+
+$$
+\frac{\bar{X}_{1} - \bar{X}_{2}}{s\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}} \sim N(0,1)
+$$
+
+
+$$
+\frac{\bar{X}_{1} - \bar{X}_{2}}{s\sqrt{\frac{1}{n_{1}}+\frac{1}{n_{2}}}} = t
+$$
+
+:::
+
+::: {.column width="50%"}
+
+:::
+
+::::
+
+. . . 
+
+![](figs/t-test-plot.png){.absolute bottom=200 right=20 width="500"}
+
+
+
+# Testing the hypothesis in R
+
+## The **parametric** *T-test*
 ------------------------------------------------------------------------
 
 A way to test the hypothesis is using the `t.test()` function:
@@ -186,7 +229,7 @@ t.test(body_mass_g ~ sex, adelie_penguins, var.equal = TRUE, paired = TRUE)
 
 ------------------------------------------------------------------------
 
-Another alternative is to use the `statExpressions` library:
+Another alternative is to use the `statsExpressions` library:
 
 ![](figs/statsexpressions-logo.png){fig-align="center" width="500"}
 
@@ -200,10 +243,10 @@ Another alternative is to use the `statExpressions` library:
 library(statsExpressions)
 
 adelie_ttest_table <- two_sample_test(
-  adelie_penguins,
+  data = adelie_penguins,
   x = sex, 
   y = body_mass_g,
-  type = "np",
+  type = "p",
   paired = TRUE
   )
 
@@ -221,17 +264,158 @@ adelie_ttest_table
 #| echo: true
 #| eval: true
 #| fig-align: center
-#| code-line-numbers: "11"
-adelie_penguins <- penguins |>
-  filter(species == "Adelie") |>
-  drop_na()
-
-ggplot(adelie_penguins, aes(x = sex, y = body_mass_g, fill = sex)) +
+#| code-line-numbers: "14-17"
+#| output-location: column-fragment
+ggplot(
+  adelie_penguins,
+  aes(
+    x = sex,
+    y = body_mass_g,
+    fill = sex
+  )
+) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2) +
   labs(
     y = "Body mass (g)",
     x = "",
-    subtitle = parse(text = adelie_ttest_table$expression),
+    subtitle = parse(
+      text = adelie_ttest_table$expression
+      )
+  )
+```
+
+***
+
+![From Indrajeet Patil^[https://github.com/IndrajeetPatil/statsExpressions]](figs/stats-template-analysis.png){fig-align="center"}
+
+
+## Adding comparisons to the plot using `ggsignif` library!
+
+***
+
+```{r}
+#| label: simple-barplot-stats-signif
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-line-numbers: "15-19"
+#| output-location: column-fragment
+ggplot(adelie_penguins, 
+  aes(
+    x = sex, 
+    y = body_mass_g, 
+    fill = sex)) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2) +
+  labs(
+    y = "Body mass (g)",
+    x = "",
+    subtitle = parse(
+      text = adelie_ttest_table$expression
+      )
+  ) + 
+  geom_signif(
+    comparisons = list(c("female", "male")), 
+    test = "t.test",
+    map_signif_level = TRUE
+  )
+```
+
+## The **non-parametric** *Mann-Whitney/Wilcox test*
+
+***
+
+A way to test the hypothesis is using the `wilkox.test()` function:
+
+```{r}
+#| label: wilcox
+#| echo: true
+#| eval: true
+#| output-location: fragment
+wilcox.test(body_mass_g ~ sex, adelie_penguins, paired = TRUE)
+```
+
+***
+
+Another alternative is to use the `statsExpressions` library:
+
+```{r}
+#| label: wilcox-expression
+#| echo: true
+#| eval: true
+#| output-location: fragment
+library(statsExpressions)
+
+adelie_wilcox_table <- two_sample_test(
+  data = adelie_penguins,
+  x = sex, 
+  y = body_mass_g,
+  type = "np",
+  paired = TRUE
+  )
+
+adelie_wilcox_table
+```
+
+## Adding stats to the barplot! {.smaller}
+
+------------------------------------------------------------------------
+
+```{r}
+#| label: simple-barplot-stats-wilcox
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-line-numbers: "14-17"
+#| output-location: column-fragment
+ggplot(
+  adelie_penguins,
+  aes(
+    x = sex,
+    y = body_mass_g,
+    fill = sex
+  )
+) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2) +
+  labs(
+    y = "Body mass (g)",
+    x = "",
+    subtitle = parse(
+      text = adelie_wilcox_table$expression
+      )
+  )
+```
+
+## Adding comparisons to the plot using `ggsignif` library!
+
+***
+
+```{r}
+#| label: simple-barplot-stats-signif-wilcox
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-line-numbers: "15-19"
+#| output-location: column-fragment
+ggplot(adelie_penguins, 
+  aes(
+    x = sex, 
+    y = body_mass_g, 
+    fill = sex)) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2) +
+  labs(
+    y = "Body mass (g)",
+    x = "",
+    subtitle = parse(
+      text = adelie_wilcox_table$expression
+      )
+  ) + 
+  geom_signif(
+    comparisons = list(c("female", "male")), 
+    test = "wilcox.test",
+    map_signif_level = TRUE
   )
 ```
