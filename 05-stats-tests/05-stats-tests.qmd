@@ -326,6 +326,15 @@ ggplot(adelie_penguins,
 
 ***
 
+## Let's make some important assumptions
+
+1.  The two samples are independent.
+2.  Variables could display non-normal distribution.
+3.  The two samples could display different variances (and sample sizes).
+
+------------------------------------------------------------------------
+
+
 A way to test the hypothesis is using the `wilkox.test()` function:
 
 ```{r}
