@@ -7,3 +7,5 @@ This repo will include several slides used during Informatics and Inference at U
 3. [Descriptive Stats](https://camilogarciabotero.github.io/inference-slides/03-descriptive-stats/03-descriptive-stats.html#/title-slide)
 
 4. [Normality and Transformations](https://camilogarciabotero.github.io/inference-slides/04-normal-distribution/04-normal-distribution.html#/title-slide)
+
+5. [Parametric and Non-Parametric tests](https://camilogarciabotero.github.io/inference-slides/05-stats-tests/05-stats-tests.html#/title-slide)
