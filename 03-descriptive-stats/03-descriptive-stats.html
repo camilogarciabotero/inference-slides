@@ -8,7 +8,7 @@
 <link href="03-descriptive-stats_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.333">
+  <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Camilo G.">
   <meta name="author" content="Alejandro C.">
@@ -453,7 +453,7 @@ Angie T.
 \]</span></p>
 <div class="fragment">
 <p>You can create the function:</p>
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-2_6e9d2b2db43e918166d95955cea33a64">
+<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-3_9f15ceccd9a37988ca5ab1e79bcecffe">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x){<span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -498,15 +498,15 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="2">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="3">Equation for n if it is odd</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">Equation for n if it is odd</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-annotation="3" data-code-lines="5">Equation for n if it is even</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">Equation for n if it is even</span>
 </dd>
 </dl>
 </div>
@@ -595,7 +595,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section class="slide level2 center">
 
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-12_cc64818028017c856932511d1b6e3b06">
+<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-13_0d7e43c667729a3b424251e5f41491c4">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -695,7 +695,7 @@ CV = \frac{S}{\overline{x}} \times 100
 <section>
 <section id="informative-plots" class="title-slide slide level1 center">
 <h1>Informative plots</h1>
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-18_177142041169ce30430849213baf6174">
+<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-19_28545a4f3f29c75a3660fef3e6ad20a8">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -835,19 +835,19 @@ CV = \frac{S}{\overline{x}} \times 100
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-22" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-annotation="1" data-code-lines="3">This argument replaces the <code>group_by</code> verb avoiding one pipe step</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="3" data-code-annotation="1">This argument replaces the <code>group_by</code> verb avoiding one pipe step</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-annotation="2" data-code-lines="5">Here we will iterate through all the columns that that satisfy the condition <code>is.numeric</code>.</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="5" data-code-annotation="2">Here we will iterate through all the columns that that satisfy the condition <code>is.numeric</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-annotation="3" data-code-lines="6">This is a named list of all the functions we want to execute over the defined columns</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="6" data-code-annotation="3">This is a named list of all the functions we want to execute over the defined columns</span>
 </dd>
 <dt data-target-cell="annotated-cell-22" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-22" data-code-annotation="4" data-code-lines="7">This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function <code>{.fn}</code> that appeared on the <code>.fns</code> list of functions to each name of the columns <code>{.col}</code> separated by the underscore <code>_</code>.</span>
+<span data-code-cell="annotated-cell-22" data-code-lines="7" data-code-annotation="4">This is called string interpolation, and here will create the names of the newly created variables by appending the name of the function <code>{.fn}</code> that appeared on the <code>.fns</code> list of functions to each name of the columns <code>{.col}</code> separated by the underscore <code>_</code>.</span>
 </dd>
 </dl>
 </div>

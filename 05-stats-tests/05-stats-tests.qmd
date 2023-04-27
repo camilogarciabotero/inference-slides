@@ -1,6 +1,6 @@
 ---
 title: Parametric & Non-Parametric tests
-subtitle: "https://bit.ly/41MCWbv"
+subtitle: "https://bit.ly/3V7CMsZ"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co

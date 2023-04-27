@@ -9,7 +9,7 @@
 <link href="05-stats-tests_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="05-stats-tests_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.333">
+<meta name="generator" content="quarto-1.3.340">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Alejandro C.">
 <meta name="author" content="Angie T.">
@@ -395,7 +395,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Parametric &amp; Non-Parametric tests</h1>
-  <p class="subtitle">https://bit.ly/41MCWbv</p>
+  <p class="subtitle">https://bit.ly/3V7CMsZ</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -427,7 +427,7 @@ Angie T.
 </section><section><section id="how-do-we-test-whether-two-samples-are-different" class="title-slide slide level1 smaller center"><h1>How do we test whether <em>two</em> samples are different?</h1>
 
 </section><section class="slide level2 center"><p>Do male penguins display greater body sizes than female?</p>
-<div class="cell columns column-output-location" data-layout-align="center">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot_f32e450c071f8460b3bf996fcddd4bf7">
 <div class="column">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -499,10 +499,10 @@ Angie T.
 </section><section id="the-parametric-t-test" class="slide level2 center"><h2>## The <strong>parametric</strong> <em>T-test</em>
 </h2>
 <p>A way to test the hypothesis is using the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function:</p>
-<div class="cell">
+<div class="cell" data-hash="05-stats-tests_cache/revealjs/t-test_e3dcfe6a355768976429a65e3fe6a6f4">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/t-test_e3dcfe6a355768976429a65e3fe6a6f4">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -519,7 +519,7 @@ mean difference
 </div>
 </section><section class="slide level2 center"><p>Another alternative is to use the <code>statsExpressions</code> library:</p>
 
-<img data-src="figs/statsexpressions-logo.png" width="500" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><div class="cell">
+<img data-src="figs/statsexpressions-logo.png" width="500" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><div class="cell" data-hash="05-stats-tests_cache/revealjs/t-test-expression_f1a8fecb71012e996b932dec5aa1e8f2">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/statsExpressions/">statsExpressions</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_ttest_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://indrajeetpatil.github.io/statsExpressions/reference/two_sample_test.html">two_sample_test</a></span><span class="op">(</span></span>
@@ -532,7 +532,7 @@ mean difference
 <span></span>
 <span><span class="va">adelie_ttest_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/t-test-expression_f1a8fecb71012e996b932dec5aa1e8f2">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -543,7 +543,7 @@ mean difference
 </div>
 </div>
 </section><section id="adding-stats-to-the-barplot" class="slide level2 smaller center"><h2>Adding stats to the barplot!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats_98dc66fa6e3f70703d73196f19e4cb84">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="14-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  adelie_penguins,</span>
@@ -577,7 +577,7 @@ mean difference
 <figcaption>From Indrajeet Patil<sup>1</sup></figcaption></figure>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>https://github.com/IndrajeetPatil/statsExpressions</p></li></ol></aside></section><section id="adding-comparisons-to-the-plot-using-ggsignif-library" class="slide level2 center"><h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif_c40264f96b89200afe1d0fee86452b73">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="15-19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(adelie_penguins, </span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">aes</span>(</span>
@@ -611,10 +611,10 @@ mean difference
 </section><section id="the-non-parametric-mann-whitneywilcox-test" class="slide level2 center"><h2>The <strong>non-parametric</strong> <em>Mann-Whitney/Wilcox test</em>
 </h2>
 </section><section class="slide level2 center"><p>A way to test the hypothesis is using the <code>wilkox.test()</code> function:</p>
-<div class="cell">
+<div class="cell" data-hash="05-stats-tests_cache/revealjs/wilcox_a61476cfe98b48300e7464e56b784bca">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/wilcox_a61476cfe98b48300e7464e56b784bca">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon signed rank test with continuity correction
@@ -625,7 +625,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><p>Another alternative is to use the <code>statsExpressions</code> library:</p>
-<div class="cell">
+<div class="cell" data-hash="05-stats-tests_cache/revealjs/wilcox-expression_97d9dab98dbcd7bbd26049ec62158420">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/statsExpressions/">statsExpressions</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_wilcox_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://indrajeetpatil.github.io/statsExpressions/reference/two_sample_test.html">two_sample_test</a></span><span class="op">(</span></span>
@@ -638,7 +638,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <span></span>
 <span><span class="va">adelie_wilcox_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/wilcox-expression_97d9dab98dbcd7bbd26049ec62158420">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -649,7 +649,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section><section id="adding-stats-to-the-barplot-1" class="slide level2 smaller center"><h2>Adding stats to the barplot!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-wilcox_1c0935f36c5476120a3d36c78b5d6a7c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="14-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a href="#cb10-2"></a>  adelie_penguins,</span>
@@ -679,7 +679,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </section><section id="adding-comparisons-to-the-plot-using-ggsignif-library-1" class="slide level2 center"><h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif-wilcox_061f6a25b3c1a78c23aae88516c289f3">
 <div class="column">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="15-19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(adelie_penguins, </span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">aes</span>(</span>
@@ -692,7 +692,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <span id="cb11-9"><a href="#cb11-9"></a>    <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
 <span id="cb11-10"><a href="#cb11-10"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
 <span id="cb11-11"><a href="#cb11-11"></a>    <span class="at">subtitle =</span> <span class="fu">parse</span>(</span>
-<span id="cb11-12"><a href="#cb11-12"></a>      <span class="at">text =</span> adelie_ttest_table<span class="sc">$</span>expression</span>
+<span id="cb11-12"><a href="#cb11-12"></a>      <span class="at">text =</span> adelie_wilcox_table<span class="sc">$</span>expression</span>
 <span id="cb11-13"><a href="#cb11-13"></a>      )</span>
 <span id="cb11-14"><a href="#cb11-14"></a>  ) <span class="sc">+</span> </span>
 <span id="cb11-15"><a href="#cb11-15"></a>  <span class="fu">geom_signif</span>(</span>
