@@ -37,14 +37,15 @@ format:
 library(tidyverse)
 library(palmerpenguins)
 
-simple_theme  <- theme_bw() +
-      theme(
-          plot.background = element_rect(fill = "#FDF6E3"),
-          panel.background = element_rect(fill = "#FDF6E3"),
-          legend.background = element_rect(fill = "#FDF6E3"),
-          legend.position="top",
-    axis.title = element_text(size = 14)
-        )
+simple_theme <- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "top",
+        axis.title = element_text(size = 14),
+        
+    )
 
 theme_set(simple_theme)
 ```
