@@ -224,7 +224,7 @@ A way to test the hypothesis is using the `t.test()` function:
 #| echo: true
 #| eval: true
 #| output-location: fragment
-t.test(body_mass_g ~ sex, adelie_penguins, var.equal = TRUE, paired = TRUE)
+t.test(body_mass_g ~ sex, adelie_penguins)
 ```
 
 ------------------------------------------------------------------------

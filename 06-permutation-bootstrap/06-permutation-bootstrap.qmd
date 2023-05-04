@@ -1,6 +1,6 @@
 ---
 title: Permutation & Bootstrap tests
-subtitle: ""
+subtitle: "https://bit.ly/424cydp"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
@@ -59,6 +59,8 @@ To simulate the data that would have been collected if the statistical null hypo
 
 Simulate replications of rearrangements of the observations to draw a possible null distribution.
 
+## Bootstrap
+
 Randomly re-sample the observations with *replacement* to re-calculate the test statistic of interest.
 
 ## The `infer` package {.smaller}
@@ -89,7 +91,7 @@ The four infer verbs:
 -   `generate()` data reflecting the null hypothesis (byr permutation or bootstrap).
 
 
-## Let's see an example
+## Let's see an example of permutation
 
 ***
 
@@ -185,10 +187,8 @@ adelie_chinstrap_observed
 
 2.  **Generate** the null distribution of the permuted data and the p-values:
 
-::: columns
-
-::: {.column width="50%"}
-Adelie and Gentoo
+::: {.panel-tabset}
+## Adelie and Gentoo
 ```{r}
 #| layout-ncol: 2
 #| echo: true
@@ -209,10 +209,8 @@ adelie_gentoo_null |>
     direction = "two-sided"
     )
 ```
-:::
 
-::: {.column width="50%"}
-Adelie and Chinstrap
+## Adelie and Chinstrap
 ```{r}
 #| layout-ncol: 2
 #| echo: true
@@ -234,7 +232,7 @@ adelie_chinstrap |>
     )
 ```
 :::
-:::
+
 ------------------------------------------------------------------------
 
 3.  **Visualize** the observed statistic against the null distribution:
@@ -251,7 +249,10 @@ Adelie and Gentoo
 #| eval: true
 #| code-fold: true
 visualize(adelie_gentoo_null) +
-  shade_p_value(obs_stat = adelie_gentoo_observed, direction = "two-sided")
+  shade_p_value(
+    obs_stat = adelie_gentoo_observed, 
+    direction = "two-sided"
+    )
 ```
 :::
 
@@ -264,13 +265,15 @@ Adelie and Chinstrap
 #| eval: true
 #| code-fold: true
 visualize(adelie_chinstrap_null) +
-  shade_p_value(obs_stat = adelie_chinstrap_observed, direction = "two-sided")
+  shade_p_value(
+    obs_stat = adelie_chinstrap_observed, 
+    direction = "two-sided"
+    )
 ```
 :::
 :::
 
-## Bootstrap
-
+## Let's see an example of Bootstrap
 
 ```{r}
 adelie_chinstrap_bootstrap <- adelie_chinstrap |> 

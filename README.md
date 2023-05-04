@@ -9,3 +9,5 @@ This repo will include several slides used during Informatics and Inference at U
 4. [Normality and Transformations](https://camilogarciabotero.github.io/inference-slides/04-normal-distribution/04-normal-distribution.html#/title-slide)
 
 5. [Parametric and Non-Parametric tests](https://camilogarciabotero.github.io/inference-slides/05-stats-tests/05-stats-tests.html#/title-slide)
+
+6. [Permutation and Bootstrap tests](https://camilogarciabotero.github.io/inference-slides/06-permutation-bootstrap/06-permutation-bootstrap.html#/title-slide)

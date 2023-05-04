@@ -395,6 +395,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Permutation &amp; Bootstrap tests</h1>
+  <p class="subtitle">https://bit.ly/424cydp</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -427,6 +428,7 @@ Angie T.
 <p>To simulate the data that would have been collected if the statistical null hypothesis were true!</p>
 </section><section id="permutation" class="slide level2 center"><h2>Permutation</h2>
 <p>Simulate replications of rearrangements of the observations to draw a possible null distribution.</p>
+</section><section id="bootstrap" class="slide level2 center"><h2>Bootstrap</h2>
 <p>Randomly re-sample the observations with <em>replacement</em> to re-calculate the test statistic of interest.</p>
 </section><section id="the-infer-package" class="slide level2 smaller center"><h2>The <code>infer</code> package</h2>
 </section><section class="slide level2 center">
@@ -438,11 +440,11 @@ Angie T.
 <li><p><code>hypothesize()</code> allows you to declare the null hypothesis.</p></li>
 <li><p><code>calculate()</code> a distribution of statistics from the generated data to form the null distribution.</p></li>
 <li><p><code>generate()</code> data reflecting the null hypothesis (byr permutation or bootstrap).</p></li>
-</ul></section><section id="lets-see-an-example" class="slide level2 center"><h2>Let’s see an example</h2>
+</ul></section><section id="lets-see-an-example-of-permutation" class="slide level2 center"><h2>Let’s see an example of permutation</h2>
 </section><section class="slide level2 center"><div class="columns">
 <div class="column" style="width:50%;">
 <p>Adelie and Gentoo</p>
-<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/simple-barplots-01_11c7e8269cc5ac3dfb07e13f8a4c1cd6">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/simple-barplots-01-1.png" width="2100"></p>
@@ -452,7 +454,7 @@ Angie T.
 </div>
 </div><div class="column" style="width:50%;">
 <p>Adelie and Chinstrap</p>
-<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/simple-barplots-02_3b9d01daab197ea6a897ca3b219a8039">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/simple-barplots-02-1.png" width="2100"></p>
@@ -482,11 +484,11 @@ Angie T.
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_gentoo_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-5_f629b90e7a8df6a4e2941dbad8fd31f8">
+<div class="cell quarto-layout-panel">
 
 </div>
 </div>
-<div class="cell fragment quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-5_f629b90e7a8df6a4e2941dbad8fd31f8">
+<div class="cell fragment quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -509,11 +511,11 @@ Angie T.
 <span>      <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_chinstrap_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-6_0483fc201c3d5f4e8114cee4206c99fb">
+<div class="cell quarto-layout-panel">
 
 </div>
 </div>
-<div class="cell fragment quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-6_0483fc201c3d5f4e8114cee4206c99fb">
+<div class="cell fragment quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -532,9 +534,13 @@ Angie T.
 <li>
 <strong>Generate</strong> the null distribution of the permuted data and the p-values:</li>
 </ol>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Adelie and Gentoo</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-2-1">Adelie and Gentoo</a></li>
+<li><a href="#tabset-2-2">Adelie and Chinstrap</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-2-1">
 <div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_gentoo_null</span> <span class="op">&lt;-</span> <span class="va">adelie_gentoo</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">specify</span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -550,7 +556,7 @@ Angie T.
 <span>    obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, </span>
 <span>    direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-7_5cd8008d48f5c916270a451ba04a7f10">
+<div class="cell quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -563,8 +569,8 @@ Angie T.
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
-<p>Adelie and Chinstrap</p>
+</div>
+<div id="tabset-2-2">
 <div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_chinstrap_null</span> <span class="op">&lt;-</span> <span class="va">adelie_chinstrap</span> <span class="op">|&gt;</span> </span>
 <span>      <span class="fu">specify</span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -580,7 +586,7 @@ Angie T.
 <span>      obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, </span>
 <span>      direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-8_f6f703520b9c5bcdf486afe85866cbc8">
+<div class="cell quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -595,6 +601,7 @@ Angie T.
 </div>
 </div>
 </div>
+</div>
 </section><section class="slide level2 center"><ol start="3" type="1">
 <li>
 <strong>Visualize</strong> the observed statistic against the null distribution:</li>
@@ -602,9 +609,12 @@ Angie T.
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Adelie and Gentoo</p>
-<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/null-dist-01_5030061a3195d56112b4423b5d157f7b">
+<div class="cell" data-layout-align="center">
 <details><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">visualize</span><span class="op">(</span><span class="va">adelie_gentoo_null</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">shade_p_value</span><span class="op">(</span>obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, direction <span class="op">=</span> <span class="st">"two-sided"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">shade_p_value</span><span class="op">(</span></span>
+<span>    obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, </span>
+<span>    direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/null-dist-01-1.png" width="2100"></p>
@@ -614,9 +624,12 @@ Angie T.
 </div>
 </div><div class="column" style="width:50%;">
 <p>Adelie and Chinstrap</p>
-<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/null-dist-02_b1b45c8655d022d876c0269dd870280e">
+<div class="cell" data-layout-align="center">
 <details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">visualize</span><span class="op">(</span><span class="va">adelie_chinstrap_null</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">shade_p_value</span><span class="op">(</span>obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, direction <span class="op">=</span> <span class="st">"two-sided"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">shade_p_value</span><span class="op">(</span></span>
+<span>    obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, </span>
+<span>    direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/null-dist-02-1.png" width="2100"></p>
@@ -626,8 +639,9 @@ Angie T.
 </div>
 </div>
 </div>
-</section><section id="bootstrap" class="slide level2 center"><h2>Bootstrap</h2>
-<div class="footer footer-default">
+</section><section id="lets-see-an-example-of-bootstrap" class="slide level2 center"><h2>Let’s see an example of Bootstrap</h2>
+
+<img data-src="06-permutation-bootstrap_files/figure-revealjs/unnamed-chunk-11-1.png" width="2100" class="r-stretch"><div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
 </section>
