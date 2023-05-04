@@ -19,5 +19,8 @@
   },
   "05-stats-tests/05-stats-tests.qmd": {
     "05-stats-tests.html": "2dfcbf84"
+  },
+  "06-permutation-bootstrap/06-permutation-bootstrap.qmd": {
+    "06-permutation-bootstrap.html": "0d5f6204"
   }
 }
