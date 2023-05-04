@@ -271,3 +271,20 @@ visualize(adelie_chinstrap_null) +
 
 ## Bootstrap
 
+
+```{r}
+adelie_chinstrap_bootstrap <- adelie_chinstrap |> 
+    specify(body_mass_g ~ species) |> 
+    generate(reps = 1000, type = "bootstrap") |> 
+    calculate(
+        stat = "diff in means", 
+        order = c("Adelie", "Chinstrap")
+      )
+
+ab_ci  <- adelie_chinstrap_bootstrap |> 
+  get_confidence_interval(point_estimate = adelie_chinstrap_observed)
+
+adelie_chinstrap_bootstrap |> 
+  visualize() +
+  shade_confidence_interval(endpoints = ab_ci)
+```
