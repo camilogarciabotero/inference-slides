@@ -1,5 +1,5 @@
 ---
-title: Permutation & Bootstrap tests
+title: Permutation tests & Bootstrap
 subtitle: "https://bit.ly/424cydp"
 author:
   - name: Camilo G.
@@ -37,7 +37,7 @@ format:
 library(tidyverse)
 library(palmerpenguins)
 library(latex2exp)
-library(ggsignif)
+library(infer)
 
 simple_theme <- theme_bw() +
     theme(
@@ -51,17 +51,17 @@ simple_theme <- theme_bw() +
 theme_set(simple_theme)
 ```
 
-## Why do we randomize (by re-sampling) data?
+## Why do we re-sampling data?
 
 To simulate the data that would have been collected if the statistical null hypothesis were true!
 
-## Permutation
+## Permutation tests
 
 Simulate replications of rearrangements of the observations to draw a possible null distribution.
 
 ## Bootstrap
 
-Randomly re-sample the observations with *replacement* to re-calculate the test statistic of interest.
+Randomly re-sample the observations with *replacement* (allowing duplications) to re-calculate the test statistic of interest.
 
 ## The `infer` package {.smaller}
 
@@ -90,6 +90,7 @@ The four infer verbs:
 
 -   `generate()` data reflecting the null hypothesis (byr permutation or bootstrap).
 
+- `visualize()` is a set of custom functions to plot results from the infer package.
 
 ## Let's see an example of permutation
 
@@ -225,7 +226,7 @@ adelie_chinstrap_null <- adelie_chinstrap |>
         order = c("Adelie", "Chinstrap")
       )
 
-adelie_chinstrap |> 
+adelie_chinstrap_null |> 
     get_p_value(
       obs_stat = adelie_chinstrap_observed, 
       direction = "two-sided"
@@ -236,7 +237,6 @@ adelie_chinstrap |>
 ------------------------------------------------------------------------
 
 3.  **Visualize** the observed statistic against the null distribution:
-
 
 ::: columns
 
@@ -275,7 +275,15 @@ visualize(adelie_chinstrap_null) +
 
 ## Let's see an example of Bootstrap
 
+***
+
+::: {.panel-tabset}
+## Adelie and Chinstrap
 ```{r}
+#| label: bootstrap-01
+#| fig-align: center
+#| echo: true
+#| eval: true
 adelie_chinstrap_bootstrap <- adelie_chinstrap |> 
     specify(body_mass_g ~ species) |> 
     generate(reps = 1000, type = "bootstrap") |> 
@@ -284,10 +292,67 @@ adelie_chinstrap_bootstrap <- adelie_chinstrap |>
         order = c("Adelie", "Chinstrap")
       )
 
-ab_ci  <- adelie_chinstrap_bootstrap |> 
+ac_ci  <- adelie_chinstrap_bootstrap |> 
   get_confidence_interval(point_estimate = adelie_chinstrap_observed)
 
+ac_ci
+```
+
+
+## Adelie and Gentoo
+
+```{r}
+#| label: bootstrap-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+adelie_gentoo_bootstrap <- adelie_gentoo |> 
+    specify(body_mass_g ~ species) |> 
+    generate(reps = 1000, type = "bootstrap") |> 
+    calculate(
+        stat = "diff in means", 
+        order = c("Adelie", "Gentoo")
+      )
+
+ag_ci  <- adelie_gentoo_bootstrap |> 
+  get_confidence_interval(point_estimate = adelie_gentoo_observed)
+
+ag_ci
+```
+
+:::
+
+***
+
+::: columns
+::: {.column width="50%"}
+Adelie and Chinstrap
+```{r}
+#| label: ci-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| code-fold: true
 adelie_chinstrap_bootstrap |> 
   visualize() +
-  shade_confidence_interval(endpoints = ab_ci)
+  shade_confidence_interval(endpoints = ac_ci)
 ```
+:::
+::: {.column width="50%"}
+Adelie and Gentoo
+```{r}
+#| label: ci-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| code-fold: true
+adelie_gentoo_bootstrap |> 
+  visualize() +
+  shade_confidence_interval(endpoints = ag_ci)
+```
+:::
+:::
+
+***
+
+It tells us how the averages in body mass between Adelie and Chinstrap penguins change if we redid the experiment many times.
