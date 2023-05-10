@@ -1,0 +1,283 @@
+---
+title: ANOVA
+subtitle: "https://bit.ly/424cydp"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro C.
+    email: a.castellanoss@uniandes.edu.co
+  - name: Angie T.
+    email: am.tovar11@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - IeI - Universidad de los Andes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 6
+    fig-width: 6
+    fig-dpi: 350
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+```{r}
+#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+library(latex2exp)
+library(performance)
+library(statsExpressions)
+library(ggsignif)
+
+simple_theme <- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "bottom",
+        axis.title = element_text(size = 14)
+    )
+
+theme_set(simple_theme)
+```
+
+## When do we apply ANOVA
+
+. . .
+
+When comparing a continuous variable across two or more groups. The question it tries to solve is: "is there a group different from other?""
+
+## Stablishing the hypothesis
+
+***
+
+![](figs/null-hypothesis.png){fig-align="center" width="600"}
+
+***
+
+![](figs/alternative-hypothesis.png){fig-align="center" width="600"}
+
+
+***
+
+
+##
+
+![](figs/anova.png){fig-align="center" width="600"}
+
+##
+
+![](figs/within-groups.png){fig-align="center" width="600"}
+
+##
+
+![](figs/among-groups.png){fig-align="center" width="600"}
+
+##
+
+![](figs/total.png)
+
+## Understanding the fisher distribution
+
+
+![](figs/fisher-test.png){fig-align="center" width="400"}
+
+*** 
+
+![](figs/fisher.png){fig-align="center" width="400"}
+
+***
+
+## ANOVA assumptions
+
+1. Samples are independent (randomly sampled)
+2. Variance is homogenous/constant
+3. Residuals are normally distributed
+
+
+## Let's try with an example
+
+***
+
+```{r}
+#| label: simple-barplots-01
+#| fig-align: center
+#| echo: false
+#| eval: true
+#| output-location: fragment
+ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.7) +
+  labs(y = "Body mass (g)")
+```
+
+***
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: simple-frequencies-01
+#| fig-align: center
+#| echo: false
+#| eval: true
+#| output-location: fragment
+
+ggplot(penguins) +
+  geom_density(aes(x = body_mass_g, fill = species), alpha = .6)
+```
+
+##  {auto-animate="true"}
+
+
+```{r}
+#| label: simple-frequencies-02
+#| fig-align: center
+#| echo: false
+#| eval: true
+#| output-location: fragment
+
+ggplot(penguins) +
+  geom_density(aes(x = body_mass_g, fill = species), alpha = .6) +
+  geom_density(aes(x = body_mass_g), fill = "gray", alpha = 0.7)
+```
+
+
+## Applying ANOVA with different approaches
+
+***
+
+### 1. Using `aov()` function:
+
+```{r}
+#| label: anova-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+anovamodel <- aov(data = penguins, body_mass_g ~ species)
+anovamodel
+```
+
+***
+
+### 2. Using the `statsExpression` package:
+
+```{r}
+#| label: anova-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+anovatbl <- oneway_anova(data = penguins, x = species, y = body_mass_g)
+anovatbl
+```
+
+
+## Adding stats to the plots!
+
+***
+
+```{r}
+#| label: barplot-expressions
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+
+ggplot(penguins, 
+  aes(
+    x = species, 
+    y = body_mass_g, 
+    fill = species
+    )) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.7) +
+  labs(
+    y = "Body mass (g)",
+    subtitle = anovatbl$expression[[1]]
+    )
+```
+
+## But why there are not comparisons?
+
+
+## Adding pairwise comparisons
+
+```{r}
+#| label: barplot-signif
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+
+ggplot(penguins, 
+  aes(
+    x = species, 
+    y = body_mass_g, 
+    fill = species
+    )) +
+  geom_boxplot(alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.7) +
+  labs(
+    y = "Body mass (g)",
+    subtitle = anovatbl$expression[[1]]
+    ) +
+  geom_signif(
+    comparisons = list(
+      c("Gentoo", "Chinstrap"),
+      c("Adelie", "Chinstrap"),
+      c("Adelie", "Gentoo")
+    ),
+    step_increase = 0.2,
+    map_signif_level = TRUE
+  )
+```
+
+
+## Testing ANOVA assumptions
+
+1. Sample independence -> Kruskal-Wallis:
+
+```{r}
+
+TukeyHSD(anovamodel)
+```
+
+## Testing the ANOVA assumptions with `performance`
+
+Normality
+```{r}
+library(performance)
+
+
+
+plot(check_normality(anovamodel))
+```
+
+***
+
+```{r}
+library(performance)
+
+plot(check_homogeneity(anovamodel))
+```
+
+***
+
+```{r}
+library(performance)
+
+plot(check_heteroskedasticity(anovamodel))
+```
