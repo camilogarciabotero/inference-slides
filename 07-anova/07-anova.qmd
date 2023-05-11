@@ -57,9 +57,9 @@ theme_set(simple_theme)
 
 . . .
 
-When comparing a continuous variable across two or more groups. The question it tries to solve is: "is there a group different from other?""
+When comparing a continuous variable across two or more groups. The question it tries to solve is: "is there a group different from the others?"
 
-## Stablishing the hypothesis
+## Establishing the hypothesis
 
 ***
 
