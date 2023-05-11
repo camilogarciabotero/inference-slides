@@ -7,19 +7,19 @@
 <link href="07-anova_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="07-anova_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="07-anova_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="07-anova_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.340">
-
-  <meta name="author" content="Camilo G.">
-  <meta name="author" content="Alejandro C.">
-  <meta name="author" content="Angie T.">
-  <title>ANOVA</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/reveal.css">
-  <style>
+<link href="07-anova_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+<meta name="author" content="Camilo G.">
+<meta name="author" content="Alejandro C.">
+<meta name="author" content="Angie T.">
+<title>ANOVA</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="07-anova_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="07-anova_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="07-anova_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="07-anova_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="07-anova_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+<link href="07-anova_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="07-anova_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="07-anova_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="07-anova_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -299,7 +299,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -387,17 +387,15 @@
       margin-right: 0; 
     }
   </style>
-  
-  <link href="07-anova_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-  <script src="07-anova_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="07-anova_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="07-anova_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">ANOVA</h1>
-  <p class="subtitle">https://bit.ly/424cydp</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">ANOVA</h1>
+  <p class="subtitle">https://bit.ly/41mzUK9</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -426,100 +424,76 @@ Angie T.
 </div>
 </div>
 
-</section>
-<section id="when-do-we-apply-anova" class="slide level2 center">
-<h2>When do we apply ANOVA</h2>
+</section><section id="when-do-we-apply-anova" class="slide level2 center"><h2>When do we apply ANOVA</h2>
 <div class="fragment">
 <p>When comparing a continuous variable across two or more groups. The question it tries to solve is: “is there a group different from other?””</p>
 </div>
-</section>
-<section id="stablishing-the-hypothesis" class="slide level2 center">
-<h2>Stablishing the hypothesis</h2>
-</section>
-<section class="slide level2 center">
+</section><section id="stablishing-the-hypothesis" class="slide level2 center"><h2>Stablishing the hypothesis</h2>
+</section><section class="slide level2 center">
+<img data-src="figs/null-hypothesis.png" width="600" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/alternative-hypothesis.png" width="600" class="r-stretch quarto-figure-center"></section><section id="section" class="slide level2 center"><h2></h2>
 
+<img data-src="figs/anova.png" width="600" class="r-stretch quarto-figure-center"></section><section id="section-1" class="slide level2 center"><h2></h2>
 
-<img data-src="figs/null-hypothesis.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
+<img data-src="figs/within-groups.png" width="600" class="r-stretch quarto-figure-center"></section><section id="section-2" class="slide level2 center"><h2></h2>
 
+<img data-src="figs/among-groups.png" width="600" class="r-stretch quarto-figure-center"></section><section id="section-3" class="slide level2 center"><h2></h2>
 
-<img data-src="figs/alternative-hypothesis.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="section" class="slide level2 center">
-<h2></h2>
+<img data-src="figs/total.png" class="r-stretch"></section><section id="understanding-the-fisher-distribution" class="slide level2 center"><h2>Understanding the fisher distribution</h2>
 
-<img data-src="figs/anova.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
-
-<img data-src="figs/within-groups.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="section-2" class="slide level2 center">
-<h2></h2>
-
-<img data-src="figs/among-groups.png" width="600" class="r-stretch quarto-figure-center"></section>
-<section id="section-3" class="slide level2 center">
-<h2></h2>
-
-<img data-src="figs/total.png" class="r-stretch"></section>
-<section id="understanding-the-fisher-distribution" class="slide level2 center">
-<h2>Understanding the fisher distribution</h2>
-
-<img data-src="figs/fisher-test.png" width="400" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
-
-
-<img data-src="figs/fisher.png" width="400" class="r-stretch quarto-figure-center"></section>
-<section id="anova-assumptions" class="slide level2 center">
-<h2>ANOVA assumptions</h2>
+<img data-src="figs/fisher-test.png" width="400" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/fisher.png" width="400" class="r-stretch quarto-figure-center"></section><section id="anova-assumptions" class="slide level2 center"><h2>ANOVA assumptions</h2>
 <ol type="1">
 <li>Samples are independent (randomly sampled)</li>
 <li>Variance is homogenous/constant</li>
 <li>Residuals are normally distributed</li>
-</ol>
-</section>
-<section id="lets-try-with-an-example" class="slide level2 center">
-<h2>Let’s try with an example</h2>
-</section>
-<section class="slide level2 center">
+</ol></section><section id="lets-try-with-an-example" class="slide level2 center"><h2>Let’s try with an example</h2>
+</section><section class="slide level2 center">
+<img data-src="07-anova_files/figure-revealjs/simple-barplots-01-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section id="section-4" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
 
+<img data-src="07-anova_files/figure-revealjs/simple-frequencies-01-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section id="section-5" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
 
-<img data-src="07-anova_files/figure-revealjs/simple-barplots-01-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
-<section id="section-4" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-
-<img data-src="07-anova_files/figure-revealjs/simple-frequencies-01-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
-<section id="section-5" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-
-<img data-src="07-anova_files/figure-revealjs/simple-frequencies-02-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
-<section id="applying-anova-with-different-approaches" class="slide level2 center">
-<h2>Applying ANOVA with different approaches</h2>
-</section>
-<section class="slide level2 center">
-
-<h3 id="combining-of-lm-and-anova-functions">1. Combining of <code>lm()</code> and <code>anova()</code> functions:</h3>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>species_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(body_mass_g <span class="sc">~</span> species, <span class="at">data =</span> penguins)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(species_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="07-anova_files/figure-revealjs/simple-frequencies-02-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section id="applying-anova-with-different-approaches" class="slide level2 center"><h2>Applying ANOVA with different approaches</h2>
+</section><section class="slide level2 center"><h3 id="using-aov-function">1. Using <code>aov()</code> function:</h3>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/anova-01_aac593b671827a1a9e1a230fa999b456">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anovamodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">males</span>, <span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span></span>
+<span><span class="va">anovamodel</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
-<div class="cell-output-display">
+<div class="cell fragment" data-layout-align="center" data-hash="07-anova_cache/revealjs/anova-01_aac593b671827a1a9e1a230fa999b456">
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = body_mass_g ~ species, data = males)
 
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sum Sq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mean Sq"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["F value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"146864214","3":"73432107.1","4":"343.6263","5":"2.892368e-82","_rn_":"species"},{"1":"339","2":"72443483","3":"213697.6","4":"NA","5":"NA","_rn_":"Residuals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+Terms:
+                 species Residuals
+Sum of Squares  84728125  18871872
+Deg. of Freedom        2       165
+
+Residual standard error: 338.1937
+Estimated effects may be unbalanced</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section class="slide level2 center">
+</section><section class="slide level2 center"><p>The Tukey-Krammer test to make pairwise comparisons:</p>
+<div class="cell" data-hash="07-anova_cache/revealjs/unnamed-chunk-6_46beedef0cf6a170bacd4a7f33bafd2a">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
 
-<h3 id="using-the-statsexpression-package">2. Using the <code>statsExpression</code> package:</h3>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>anovatable <span class="ot">&lt;-</span> <span class="fu">oneway_anova</span>(<span class="at">data =</span> penguins, <span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>anovatable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+Fit: aov(formula = body_mass_g ~ species, data = males)
+
+$species
+                      diff       lwr        upr     p adj
+Chinstrap-Adelie -104.5226 -270.5952   61.55003 0.2990486
+Gentoo-Adelie    1441.3429 1302.5929 1580.09292 0.0000000
+Gentoo-Chinstrap 1545.8655 1374.6810 1717.04996 0.0000000</code></pre>
 </div>
-<div class="cell fragment" data-layout-align="center">
+</div>
+</section><section class="slide level2 center"><h3 id="using-the-statsexpression-package">2. Using the <code>statsExpression</code> package:</h3>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/anova-02_3cf86a06878fcb417ab1a604e0800ba5">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anovatbl</span> <span class="op">&lt;-</span> <span class="fu">oneway_anova</span><span class="op">(</span>data <span class="op">=</span> <span class="va">penguins</span>, x <span class="op">=</span> <span class="va">species</span>, y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span></span>
+<span><span class="va">anovatbl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="07-anova_cache/revealjs/anova-02_3cf86a06878fcb417ab1a604e0800ba5">
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -529,102 +503,168 @@ Angie T.
 </div>
 </div>
 </div>
-</section>
-<section id="adding-stats-to-the-plots" class="slide level2 center">
-<h2>Adding stats to the plots!</h2>
-</section>
-<section class="slide level2 center">
+</section><section id="adding-stats-to-the-plots" class="slide level2 center"><h2>Adding stats to the plots!</h2>
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="07-anova_cache/revealjs/barplot-expressions_bc575e7e8c1226cffb82113f9473cebf">
+<div class="column">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">males</span>, </span>
+<span>  <span class="fu">aes</span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">species</span>, </span>
+<span>    y <span class="op">=</span> <span class="va">body_mass_g</span>, </span>
+<span>    fill <span class="op">=</span> <span class="va">species</span></span>
+<span>    <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    y <span class="op">=</span> <span class="st">"Body mass (g)"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="va">anovatbl</span><span class="op">$</span><span class="va">expression</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/barplot-expressions-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="but-why-there-are-not-comparisons" class="slide level2 center"><h2>But why there are not comparisons?</h2>
+</section><section id="adding-pairwise-comparisons" class="slide level2 center"><h2>Adding pairwise comparisons</h2>
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="07-anova_cache/revealjs/barplot-signif_1776a11beb7b81bda95b757042791913">
+<div class="column">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">males</span>, </span>
+<span>  <span class="fu">aes</span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">species</span>, </span>
+<span>    y <span class="op">=</span> <span class="va">body_mass_g</span>, </span>
+<span>    fill <span class="op">=</span> <span class="va">species</span></span>
+<span>    <span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    y <span class="op">=</span> <span class="st">"Body mass (g)"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="va">anovatbl</span><span class="op">$</span><span class="va">expression</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_signif</span><span class="op">(</span></span>
+<span>    comparisons <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gentoo"</span>, <span class="st">"Chinstrap"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Adelie"</span>, <span class="st">"Gentoo"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    step_increase <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>    map_signif_level <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/barplot-signif-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="testing-the-anova-assumptions-with-performance" class="slide level2 center"><h2>Testing the ANOVA assumptions with <code>performance</code>
+</h2>
+</section><section class="slide level2 center"><ol type="1">
+<li>Sample and residuals independence:</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/independence0_256b1dbff8939461e2bcf6b04d62f773">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_autocorrelation</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: Residuals appear to be independent and not autocorrelated (p = 0.110).</code></pre>
+</div>
+</div>
+</section><section class="slide level2 center"><ol start="2" type="1">
+<li>Normality of the residuals:</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/normality0_d967b0ca7780529153c571edbf0ce1fd">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_normality</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: residuals appear as normally distributed (p = 0.484).</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_normality</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_normality</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-hash="07-anova_cache/revealjs/normality_5f014f0b90aff5a1dc7b3c882141a70b">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/normality-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/normality-2.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2 center"><ol start="3" type="1">
+<li>Homogeneity of the variance:</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/heteroskedasticity0_a0fa5e915eccde2eb779c8821c8b04a3">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: Error variance appears to be homoscedastic (p = 0.322).</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_homogeneity</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-hash="07-anova_cache/revealjs/heteroskedasticity_4e0c1e90bdea61e7f69565ae806a945d">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/heteroskedasticity-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="07-anova_files/figure-revealjs/heteroskedasticity-2.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2 center"><p>Checking influential observations (outliers)</p>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/outliers0_1fb941444ede648511599dfbdf3b1587">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_outliers</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: No outliers detected.
+- Based on the following method and threshold: cook (0.5).
+- For variable: (Whole model)</code></pre>
+</div>
+</div>
+</section><section id="what-if-normality-and-homogeneity-of-variance-are-not-met-then" class="slide level2 center"><h2>What if normality and homogeneity of variance are not met then?</h2>
+</section><section class="slide level2 center"><p>The Kruskal-Wallis test is a non-parametric alternative to the ANOVA test.</p>
+<div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/Kruskal-Wallis_69efa5ea95873ad8d6c6a7d3d39ce64b">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/kruskal.test.html">kruskal.test</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">males</span>, <span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
 
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> species, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> body_mass_g, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> species</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> anovatable<span class="sc">$</span>expression[[<span class="dv">1</span>]]</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column fragment">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="07-anova_files/figure-revealjs/barplot-expressions-1.png" width="2100"></p>
-</figure>
+data:  body_mass_g by species
+Kruskal-Wallis chi-squared = 116.5, df = 2, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
-</div>
-</div>
-</section>
-<section id="but-why-there-are-not-comparisons" class="slide level2 center">
-<h2>But why there are not comparisons?</h2>
-</section>
-<section id="adding-pairwise-comparisons" class="slide level2 center">
-<h2>Adding pairwise comparisons</h2>
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> species, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> body_mass_g, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> species</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> anovatable<span class="sc">$</span>expression[[<span class="dv">1</span>]]</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_signif</span>(</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">comparisons =</span> <span class="fu">list</span>(</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Gentoo"</span>, <span class="st">"Chinstrap"</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Gentoo"</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">step_increase =</span> <span class="fl">0.2</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">map_signif_level =</span> <span class="cn">TRUE</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column fragment">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="07-anova_files/figure-revealjs/barplot-signif-1.png" width="2100"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="testing-the-anova-assumptions-with-performance" class="title-slide slide level1 center">
-<h1>Testing the ANOVA assumptions with <code>performance</code></h1>
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
 </section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="07-anova_files/libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="07-anova_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="07-anova_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="07-anova_files/libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="07-anova_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="07-anova_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="07-anova_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="07-anova_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="07-anova_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="07-anova_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="07-anova_files/libs/revealjs/plugin/notes/notes.js"></script><script src="07-anova_files/libs/revealjs/plugin/search/search.js"></script><script src="07-anova_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="07-anova_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -815,9 +855,7 @@ Angie T.
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -852,9 +890,7 @@ Angie T.
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1151,6 +1187,6 @@ Angie T.
       }
     });
     </script>
-    
+
 
 </body></html>

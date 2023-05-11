@@ -10,4 +10,6 @@ This repo will include several slides used during Informatics and Inference at U
 
 5. [Parametric and Non-Parametric tests](https://camilogarciabotero.github.io/inference-slides/05-stats-tests/05-stats-tests.html#/title-slide)
 
-6. [Permutation and Bootstrap tests](https://camilogarciabotero.github.io/inference-slides/06-permutation-bootstrap/06-permutation-bootstrap.html#/title-slide)
+6. [Permutation tests and Bootstrap](https://camilogarciabotero.github.io/inference-slides/06-permutation-bootstrap/06-permutation-bootstrap.html#/title-slide)
+
+7. [ANOVA](https://camilogarciabotero.github.io/inference-slides/07-anova/07-anova.html#/title-slide)

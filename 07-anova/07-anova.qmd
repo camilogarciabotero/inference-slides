@@ -1,6 +1,6 @@
 ---
 title: ANOVA
-subtitle: "https://bit.ly/424cydp"
+subtitle: "https://bit.ly/41mzUK9"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
@@ -24,8 +24,8 @@ format:
     highlight-style: ayu
     df-print: paged
     scrollable: true
-    fig-height: 6
-    fig-width: 6
+    fig-height: 5
+    fig-width: 5
     fig-dpi: 350
     theme: ../theme.scss
     bibliography: ../references.bib
@@ -117,6 +117,7 @@ When comparing a continuous variable across two or more groups. The question it 
 #| echo: false
 #| eval: true
 #| output-location: fragment
+
 ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2, alpha = 0.7) +
@@ -134,7 +135,10 @@ ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
 #| eval: true
 #| output-location: fragment
 
-ggplot(penguins) +
+males  <- penguins |> 
+  filter(sex == "male")
+
+ggplot(males) +
   geom_density(aes(x = body_mass_g, fill = species), alpha = .6)
 ```
 
@@ -148,7 +152,7 @@ ggplot(penguins) +
 #| eval: true
 #| output-location: fragment
 
-ggplot(penguins) +
+ggplot(males) +
   geom_density(aes(x = body_mass_g, fill = species), alpha = .6) +
   geom_density(aes(x = body_mass_g), fill = "gray", alpha = 0.7)
 ```
@@ -166,8 +170,15 @@ ggplot(penguins) +
 #| echo: true
 #| eval: true
 #| output-location: fragment
-anovamodel <- aov(data = penguins, body_mass_g ~ species)
+anovamodel <- aov(data = males, body_mass_g ~ species)
 anovamodel
+```
+
+***
+
+The Tukey-Krammer test to make pairwise comparisons:
+```{r}
+TukeyHSD(anovamodel)
 ```
 
 ***
@@ -196,7 +207,7 @@ anovatbl
 #| eval: true
 #| output-location: column-fragment
 
-ggplot(penguins, 
+ggplot(males, 
   aes(
     x = species, 
     y = body_mass_g, 
@@ -222,7 +233,7 @@ ggplot(penguins,
 #| eval: true
 #| output-location: column-fragment
 
-ggplot(penguins, 
+ggplot(males, 
   aes(
     x = species, 
     y = body_mass_g, 
@@ -245,39 +256,90 @@ ggplot(penguins,
   )
 ```
 
-
-## Testing ANOVA assumptions
-
-1. Sample independence -> Kruskal-Wallis:
-
-```{r}
-
-TukeyHSD(anovamodel)
-```
-
 ## Testing the ANOVA assumptions with `performance`
 
-Normality
+***
+
+1. Sample and residuals independence: 
+
 ```{r}
-library(performance)
-
-
-
-plot(check_normality(anovamodel))
+#| label: independence0
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_autocorrelation(anovamodel)
 ```
 
 ***
 
-```{r}
-library(performance)
+2. Normality of the residuals:
 
+```{r}
+#| label: normality0
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_normality(anovamodel)
+```
+
+. . . 
+
+```{r}
+#| label: normality
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| layout-ncol: 2
+plot(check_normality(anovamodel))
+plot(check_normality(anovamodel), type = "qq")
+```
+
+***
+
+3. Homogeneity of the variance: 
+
+```{r}
+#| label: heteroskedasticity0
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_heteroskedasticity(anovamodel)
+```
+
+. . .
+
+```{r}
+#| label: heteroskedasticity
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| layout-ncol: 2
+plot(check_heteroskedasticity(anovamodel))
 plot(check_homogeneity(anovamodel))
 ```
 
 ***
 
-```{r}
-library(performance)
+Checking influential observations (outliers)
 
-plot(check_heteroskedasticity(anovamodel))
+```{r}
+#| label: outliers0
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_outliers(anovamodel)
+```
+
+## What if normality and homogeneity of variance are not met then?
+
+***
+
+The Kruskal-Wallis test is a non-parametric alternative to the ANOVA test.
+
+```{r}
+#| label: Kruskal-Wallis
+#| fig-align: center
+#| echo: true
+#| eval: true
+kruskal.test(data = males, body_mass_g ~ species)
 ```
