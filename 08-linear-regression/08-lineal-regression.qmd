@@ -1,0 +1,212 @@
+---
+title: Correlation & Lineal regression
+subtitle: "https://bit.ly/41mzUK9"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+  - name: Alejandro C.
+    email: a.castellanoss@uniandes.edu.co
+  - name: Angie T.
+    email: am.tovar11@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - IeI - Universidad de los Andes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 5
+    fig-width: 5
+    fig-dpi: 350
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+```{r}
+#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+library(latex2exp)
+library(performance)
+library(statsExpressions)
+library(ggsignif)
+
+simple_theme <- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "bottom",
+        axis.title = element_text(size = 14)
+    )
+
+theme_set(simple_theme)
+```
+
+# Correlation
+
+***
+
+Correlation is a measurement of the extent of which two variables relate to each other. Its coefficient tells the direction and strength of this relationship.
+
+***
+
+![](figs/culmen_depth.png)
+
+***
+
+```{r}
+#| label: correlation
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| code-fold: true
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions (omit species)",
+        x = "Bill length (mm)",
+        y = "Bill depth (mm)"
+    ) +
+    geom_smooth(method = "lm", se = FALSE, color = "gray50")
+```
+
+***
+
+### How much are those variables correlated?
+
+***
+
+## The *Pearson* correlation coefficient
+
+The *Pearson* correlation coefficient stablish the degree of correlation between two random variables:
+
+$$
+\rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_{X}\sigma_{Y}}
+$$
+
+***
+
+In R:
+
+```{r}
+#| label: pearson
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+cor.test(penguins$bill_length_mm, penguins$bill_depth_mm, method = "pearson")
+```
+
+***
+
+The *Pearson* Correlation assumptions:
+
+- $X$ and $Y$ display a linear tendency. 
+- $X$ and $Y$ display a normal distribution.
+
+
+## The *Spearman* correlation coefficient
+
+$$
+\rho_{X,Y} = \frac{Cov(R(X),R(Y))}{\sigma_{R(X)}\sigma_{R(Y)}}
+$$
+
+The $R$ in the equation is a ranking of the the two random variables.
+
+***
+
+In R:
+
+```{r}
+#| label: spearman
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+cor.test(penguins$bill_length_mm, penguins$bill_depth_mm, method = "spearman")
+```
+
+# Linear regression
+
+***
+
+Before dive into the *linear regression* model creation and the hypothesis testing. Let's talk about two important principles for sampling in the experimental design you are performing.
+
+***
+
+### 1. Capture full ranges of response
+
+::: columns
+
+::: {.column width="50%"}
+![](figs/uniform-01.png)
+:::
+
+::: {.column width="50%"}
+![](figs/uniform-02.png)
+:::
+
+:::
+
+***
+
+### 2. Sample range uniformly
+
+::: columns
+
+::: {.column width="50%"}
+![](figs/responses-01.png)
+:::
+
+::: {.column width="50%"}
+![](figs/responses-02.png)
+:::
+
+:::
+
+## Linear regression model
+
+***
+
+The linear regression model is a statistical model that allows us to predict the value of a dependent variable $Y$ based on the value of an independent variable $X$.
+
+***
+
+![](figs/lm-model.png){fig-align="center"}
+
+
+***
+
+![](figs/null-hypothesis.png){fig-align="center"}
+
+***
+
+![](figs/alternative-hypothesis.png){fig-align="center"}
+
+
+## Applying the linear regression model
+
+***
+
+![](figs/regression-01.png){fig-align="center"}
+
+*** 
+
+![](figs/regression-02.png){fig-align="center"}
+
+***
+
+![](figs/regression-03.png){fig-align="center"}
+
+
