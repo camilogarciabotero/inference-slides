@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="08-lineal-regression_files/libs/clipboard/clipboard.min.js"></script>
-<script src="08-lineal-regression_files/libs/quarto-html/tabby.min.js"></script>
-<script src="08-lineal-regression_files/libs/quarto-html/popper.min.js"></script>
-<script src="08-lineal-regression_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="08-lineal-regression_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="08-lineal-regression_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="08-lineal-regression_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="08-lineal-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="08-linear-regression_files/libs/clipboard/clipboard.min.js"></script>
+<script src="08-linear-regression_files/libs/quarto-html/tabby.min.js"></script>
+<script src="08-linear-regression_files/libs/quarto-html/popper.min.js"></script>
+<script src="08-linear-regression_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="08-linear-regression_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="08-linear-regression_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="08-linear-regression_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="08-linear-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
 <title>Correlation &amp; Lineal regression</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reveal.css">
+<link rel="stylesheet" href="08-linear-regression_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="08-linear-regression_files/libs/revealjs/dist/reveal.css">
 <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -94,11 +94,11 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/theme/quarto.css">
-<link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<link rel="stylesheet" href="08-linear-regression_files/libs/revealjs/dist/theme/quarto.css">
+<link href="08-linear-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="08-linear-regression_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
 <style type="text/css">
 
   .callout {
@@ -384,8 +384,8 @@
       margin-right: 0; 
     }
   </style>
-<link href="08-lineal-regression_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="08-lineal-regression_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="08-linear-regression_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="08-linear-regression_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -425,7 +425,7 @@ Angie T.
 
 </section><section class="slide level2 center"><p>Correlation is a measurement of the extent of which two variables relate to each other. Its coefficient tells the direction and strength of this relationship.</p>
 </section><section class="slide level2 center">
-<img data-src="figs/culmen_depth.png" class="r-stretch"></section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/correlation_33f1db9e8f53ebdef8cb9eb2c74baabf">
+<img data-src="figs/culmen_depth.png" class="r-stretch"></section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/correlation_58095d7530f10e9047a56ad374fb4e46">
 <details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bill_length_mm</span>, y <span class="op">=</span> <span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">labs</span><span class="op">(</span></span>
@@ -436,17 +436,17 @@ Angie T.
 <span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<img data-src="08-lineal-regression_files/figure-revealjs/correlation-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><h3 id="how-much-are-those-variables-correlated">How much are those variables correlated?</h3>
+<img data-src="08-linear-regression_files/figure-revealjs/correlation-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><h3 id="how-much-are-those-variables-correlated">How much are those variables correlated?</h3>
 </section><section id="the-pearson-correlation-coefficient" class="slide level2 center"><h2>The <em>Pearson</em> correlation coefficient</h2>
 <p>The <em>Pearson</em> correlation coefficient stablish the degree of correlation between two random variables:</p>
 <p><span class="math display">\[
 \rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_{X}\sigma_{Y}}
 \]</span></p>
 </section><section class="slide level2 center"><p>In R:</p>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/pearson_74a3ba9b33c35110dff2f8602174059f">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/pearson_214ee55e81b4504fa52d4eb1055dc84f">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/pearson_74a3ba9b33c35110dff2f8602174059f">
+<div class="cell fragment" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/pearson_214ee55e81b4504fa52d4eb1055dc84f">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -473,10 +473,10 @@ sample estimates:
 \]</span></p>
 <p>The <span class="math inline">\(R\)</span> in the equation is a ranking of the the two random variables.</p>
 </section><section class="slide level2 center"><p>In R:</p>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/spearman_6705e836cbb4e2f308af83e8fd967d0c">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/spearman_caba30d125c429563737e08b85e9ed95">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/spearman_6705e836cbb4e2f308af83e8fd967d0c">
+<div class="cell fragment" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/spearman_caba30d125c429563737e08b85e9ed95">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -537,7 +537,7 @@ F_{(df,n)} = \frac{SS_{reg}}{\frac{RSS}{(n − 2)}}
 X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
 \]</span></p>
 </section><section id="lets-do-it-in-r" class="slide level2 center"><h2>Let’s do it in R</h2>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-01_b8a2265922a3645652e46535f1b29c2c">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-01_afd0a52b61b8872a4575b68d0525f975">
 <div class="column">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
 <span>  <span class="fu">aes</span><span class="op">(</span></span>
@@ -555,20 +555,20 @@ X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
 <div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="08-lineal-regression_files/figure-revealjs/lm-01-1.png" width="2450"></p>
+<figure><p><img data-src="08-linear-regression_files/figure-revealjs/lm-01-1.png" width="2450"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section><section class="slide level2 center"><p>Let’s investigate the model:</p>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-02_9faf6448f5c91397460f521e4e51a80b">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-02_4e80f1dd2ec5dec969d588a773b3eb58">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">flipper_length_mm</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-02_9faf6448f5c91397460f521e4e51a80b">
+<div class="cell fragment" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-02_4e80f1dd2ec5dec969d588a773b3eb58">
 
 </div>
-<div class="cell" data-hash="08-lineal-regression_cache/revealjs/unnamed-chunk-7_58f5b42e51e608b5df24538cb11c313b">
+<div class="cell" data-hash="08-linear-regression_cache/revealjs/unnamed-chunk-7_8eee61043f3fd0c41f09eadd8153da46">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -580,10 +580,10 @@ Coefficients:
 </div>
 </div>
 </section><section class="slide level2 center"><p>We can use the package <code>report</code> to get a nice summary of the model:</p>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-03_2fcb81e3c9593212e40a98ef0e1931f6">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-03_8b17b6150742b32eebb7be54ace446db">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-03_2fcb81e3c9593212e40a98ef0e1931f6">
+<div class="cell fragment" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-03_8b17b6150742b32eebb7be54ace446db">
 <div class="cell-output cell-output-stdout">
 <pre><code>We fitted a linear model (estimated using OLS) to predict body_mass_g with
 flipper_length_mm (formula: body_mass_g ~ flipper_length_mm). The model
@@ -602,7 +602,7 @@ computed using a Wald t-distribution approximation.</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><p>We can also include the complete model in the plot with the <code>ggpmisc</code>:</p>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-04_c8a32d5ddcdea95d189ca1e0d30fd874">
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/lm-04_aa5e65a01b74629b39827c0f5589f050">
 <div class="column">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
 <span>  <span class="fu">aes</span><span class="op">(</span></span>
@@ -623,7 +623,7 @@ computed using a Wald t-distribution approximation.</code></pre>
 <div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="08-lineal-regression_files/figure-revealjs/lm-04-1.png" width="2450"></p>
+<figure><p><img data-src="08-linear-regression_files/figure-revealjs/lm-04-1.png" width="2450"></p>
 </figure>
 </div>
 </div>
@@ -633,14 +633,14 @@ computed using a Wald t-distribution approximation.</code></pre>
 </section><section class="slide level2 center"><ol type="1">
 <li>Linearity: function behaves linearly outside the range of the data.</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/linearity_e8efc9ab1cdc4d1b76be08776fe79953">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/linearity_e5ba8286739ef81f153c3c601b911df4">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">model</span>, check <span class="op">=</span> <span class="st">"linearity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-lineal-regression_files/figure-revealjs/linearity-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="2" type="1">
+<img data-src="08-linear-regression_files/figure-revealjs/linearity-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="2" type="1">
 <li>Normality: residuals are normally distributed.</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/normality_960cc482d679592fd986d4e0a4da5309">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/normality_f6104d9d6ad781ab0ba5c1630c53a507">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: residuals appear as normally distributed (p = 0.109).</code></pre>
@@ -648,10 +648,10 @@ computed using a Wald t-distribution approximation.</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_normality</span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-lineal-regression_files/figure-revealjs/normality-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="3" type="1">
+<img data-src="08-linear-regression_files/figure-revealjs/normality-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="3" type="1">
 <li>Variance homogeneity: residuals have constant variance.</li>
 </ol>
-<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/heteroskedasticity_a6f7e5ad955ef7112fb63641e4a89dc2">
+<div class="cell" data-layout-align="center" data-hash="08-linear-regression_cache/revealjs/heteroskedasticity_d6c982fd92dfcc1821f84ac2e0452c4b">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>OK: Error variance appears to be homoscedastic (p = 0.140).</code></pre>
@@ -659,7 +659,7 @@ computed using a Wald t-distribution approximation.</code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-lineal-regression_files/figure-revealjs/heteroskedasticity-1.png" width="1750" class="r-stretch quarto-figure-center"><div class="footer footer-default">
+<img data-src="08-linear-regression_files/figure-revealjs/heteroskedasticity-1.png" width="1750" class="r-stretch quarto-figure-center"><div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
 <pre class="{r}"><code><a href="https://tidyverse.tidyverse.org">#| label: theme-set
@@ -862,7 +862,7 @@ plot(check_heteroskedasticity(model))</code></pre>
 </div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="08-lineal-regression_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/notes/notes.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/search/search.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="08-linear-regression_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="08-linear-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/notes/notes.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/search/search.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="08-linear-regression_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
