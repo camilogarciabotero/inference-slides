@@ -13,3 +13,5 @@ This repo will include several slides used during Informatics and Inference at U
 6. [Permutation tests and Bootstrap](https://camilogarciabotero.github.io/inference-slides/06-permutation-bootstrap/06-permutation-bootstrap.html#/title-slide)
 
 7. [ANOVA](https://camilogarciabotero.github.io/inference-slides/07-anova/07-anova.html#/title-slide)
+
+8. [Linear regression](https://camilogarciabotero.github.io/inference-slides/08-linear-regression/08-linear-regression.html#/title-slide)
