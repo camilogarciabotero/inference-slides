@@ -7,19 +7,16 @@
 <link href="08-lineal-regression_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="08-lineal-regression_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="08-lineal-regression_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="08-lineal-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.73">
-
-  <meta name="author" content="Camilo G.">
-  <meta name="author" content="Alejandro C.">
-  <meta name="author" content="Angie T.">
-  <title>Correlation &amp; Lineal regression</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reveal.css">
-  <style>
+<link href="08-lineal-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+<title>Correlation &amp; Lineal regression</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +94,12 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="08-lineal-regression_files/libs/revealjs/dist/theme/quarto.css">
+<link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -299,7 +296,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -387,15 +384,14 @@
       margin-right: 0; 
     }
   </style>
-  <link href="08-lineal-regression_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-  <script src="08-lineal-regression_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="08-lineal-regression_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="08-lineal-regression_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Correlation &amp; Lineal regression</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Correlation &amp; Lineal regression</h1>
   <p class="subtitle">https://bit.ly/41mzUK9</p>
 
 <div class="quarto-title-authors">
@@ -425,55 +421,32 @@ Angie T.
 </div>
 </div>
 
-</section>
-<section>
-<section id="correlation" class="title-slide slide level1 center">
-<h1>Correlation</h1>
+</section><section><section id="correlation" class="title-slide slide level1 center"><h1>Correlation</h1>
 
-</section>
-<section class="slide level2 center">
-
-<p>Correlation is a measurement of the extent of which two variables relate to each other. Its coefficient tells the direction and strength of this relationship.</p>
-</section>
-<section class="slide level2 center">
-
-
-<img data-src="figs/culmen_depth.png" class="r-stretch"></section>
-<section class="slide level2 center">
-
-<div class="cell" data-layout-align="center">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"gray50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section class="slide level2 center"><p>Correlation is a measurement of the extent of which two variables relate to each other. Its coefficient tells the direction and strength of this relationship.</p>
+</section><section class="slide level2 center">
+<img data-src="figs/culmen_depth.png" class="r-stretch"></section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/correlation_33f1db9e8f53ebdef8cb9eb2c74baabf">
+<details><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bill_length_mm</span>, y <span class="op">=</span> <span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span></span>
+<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,</span>
+<span>        x <span class="op">=</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"Bill depth (mm)"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-
 </div>
-<img data-src="08-lineal-regression_files/figure-revealjs/correlation-1.png" width="1750" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
-
-<h3 id="how-much-are-those-variables-correlated">How much are those variables correlated?</h3>
-</section>
-<section id="the-pearson-correlation-coefficient" class="slide level2 center">
-<h2>The <em>Pearson</em> correlation coefficient</h2>
+<img data-src="08-lineal-regression_files/figure-revealjs/correlation-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><h3 id="how-much-are-those-variables-correlated">How much are those variables correlated?</h3>
+</section><section id="the-pearson-correlation-coefficient" class="slide level2 center"><h2>The <em>Pearson</em> correlation coefficient</h2>
 <p>The <em>Pearson</em> correlation coefficient stablish the degree of correlation between two random variables:</p>
 <p><span class="math display">\[
 \rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_{X}\sigma_{Y}}
 \]</span></p>
-</section>
-<section class="slide level2 center">
-
-<p>In R:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(penguins<span class="sc">$</span>bill_length_mm, penguins<span class="sc">$</span>bill_depth_mm, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section class="slide level2 center"><p>In R:</p>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/pearson_74a3ba9b33c35110dff2f8602174059f">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
+<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/pearson_74a3ba9b33c35110dff2f8602174059f">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -488,29 +461,22 @@ sample estimates:
 -0.2350529 </code></pre>
 </div>
 </div>
-</section>
-<section class="slide level2 center">
-
-<p>The <em>Pearson</em> Correlation assumptions:</p>
+</section><section class="slide level2 center"><p>The <em>Pearson</em> Correlation assumptions:</p>
 <ul>
-<li><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a linear tendency.</li>
-<li><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a normal distribution.</li>
-</ul>
-</section>
-<section id="the-spearman-correlation-coefficient" class="slide level2 center">
-<h2>The <em>Spearman</em> correlation coefficient</h2>
+<li>
+<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a linear tendency.</li>
+<li>
+<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a normal distribution.</li>
+</ul></section><section id="the-spearman-correlation-coefficient" class="slide level2 center"><h2>The <em>Spearman</em> correlation coefficient</h2>
 <p><span class="math display">\[
 \rho_{X,Y} = \frac{Cov(R(X),R(Y))}{\sigma_{R(X)}\sigma_{R(Y)}}
 \]</span></p>
 <p>The <span class="math inline">\(R\)</span> in the equation is a ranking of the the two random variables.</p>
-</section>
-<section class="slide level2 center">
-
-<p>In R:</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(penguins<span class="sc">$</span>bill_length_mm, penguins<span class="sc">$</span>bill_depth_mm, <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section class="slide level2 center"><p>In R:</p>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/spearman_6705e836cbb4e2f308af83e8fd967d0c">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">$</span><span class="va">bill_length_mm</span>, <span class="va">penguins</span><span class="op">$</span><span class="va">bill_depth_mm</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
+<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/spearman_6705e836cbb4e2f308af83e8fd967d0c">
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Spearman's rank correlation rho
@@ -523,19 +489,10 @@ sample estimates:
 -0.2217492 </code></pre>
 </div>
 </div>
-</section></section>
-<section>
-<section id="linear-regression" class="title-slide slide level1 center">
-<h1>Linear regression</h1>
+</section></section><section><section id="linear-regression" class="title-slide slide level1 center"><h1>Linear regression</h1>
 
-</section>
-<section class="slide level2 center">
-
-<p>Before dive into the <em>linear regression</em> model creation and the hypothesis testing. Let’s talk about two important principles for sampling in the experimental design you are performing.</p>
-</section>
-<section class="slide level2 center">
-
-<h3 id="capture-full-ranges-of-response">1. Capture full ranges of response</h3>
+</section><section class="slide level2 center"><p>Before dive into the <em>linear regression</em> model creation and the hypothesis testing. Let’s talk about two important principles for sampling in the experimental design you are performing.</p>
+</section><section class="slide level2 center"><h3 id="capture-full-ranges-of-response">1. Capture full ranges of response</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="figs/uniform-01.png"></p>
@@ -543,10 +500,7 @@ sample estimates:
 <p><img data-src="figs/uniform-02.png"></p>
 </div>
 </div>
-</section>
-<section class="slide level2 center">
-
-<h3 id="sample-range-uniformly">2. Sample range uniformly</h3>
+</section><section class="slide level2 center"><h3 id="sample-range-uniformly">2. Sample range uniformly</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="figs/responses-01.png"></p>
@@ -554,64 +508,361 @@ sample estimates:
 <p><img data-src="figs/responses-02.png"></p>
 </div>
 </div>
-</section>
-<section id="linear-regression-model" class="slide level2 center">
-<h2>Linear regression model</h2>
-</section>
-<section class="slide level2 center">
+</section><section id="linear-regression-model" class="slide level2 center"><h2>Linear regression model</h2>
+</section><section class="slide level2 center"><p>The linear regression model is a statistical model that allows us to predict the value of a dependent variable <span class="math inline">\(Y\)</span> based on the value of an independent variable <span class="math inline">\(X\)</span>.</p>
+</section><section class="slide level2 center">
+<img data-src="figs/lm-model.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/null-hypothesis.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/alternative-hypothesis.png" class="r-stretch quarto-figure-center"></section><section id="applying-the-linear-regression-model" class="slide level2 center"><h2>Applying the linear regression model</h2>
+</section><section class="slide level2 center">
+<img data-src="figs/regression-01.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/regression-02.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/regression-03.png" class="r-stretch quarto-figure-center"></section><section id="finding-the-best-fit" class="slide level2 center"><h2>Finding the best fit</h2>
+</section><section class="slide level2 center">
+<img data-src="figs/determination-coeff.png" width="70" class="r-stretch quarto-figure-center"></section><section id="testing-the-hypothesis-in-linear-regression" class="slide level2 center"><h2>Testing the hypothesis in linear regression</h2>
+</section><section class="slide level2 center"><p>How do we test if the <strong>SSreg</strong> (<span class="math inline">\(𝐻_{𝐴}\)</span>) explain the data trend?</p>
+<div class="fragment">
+<p>or, in other words…</p>
+</div>
+<div class="fragment">
+<p>How do we test if the <span class="math inline">\(𝐻_{0}\)</span> do not explain the data trend?</p>
+</div>
+</section><section id="specifying-the-statistical-test" class="slide level2 center"><h2>1. Specifying the statistical test</h2>
+</section><section class="slide level2 center"><p><span class="math display">\[
+F_{(df,n)} = \frac{SS_{reg}}{\frac{RSS}{(n − 2)}}
+\]</span></p>
+</section><section class="slide level2 center">
+<img data-src="figs/fisher.png" class="r-stretch quarto-figure-center"></section><section id="calculating-the-tail-probability-in-t-distribution" class="slide level2 center"><h2>2. Calculating the tail probability in T-distribution</h2>
+</section><section class="slide level2 center"><p><span class="math display">\[
+X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
+\]</span></p>
+</section><section id="lets-do-it-in-r" class="slide level2 center"><h2>Let’s do it in R</h2>
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-01_b8a2265922a3645652e46535f1b29c2c">
+<div class="column">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
+<span>  <span class="fu">aes</span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="va">flipper_length_mm</span>, </span>
+<span>      y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span></span>
+<span>      <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span></span>
+<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span>        x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="08-lineal-regression_files/figure-revealjs/lm-01-1.png" width="2450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2 center"><p>Let’s investigate the model:</p>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-02_9faf6448f5c91397460f521e4e51a80b">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">flipper_length_mm</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-02_9faf6448f5c91397460f521e4e51a80b">
 
-<p>The linear regression model is a statistical model that allows us to predict the value of a dependent variable <span class="math inline">\(Y\)</span> based on the value of an independent variable <span class="math inline">\(X\)</span>.</p>
-</section>
-<section class="slide level2 center">
+</div>
+<div class="cell" data-hash="08-lineal-regression_cache/revealjs/unnamed-chunk-7_58f5b42e51e608b5df24538cb11c313b">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = body_mass_g ~ flipper_length_mm, data = penguins)
 
+Coefficients:
+      (Intercept)  flipper_length_mm  
+         -5780.83              49.69  </code></pre>
+</div>
+</div>
+</section><section class="slide level2 center"><p>We can use the package <code>report</code> to get a nice summary of the model:</p>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-03_2fcb81e3c9593212e40a98ef0e1931f6">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-03_2fcb81e3c9593212e40a98ef0e1931f6">
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a linear model (estimated using OLS) to predict body_mass_g with
+flipper_length_mm (formula: body_mass_g ~ flipper_length_mm). The model
+explains a statistically significant and substantial proportion of variance (R2
+= 0.76, F(1, 340) = 1070.74, p &lt; .001, adj. R2 = 0.76). The model's intercept,
+corresponding to flipper_length_mm = 0, is at -5780.83 (95% CI [-6382.36,
+-5179.30], t(340) = -18.90, p &lt; .001). Within this model:
 
-<img data-src="figs/lm-model.png" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
+  - The effect of flipper length mm is statistically significant and positive
+(beta = 49.69, 95% CI [46.70, 52.67], t(340) = 32.72, p &lt; .001; Std. beta =
+0.87, 95% CI [0.82, 0.92])
 
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+</section><section class="slide level2 center"><p>We can also include the complete model in the plot with the <code>ggpmisc</code>:</p>
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/lm-04_c8a32d5ddcdea95d189ca1e0d30fd874">
+<div class="column">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
+<span>  <span class="fu">aes</span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="va">flipper_length_mm</span>, </span>
+<span>      y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span></span>
+<span>      <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span></span>
+<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span>        x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
+<span>        y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">stat_poly_eq</span><span class="op">(</span><span class="fu">use_label</span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eq"</span>, <span class="st">"R2"</span>, <span class="st">"F"</span>, <span class="st">"p.value"</span><span class="op">)</span>,</span>
+<span>    <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="08-lineal-regression_files/figure-revealjs/lm-04-1.png" width="2450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="testing-the-regression-assumtions" class="slide level2 center"><h2>Testing the regression assumtions</h2>
+</section><section class="slide level2 center"><ol type="1">
+<li>Linearity: function behaves linearly outside the range of the data.</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/linearity_e8efc9ab1cdc4d1b76be08776fe79953">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">model</span>, check <span class="op">=</span> <span class="st">"linearity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="figs/null-hypothesis.png" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
+</div>
+<img data-src="08-lineal-regression_files/figure-revealjs/linearity-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="2" type="1">
+<li>Normality: residuals are normally distributed.</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/normality_960cc482d679592fd986d4e0a4da5309">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: residuals appear as normally distributed (p = 0.109).</code></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_normality</span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
+</div>
+<img data-src="08-lineal-regression_files/figure-revealjs/normality-1.png" width="1750" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><ol start="3" type="1">
+<li>Variance homogeneity: residuals have constant variance.</li>
+</ol>
+<div class="cell" data-layout-align="center" data-hash="08-lineal-regression_cache/revealjs/heteroskedasticity_a6f7e5ad955ef7112fb63641e4a89dc2">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: Error variance appears to be homoscedastic (p = 0.140).</code></pre>
+</div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="figs/alternative-hypothesis.png" class="r-stretch quarto-figure-center"></section>
-<section id="applying-the-linear-regression-model" class="slide level2 center">
-<h2>Applying the linear regression model</h2>
-</section>
-<section class="slide level2 center">
-
-
-<img data-src="figs/regression-01.png" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
-
-
-<img data-src="figs/regression-02.png" class="r-stretch quarto-figure-center"></section>
-<section class="slide level2 center">
-
-
-<img data-src="figs/regression-03.png" class="r-stretch quarto-figure-center"><div class="footer footer-default">
+</div>
+<img data-src="08-lineal-regression_files/figure-revealjs/heteroskedasticity-1.png" width="1750" class="r-stretch quarto-figure-center"><div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
+<pre class="{r}"><code><a href="https://tidyverse.tidyverse.org">#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+library(latex2exp)
+library(performance)
+library(statsExpressions)
+library(ggsignif)
+library(ggpmisc)
+
+simple_theme &lt;- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "bottom",
+        axis.title = element_text(size = 14)
+    )
+
+theme_set(simple_theme)</a></code></pre>
+</section></section><section><section id="correlation-1" class="title-slide slide level1 center"><h1>Correlation</h1>
+
+</section><section class="slide level2 center"><p>Correlation is a measurement of the extent of which two variables relate to each other. Its coefficient tells the direction and strength of this relationship.</p>
+</section><section class="slide level2 center">
+<img data-src="figs/culmen_depth.png" class="r-stretch"></section><section class="slide level2 center"><pre class="{r}"><code>#| label: correlation
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| code-fold: true
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions (omit species)",
+        x = "Bill length (mm)",
+        y = "Bill depth (mm)"
+    ) +
+    geom_smooth(method = "lm", se = FALSE, color = "gray50")</code></pre>
+</section><section class="slide level2 center"><h3 id="how-much-are-those-variables-correlated-1">How much are those variables correlated?</h3>
+</section><section id="the-pearson-correlation-coefficient-1" class="slide level2 center"><h2>The <em>Pearson</em> correlation coefficient</h2>
+<p>The <em>Pearson</em> correlation coefficient stablish the degree of correlation between two random variables:</p>
+<p><span class="math display">\[
+\rho_{X,Y} = \frac{Cov(X,Y)}{\sigma_{X}\sigma_{Y}}
+\]</span></p>
+</section><section class="slide level2 center"><p>In R:</p>
+<pre class="{r}"><code>#| label: pearson
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+cor.test(penguins$bill_length_mm, penguins$bill_depth_mm, method = "pearson")</code></pre>
+</section><section class="slide level2 center"><p>The <em>Pearson</em> Correlation assumptions:</p>
+<ul>
+<li>
+<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a linear tendency.</li>
+<li>
+<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> display a normal distribution.</li>
+</ul></section><section id="the-spearman-correlation-coefficient-1" class="slide level2 center"><h2>The <em>Spearman</em> correlation coefficient</h2>
+<p><span class="math display">\[
+\rho_{X,Y} = \frac{Cov(R(X),R(Y))}{\sigma_{R(X)}\sigma_{R(Y)}}
+\]</span></p>
+<p>The <span class="math inline">\(R\)</span> in the equation is a ranking of the the two random variables.</p>
+</section><section class="slide level2 center"><p>In R:</p>
+<pre class="{r}"><code>#| label: spearman
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+cor.test(penguins$bill_length_mm, penguins$bill_depth_mm, method = "spearman")</code></pre>
+</section></section><section><section id="linear-regression-1" class="title-slide slide level1 center"><h1>Linear regression</h1>
+
+</section><section class="slide level2 center"><p>Before dive into the <em>linear regression</em> model creation and the hypothesis testing. Let’s talk about two important principles for sampling in the experimental design you are performing.</p>
+</section><section class="slide level2 center"><h3 id="capture-full-ranges-of-response-1">1. Capture full ranges of response</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="figs/uniform-01.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figs/uniform-02.png"></p>
+</div>
+</div>
+</section><section class="slide level2 center"><h3 id="sample-range-uniformly-1">2. Sample range uniformly</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="figs/responses-01.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figs/responses-02.png"></p>
+</div>
+</div>
+</section><section id="linear-regression-model-1" class="slide level2 center"><h2>Linear regression model</h2>
+</section><section class="slide level2 center"><p>The linear regression model is a statistical model that allows us to predict the value of a dependent variable <span class="math inline">\(Y\)</span> based on the value of an independent variable <span class="math inline">\(X\)</span>.</p>
+</section><section class="slide level2 center">
+<img data-src="figs/lm-model.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/null-hypothesis.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/alternative-hypothesis.png" class="r-stretch quarto-figure-center"></section><section id="applying-the-linear-regression-model-1" class="slide level2 center"><h2>Applying the linear regression model</h2>
+</section><section class="slide level2 center">
+<img data-src="figs/regression-01.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/regression-02.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/regression-03.png" class="r-stretch quarto-figure-center"></section><section id="finding-the-best-fit-1" class="slide level2 center"><h2>Finding the best fit</h2>
+</section><section class="slide level2 center">
+<img data-src="figs/determination-coeff.png" width="70" class="r-stretch quarto-figure-center"></section><section id="testing-the-hypothesis-in-linear-regression-1" class="slide level2 center"><h2>Testing the hypothesis in linear regression</h2>
+</section><section class="slide level2 center"><p>How do we test if the <strong>SSreg</strong> (<span class="math inline">\(𝐻_{𝐴}\)</span>) explain the data trend?</p>
+<div class="fragment">
+<p>or, in other words…</p>
+</div>
+<div class="fragment">
+<p>How do we test if the <span class="math inline">\(𝐻_{0}\)</span> do not explain the data trend?</p>
+</div>
+</section><section id="specifying-the-statistical-test-1" class="slide level2 center"><h2>1. Specifying the statistical test</h2>
+</section><section class="slide level2 center"><p><span class="math display">\[
+F_{(df,n)} = \frac{SS_{reg}}{\frac{RSS}{(n − 2)}}
+\]</span></p>
+</section><section class="slide level2 center">
+<img data-src="figs/fisher.png" class="r-stretch quarto-figure-center"></section><section id="calculating-the-tail-probability-in-t-distribution-1" class="slide level2 center"><h2>2. Calculating the tail probability in T-distribution</h2>
+</section><section class="slide level2 center"><p><span class="math display">\[
+X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
+\]</span></p>
+</section><section id="lets-do-it-in-r-1" class="slide level2 center"><h2>Let’s do it in R</h2>
+<pre class="{r}"><code>#| label: lm-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| fig-width: 7
+ggplot(penguins, 
+  aes(
+      x = flipper_length_mm, 
+      y = body_mass_g)
+      ) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions",
+        x = "flipper length (mm)",
+        y = "Body mass (g)"
+    ) +
+    geom_smooth(method = "lm")</code></pre>
+</section><section class="slide level2 center"><p>Let’s investigate the model:</p>
+<pre class="{r}"><code>#| label: lm-02
+#| fig-align: center
+#| echo: true
+#| output-location: fragment
+model  &lt;- lm(body_mass_g ~ flipper_length_mm, data = penguins)</code></pre>
+<pre class="{r}"><code>model</code></pre>
+</section><section class="slide level2 center"><p>We can use the package <code>report</code> to get a nice summary of the model:</p>
+<pre class="{r}"><code>#| label: lm-03
+#| fig-align: center
+#| echo: true
+#| output-location: fragment
+report::report(model)</code></pre>
+</section><section class="slide level2 center"><p>We can also include the complete model in the plot with the <code>ggpmisc</code>:</p>
+<pre class="{r}"><code>#| label: lm-04
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| fig-width: 7
+ggplot(penguins, 
+  aes(
+      x = flipper_length_mm, 
+      y = body_mass_g)
+      ) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions",
+        x = "flipper length (mm)",
+        y = "Body mass (g)"
+    ) +
+    geom_smooth(method = "lm") +
+    stat_poly_eq(use_label(
+      c("eq", "R2", "F", "p.value"),
+    ))</code></pre>
+</section><section id="testing-the-regression-assumtions-1" class="slide level2 center"><h2>Testing the regression assumtions</h2>
+</section><section class="slide level2 center"><ol type="1">
+<li>Linearity: function behaves linearly outside the range of the data.</li>
+</ol>
+<pre class="{r}"><code>#| label: linearity
+#| fig-align: center
+#| echo: true
+#| eval: true
+performance::check_model(model, check = "linearity")</code></pre>
+</section><section class="slide level2 center"><ol start="2" type="1">
+<li>Normality: residuals are normally distributed.</li>
+</ol>
+<pre class="{r}"><code>#| label: normality
+#| fig-align: center
+#| echo: true
+#| eval: true
+performance::check_normality(model)
+plot(check_normality(model), type = "qq")</code></pre>
+</section><section class="slide level2 center"><ol start="3" type="1">
+<li>Variance homogeneity: residuals have constant variance.</li>
+</ol>
+<pre class="{r}"><code>#| label: heteroskedasticity
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_heteroskedasticity(model)
+plot(check_heteroskedasticity(model))</code></pre>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="08-lineal-regression_files/libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="08-lineal-regression_files/libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="08-lineal-regression_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/notes/notes.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/search/search.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="08-lineal-regression_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -802,9 +1053,7 @@ sample estimates:
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -839,9 +1088,7 @@ sample estimates:
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1138,6 +1385,6 @@ sample estimates:
       }
     });
     </script>
-    
+
 
 </body></html>

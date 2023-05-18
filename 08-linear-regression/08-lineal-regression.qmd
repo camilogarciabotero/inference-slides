@@ -40,6 +40,7 @@ library(latex2exp)
 library(performance)
 library(statsExpressions)
 library(ggsignif)
+library(ggpmisc)
 
 simple_theme <- theme_bw() +
     theme(
@@ -185,7 +186,6 @@ The linear regression model is a statistical model that allows us to predict the
 
 ![](figs/lm-model.png){fig-align="center"}
 
-
 ***
 
 ![](figs/null-hypothesis.png){fig-align="center"}
@@ -209,4 +209,169 @@ The linear regression model is a statistical model that allows us to predict the
 
 ![](figs/regression-03.png){fig-align="center"}
 
+## Finding the best fit
 
+***
+
+![](figs/determination-coeff.png){fig-align="center" width="70"}
+
+## Testing the hypothesis in linear regression
+
+***
+
+How do we test if the **SSreg** ($𝐻_{𝐴}$) explain the data trend?
+
+. . . 
+
+or, in other words...
+
+. . .
+
+How do we test if the $𝐻_{0}$ do not explain the data trend?
+
+***
+
+## 1. Specifying the statistical test
+
+***
+
+$$
+F_{(df,n)} = \frac{SS_{reg}}{\frac{RSS}{(n − 2)}}
+$$
+
+
+***
+
+![](figs/fisher.png){fig-align="center"}
+
+***
+
+## 2. Calculating the tail probability in T-distribution
+
+***
+
+$$
+X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
+$$
+
+## Let's do it in R
+
+
+```{r}
+#| label: lm-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| fig-width: 7
+ggplot(penguins, 
+  aes(
+      x = flipper_length_mm, 
+      y = body_mass_g)
+      ) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions",
+        x = "flipper length (mm)",
+        y = "Body mass (g)"
+    ) +
+    geom_smooth(method = "lm")
+```
+
+***
+
+Let's investigate the model:
+
+
+```{r}
+#| label: lm-02
+#| fig-align: center
+#| echo: true
+#| output-location: fragment
+model  <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
+```
+
+
+```{r}
+model
+```
+
+***
+
+We can use the package `report` to get a nice summary of the model:
+
+```{r}
+#| label: lm-03
+#| fig-align: center
+#| echo: true
+#| output-location: fragment
+report::report(model)
+```
+
+***
+
+We can also include the complete model in the plot with the `ggpmisc`:
+
+```{r}
+#| label: lm-04
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+#| fig-width: 7
+ggplot(penguins, 
+  aes(
+      x = flipper_length_mm, 
+      y = body_mass_g)
+      ) +
+    geom_point(size = 2, alpha = 0.6) +
+    labs(
+        title = "Penguin bill dimensions",
+        x = "flipper length (mm)",
+        y = "Body mass (g)"
+    ) +
+    geom_smooth(method = "lm") +
+    stat_poly_eq(use_label(
+      c("eq", "R2", "F", "p.value"),
+    ))
+```
+
+## Testing the regression assumtions
+
+***
+
+1. Linearity: function behaves linearly outside the range of the data.
+
+```{r}
+#| label: linearity
+#| fig-align: center
+#| echo: true
+#| eval: true
+performance::check_model(model, check = "linearity")
+```
+
+***
+
+2. Normality: residuals are normally distributed.
+
+```{r}
+#| label: normality
+#| fig-align: center
+#| echo: true
+#| eval: true
+performance::check_normality(model)
+plot(check_normality(model), type = "qq")
+```
+
+***
+
+3. Variance homogeneity: residuals have constant variance.
+
+```{r}
+#| label: heteroskedasticity
+#| fig-align: center
+#| echo: true
+#| eval: true
+check_heteroskedasticity(model)
+plot(check_heteroskedasticity(model))
+```
