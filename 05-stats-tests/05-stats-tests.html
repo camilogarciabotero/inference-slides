@@ -7,19 +7,19 @@
 <link href="05-stats-tests_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="05-stats-tests_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="05-stats-tests_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="05-stats-tests_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
-<meta name="author" content="Camilo G.">
-<meta name="author" content="Alejandro C.">
-<meta name="author" content="Angie T.">
-<title>Parametric &amp; Non-Parametric tests</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/reveal.css">
-<style>
+<link href="05-stats-tests_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.77">
+
+  <meta name="author" content="Camilo G.">
+  <meta name="author" content="Alejandro C.">
+  <meta name="author" content="Angie T.">
+  <title>Parametric &amp; Non-Parametric tests</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/reveal.css">
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-<link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-<link href="05-stats-tests_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="05-stats-tests_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="05-stats-tests_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="05-stats-tests_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="05-stats-tests_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -299,7 +299,7 @@
   }
 
   </style>
-<style type="text/css">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -387,14 +387,15 @@
       margin-right: 0; 
     }
   </style>
-<link href="05-stats-tests_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="05-stats-tests_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+  <link href="05-stats-tests_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+  <script src="05-stats-tests_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Parametric &amp; Non-Parametric tests</h1>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Parametric &amp; Non-Parametric tests</h1>
   <p class="subtitle">https://bit.ly/3V7CMsZ</p>
 
 <div class="quarto-title-authors">
@@ -424,55 +425,81 @@ Angie T.
 </div>
 </div>
 
-</section><section><section id="how-do-we-test-whether-two-samples-are-different" class="title-slide slide level1 smaller center"><h1>How do we test whether <em>two</em> samples are different?</h1>
+</section>
+<section>
+<section id="how-do-we-test-whether-two-samples-are-different" class="title-slide slide level1 smaller center">
+<h1>How do we test whether <em>two</em> samples are different?</h1>
 
-</section><section class="slide level2 center"><p>Do male penguins display greater body sizes than female?</p>
+</section>
+<section class="slide level2 center">
+
+<p>Do male penguins display greater body sizes than female?</p>
 <div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot_f32e450c071f8460b3bf996fcddd4bf7">
 <div class="column">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie_penguins</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, y <span class="op">=</span> <span class="va">body_mass_g</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">labs</span><span class="op">(</span></span>
-<span>    y <span class="op">=</span> <span class="st">"Body mass (g)"</span>,</span>
-<span>    x <span class="op">=</span> <span class="st">""</span></span>
-<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>adelie_penguins <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adelie_penguins, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> body_mass_g, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Body mass (g)"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-1.png" width="2100"></p>
+<figure>
+<p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section><section class="slide level2 center"><div class="columns">
-<p><strong>Let’s try to <em>test</em> the resulting hypotheses:</strong></p>
-<div class="column" style="width:50%;">
+</section>
+<section class="slide level2 center">
+
+<div class="columns">
+<p><strong>Let’s try to <em>test</em> the resulting hypotheses:</strong></p><div class="column" style="width:50%;">
 <p>Null hypothesis: <span class="math display">\[H_{0}: \mu_{1} = \mu_{2}\]</span> <strong>No variation</strong> between means</p>
 </div><div class="column" style="width:50%;">
 <p>Alternative hypothesis: <span class="math display">\[H_{A}: \mu_{1} \neq \mu_{2}\]</span> <strong>Variation</strong> between means</p>
 </div>
 </div>
-</section><section id="section" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
+</section>
+<section id="section" class="slide level2 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 
-<img data-src="05-stats-tests_files/figure-revealjs/density-plot-01-1.png" width="2100" class="r-stretch quarto-figure-center"></section><section id="section-1" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
+<img data-src="05-stats-tests_files/figure-revealjs/density-plot-01-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
+<section id="section-1" class="slide level2 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 
-<img data-src="05-stats-tests_files/figure-revealjs/density-plot-02-1.png" width="2100" class="r-stretch quarto-figure-center"></section><section id="lets-make-some-important-assumptions" class="slide level2 center"><h2>Let’s make some important assumptions</h2>
+<img data-src="05-stats-tests_files/figure-revealjs/density-plot-02-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
+<section id="lets-make-some-important-assumptions" class="slide level2 center">
+<h2>Let’s make some important assumptions</h2>
 <ol type="1">
 <li>The two samples are independent.</li>
 <li>Variables display normal distribution.</li>
 <li>The two samples display equal variances.</li>
-</ol></section><section class="slide level2 center"><p>Then,</p>
+</ol>
+</section>
+<section class="slide level2 center">
 
-<img data-src="05-stats-tests_files/figure-revealjs/density-plot-03-1.png" width="2100" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><p>And,</p>
+<p>Then,</p>
 
-<img data-src="05-stats-tests_files/figure-revealjs/density-plot-04-1.png" width="2100" class="r-stretch quarto-figure-center"></section><section id="the-t-distribution" class="slide level2 smaller center"><h2>The T Distribution</h2>
-</section><section class="slide level2 center"><div class="columns">
+<img data-src="05-stats-tests_files/figure-revealjs/density-plot-03-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2 center">
+
+<p>And,</p>
+
+<img data-src="05-stats-tests_files/figure-revealjs/density-plot-04-1.png" width="2100" class="r-stretch quarto-figure-center"></section>
+<section id="the-t-distribution" class="slide level2 smaller center">
+<h2>The T Distribution</h2>
+</section>
+<section class="slide level2 center">
+
+<div class="columns">
 <div class="column smaller" style="width:50%;">
 <p><span class="math display">\[
 \bar{X}_{1} - \bar{X}_{2} \sim N\Bigg[\mu_{1} - \mu_{2},s^{2}\bigg(\frac{1}{n_{1}}+\frac{1}{n_{2}}\bigg)\Bigg]
@@ -494,13 +521,17 @@ Angie T.
 <div class="fragment">
 <p><img data-src="figs/t-test-plot.png" class="absolute" style="bottom: 200px; right: 20px; width: 500px; "></p>
 </div>
-</section></section><section><section id="testing-the-hypothesis-in-r" class="title-slide slide level1 center"><h1>Testing the hypothesis in R</h1>
+</section></section>
+<section>
+<section id="testing-the-hypothesis-in-r" class="title-slide slide level1 center">
+<h1>Testing the hypothesis in R</h1>
 
-</section><section id="the-parametric-t-test" class="slide level2 center"><h2>## The <strong>parametric</strong> <em>T-test</em>
-</h2>
-<p>A way to test the hypothesis is using the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function:</p>
+</section>
+<section id="the-parametric-t-test" class="slide level2 center">
+<h2>## The <strong>parametric</strong> <em>T-test</em></h2>
+<p>A way to test the hypothesis is using the <code>t.test()</code> function:</p>
 <div class="cell" data-hash="05-stats-tests_cache/revealjs/t-test_6f2034f8911e8ecba15591bce3e743ee">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(body_mass_g <span class="sc">~</span> sex, adelie_penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/t-test_6f2034f8911e8ecba15591bce3e743ee">
 <div class="cell-output cell-output-stdout">
@@ -517,24 +548,29 @@ mean in group female   mean in group male
             3368.836             4043.493 </code></pre>
 </div>
 </div>
-</section><section class="slide level2 center"><p>Another alternative is to use the <code>statsExpressions</code> library:</p>
+</section>
+<section class="slide level2 center">
 
-<img data-src="figs/statsexpressions-logo.png" width="500" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><div class="cell" data-hash="05-stats-tests_cache/revealjs/t-test-expression_f1a8fecb71012e996b932dec5aa1e8f2">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/statsExpressions/">statsExpressions</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">adelie_ttest_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://indrajeetpatil.github.io/statsExpressions/reference/two_sample_test.html">two_sample_test</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">adelie_penguins</span>,</span>
-<span>  x <span class="op">=</span> <span class="va">sex</span>, </span>
-<span>  y <span class="op">=</span> <span class="va">body_mass_g</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"p"</span>,</span>
-<span>  paired <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>  <span class="op">)</span></span>
-<span></span>
-<span><span class="va">adelie_ttest_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another alternative is to use the <code>statsExpressions</code> library:</p>
+
+<img data-src="figs/statsexpressions-logo.png" width="500" class="r-stretch quarto-figure-center"></section>
+<section class="slide level2 center">
+
+<div class="cell" data-hash="05-stats-tests_cache/revealjs/t-test-expression_f1a8fecb71012e996b932dec5aa1e8f2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statsExpressions)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>adelie_ttest_table <span class="ot">&lt;-</span> <span class="fu">two_sample_test</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> adelie_penguins,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> sex, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> body_mass_g,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"p"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>adelie_ttest_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/t-test-expression_f1a8fecb71012e996b932dec5aa1e8f2">
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group"],"name":[2],"type":["chr"],"align":["left"]},{"label":["statistic"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["df.error"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[6],"type":["chr"],"align":["left"]},{"label":["alternative"],"name":[7],"type":["chr"],"align":["left"]},{"label":["effectsize"],"name":[8],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["conf.level"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["conf.method"],"name":[13],"type":["chr"],"align":["left"]},{"label":["conf.distribution"],"name":[14],"type":["chr"],"align":["left"]},{"label":["n.obs"],"name":[15],"type":["int"],"align":["right"]},{"label":["expression"],"name":[16],"type":["list"],"align":["right"]}],"data":[{"1":"body_mass_g","2":"sex","3":"-14.26403","4":"72","5":"1.140835e-22","6":"Paired t-test","7":"two.sided","8":"Hedges' g","9":"-1.652017","10":"0.95","11":"-2.001704","12":"-1.297282","13":"ncp","14":"t","15":"73","16":"<language>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -542,8 +578,13 @@ mean in group female   mean in group male
 </div>
 </div>
 </div>
-</section><section id="adding-stats-to-the-barplot" class="slide level2 smaller center"><h2>Adding stats to the barplot!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats_98dc66fa6e3f70703d73196f19e4cb84">
+</section>
+<section id="adding-stats-to-the-barplot" class="slide level2 smaller center">
+<h2>Adding stats to the barplot!</h2>
+</section>
+<section class="slide level2 center">
+
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats_98dc66fa6e3f70703d73196f19e4cb84">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="14-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  adelie_penguins,</span>
@@ -562,22 +603,32 @@ mean in group female   mean in group male
 <span id="cb5-15"><a href="#cb5-15"></a>      <span class="at">text =</span> adelie_ttest_table<span class="sc">$</span>expression</span>
 <span id="cb5-16"><a href="#cb5-16"></a>      )</span>
 <span id="cb5-17"><a href="#cb5-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-1.png" width="2100"></p>
+<figure>
+<p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section><section class="slide level2 center"><div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="figs/stats-template-analysis.png"></p>
-<figcaption>From Indrajeet Patil<sup>1</sup></figcaption></figure>
+</section>
+<section class="slide level2 center">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/stats-template-analysis.png"></p>
+<figcaption>From Indrajeet Patil<sup>1</sup></figcaption>
+</figure>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>https://github.com/IndrajeetPatil/statsExpressions</p></li></ol></aside></section><section id="adding-comparisons-to-the-plot-using-ggsignif-library" class="slide level2 center"><h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif_c40264f96b89200afe1d0fee86452b73">
+<aside><ol class="aside-footnotes"><li id="fn1"><p>https://github.com/IndrajeetPatil/statsExpressions</p></li></ol></aside></section>
+<section id="adding-comparisons-to-the-plot-using-ggsignif-library" class="slide level2 center">
+<h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
+</section>
+<section class="slide level2 center">
+
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif_c40264f96b89200afe1d0fee86452b73">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="15-19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(adelie_penguins, </span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">aes</span>(</span>
@@ -598,26 +649,33 @@ mean in group female   mean in group male
 <span id="cb6-17"><a href="#cb6-17"></a>    <span class="at">test =</span> <span class="st">"t.test"</span>,</span>
 <span id="cb6-18"><a href="#cb6-18"></a>    <span class="at">map_signif_level =</span> <span class="cn">TRUE</span></span>
 <span id="cb6-19"><a href="#cb6-19"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-signif-1.png" width="2100"></p>
+<figure>
+<p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-signif-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section><section id="the-non-parametric-mann-whitneywilcox-test" class="slide level2 center"><h2>The <strong>non-parametric</strong> <em>Mann-Whitney/Wilcox test</em>
-</h2>
-</section><section id="lets-make-some-important-assumptions-1" class="slide level2 center"><h2>Let’s make some important assumptions</h2>
+</section>
+<section id="the-non-parametric-mann-whitneywilcox-test" class="slide level2 center">
+<h2>The <strong>non-parametric</strong> <em>Mann-Whitney/Wilcox test</em></h2>
+</section>
+<section id="lets-make-some-important-assumptions-1" class="slide level2 center">
+<h2>Let’s make some important assumptions</h2>
 <ol type="1">
 <li>The two samples are independent.</li>
 <li>Variables could display non-normal distribution.</li>
 <li>The two samples could display different variances (and sample sizes).</li>
-</ol></section><section class="slide level2 center"><p>A way to test the hypothesis is using the <code>wilkox.test()</code> function:</p>
+</ol>
+</section>
+<section class="slide level2 center">
+
+<p>A way to test the hypothesis is using the <code>wilkox.test()</code> function:</p>
 <div class="cell" data-hash="05-stats-tests_cache/revealjs/wilcox_a61476cfe98b48300e7464e56b784bca">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(body_mass_g <span class="sc">~</span> sex, adelie_penguins, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/wilcox_a61476cfe98b48300e7464e56b784bca">
 <div class="cell-output cell-output-stdout">
@@ -629,23 +687,25 @@ V = 13.5, p-value = 2.961e-13
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
-</section><section class="slide level2 center"><p>Another alternative is to use the <code>statsExpressions</code> library:</p>
+</section>
+<section class="slide level2 center">
+
+<p>Another alternative is to use the <code>statsExpressions</code> library:</p>
 <div class="cell" data-hash="05-stats-tests_cache/revealjs/wilcox-expression_97d9dab98dbcd7bbd26049ec62158420">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://indrajeetpatil.github.io/statsExpressions/">statsExpressions</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">adelie_wilcox_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://indrajeetpatil.github.io/statsExpressions/reference/two_sample_test.html">two_sample_test</a></span><span class="op">(</span></span>
-<span>  data <span class="op">=</span> <span class="va">adelie_penguins</span>,</span>
-<span>  x <span class="op">=</span> <span class="va">sex</span>, </span>
-<span>  y <span class="op">=</span> <span class="va">body_mass_g</span>,</span>
-<span>  type <span class="op">=</span> <span class="st">"np"</span>,</span>
-<span>  paired <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>  <span class="op">)</span></span>
-<span></span>
-<span><span class="va">adelie_wilcox_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statsExpressions)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>adelie_wilcox_table <span class="ot">&lt;-</span> <span class="fu">two_sample_test</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> adelie_penguins,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> sex, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> body_mass_g,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"np"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>adelie_wilcox_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-hash="05-stats-tests_cache/revealjs/wilcox-expression_97d9dab98dbcd7bbd26049ec62158420">
 <div class="cell-output-display">
-
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["parameter1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["parameter2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["statistic"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[5],"type":["chr"],"align":["left"]},{"label":["alternative"],"name":[6],"type":["chr"],"align":["left"]},{"label":["effectsize"],"name":[7],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["conf.level"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["conf.method"],"name":[12],"type":["chr"],"align":["left"]},{"label":["n.obs"],"name":[13],"type":["int"],"align":["right"]},{"label":["expression"],"name":[14],"type":["list"],"align":["right"]}],"data":[{"1":"body_mass_g","2":"sex","3":"13.5","4":"2.96057e-13","5":"Wilcoxon signed rank test","6":"two.sided","7":"r (rank biserial)","8":"-0.989726","9":"0.95","10":"-0.9939276","11":"-0.9826425","12":"normal","13":"73","14":"<language>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -653,8 +713,13 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>
 </div>
-</section><section id="adding-stats-to-the-barplot-1" class="slide level2 smaller center"><h2>Adding stats to the barplot!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-wilcox_1c0935f36c5476120a3d36c78b5d6a7c">
+</section>
+<section id="adding-stats-to-the-barplot-1" class="slide level2 smaller center">
+<h2>Adding stats to the barplot!</h2>
+</section>
+<section class="slide level2 center">
+
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-wilcox_1c0935f36c5476120a3d36c78b5d6a7c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="14-17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a href="#cb10-2"></a>  adelie_penguins,</span>
@@ -673,18 +738,23 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <span id="cb10-15"><a href="#cb10-15"></a>      <span class="at">text =</span> adelie_wilcox_table<span class="sc">$</span>expression</span>
 <span id="cb10-16"><a href="#cb10-16"></a>      )</span>
 <span id="cb10-17"><a href="#cb10-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-wilcox-1.png" width="2100"></p>
+<figure>
+<p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-wilcox-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section><section id="adding-comparisons-to-the-plot-using-ggsignif-library-1" class="slide level2 center"><h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif-wilcox_061f6a25b3c1a78c23aae88516c289f3">
+</section>
+<section id="adding-comparisons-to-the-plot-using-ggsignif-library-1" class="slide level2 center">
+<h2>Adding comparisons to the plot using <code>ggsignif</code> library!</h2>
+</section>
+<section class="slide level2 center">
+
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="05-stats-tests_cache/revealjs/simple-barplot-stats-signif-wilcox_061f6a25b3c1a78c23aae88516c289f3">
 <div class="column">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="15-19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(adelie_penguins, </span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">aes</span>(</span>
@@ -705,11 +775,11 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <span id="cb11-17"><a href="#cb11-17"></a>    <span class="at">test =</span> <span class="st">"wilcox.test"</span>,</span>
 <span id="cb11-18"><a href="#cb11-18"></a>    <span class="at">map_signif_level =</span> <span class="cn">TRUE</span></span>
 <span id="cb11-19"><a href="#cb11-19"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-signif-wilcox-1.png" width="2100"></p>
+<figure>
+<p><img data-src="05-stats-tests_files/figure-revealjs/simple-barplot-stats-signif-wilcox-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -719,10 +789,27 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
 </section></section>
-</div>
+
+    </div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="05-stats-tests_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="05-stats-tests_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/notes/notes.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/search/search.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="05-stats-tests_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="05-stats-tests_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="05-stats-tests_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="05-stats-tests_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="05-stats-tests_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -913,7 +1000,9 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
           RevealZoom
         ]
       });
-    </script><script>
+    </script>
+    
+    <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -948,7 +1037,9 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
         }
 
       })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1245,6 +1336,6 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
       }
     });
     </script>
-
+    
 
 </body></html>
