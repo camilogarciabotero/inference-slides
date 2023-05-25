@@ -31,5 +31,8 @@
   },
   "08-linear-regression/08-linear-regression.qmd": {
     "08-linear-regression.html": "8af11a22"
+  },
+  "09-GLM-and-AIC/09-GLM-AIC.qmd": {
+    "09-GLM-AIC.html": "e30f0f93"
   }
 }
