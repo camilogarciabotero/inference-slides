@@ -562,8 +562,8 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
 </section>
-<section id="lets-put-that-on-a-plot" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Let’s put that on a plot</h2>
+<section id="lets-put-that-on-a-plot" class="slide level2 center">
+<h2>Let’s put that on a plot</h2>
 </section>
 <section class="slide level2 center">
 
@@ -589,40 +589,13 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
 </section>
-<section id="section" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adelies, </span>
-<span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> binarysex)) <span class="sc">+</span></span>
-<span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-4" class="hljs-ln-code"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb7-5" class="hljs-ln-code"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"glm"</span>, </span>
-<span id="cb7-6" class="hljs-ln-code"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(</span>
-<span id="cb7-7" class="hljs-ln-code"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">"binomial"</span></span>
-<span id="cb7-8" class="hljs-ln-code"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb7-9" class="hljs-ln-code"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span>     </span>
-<span id="cb7-10" class="hljs-ln-code"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_poly_eq</span>(<span class="fu">use_label</span>(</span>
-<span id="cb7-11" class="hljs-ln-code"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"eq"</span>, <span class="st">"R2"</span>, <span class="st">"F"</span>, <span class="st">"p.value"</span>),</span>
-<span id="cb7-12" class="hljs-ln-code"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column fragment">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="09-GLM-AIC_files/figure-revealjs/logistic-sex-02-1.png" width="1750"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="analysis-of-covariance-ancova" class="slide level2 center">
 <h2>Analysis of covariance (ANCOVA)</h2>
 </section>
 <section class="slide level2 center">
 
 
-<img data-src="09-GLM-AIC_files/figure-revealjs/unnamed-chunk-9-1.png" width="1750" class="r-stretch"></section>
+<img data-src="09-GLM-AIC_files/figure-revealjs/unnamed-chunk-8-1.png" width="1750" class="r-stretch"></section>
 <section id="akaike-information-criteria-aic" class="slide level2 center">
 <h2>Akaike Information Criteria (AIC)</h2>
 </section>
