@@ -9,10 +9,7 @@
 <link href="09-GLM-AIC_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="09-GLM-AIC_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.77">
-<meta name="author" content="Camilo G.">
-<meta name="author" content="Alejandro C.">
-<meta name="author" content="Angie T.">
+<meta name="generator" content="quarto-1.3.353">
 <title>GLM &amp; AIC</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -481,7 +478,7 @@ Angie T.
 </tr>
 </tbody>
 </table></section><section id="lets-try-it-in-r" class="slide level2 center"><h2>Let’s try it in R:</h2>
-</section><section class="slide level2 center"><div class="cell" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/binsex_caf5a8e1527cb20888cc7cab641ece59">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelies</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -490,15 +487,15 @@ Angie T.
 <span>    <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">~</span> <span class="fl">0</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/binsex_caf5a8e1527cb20888cc7cab641ece59">
 
 </div>
 <p>Let’s create the GLM for to predict a penguin’s sex based on it’s body mass:</p>
 <div class="fragment">
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm_c12ca4b6f2a623abe74b6cb815503a81">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binarysexmodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">binarysex</span> <span class="op">~</span> <span class="va">body_mass_g</span>, data <span class="op">=</span> <span class="va">adelies</span>, family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm_c12ca4b6f2a623abe74b6cb815503a81">
 
 </div>
 </div>
@@ -506,7 +503,7 @@ Angie T.
 <p>Let’s see what the outout is:</p>
 </div>
 <div class="fragment">
-<div class="cell">
+<div class="cell" data-hash="09-GLM-AIC_cache/revealjs/unnamed-chunk-5_ee1a52747c546fe2e7ed1fc2072c429d">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:  glm(formula = binarysex ~ body_mass_g, family = "binomial", data = adelies)
@@ -522,10 +519,10 @@ Residual Deviance: 88.74    AIC: 92.74</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><h4 id="what-did-we-do">What did we do?</h4>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm-report_5f854ba92c990434d3321626b002aecf">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center">
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm-report_5f854ba92c990434d3321626b002aecf">
 <div class="cell-output cell-output-stdout">
 <pre><code>We fitted a logistic model (estimated using ML) to predict binarysex with
 body_mass_g (formula: binarysex ~ body_mass_g). The model's explanatory power
@@ -543,7 +540,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
 </section><section id="lets-put-that-on-a-plot" class="slide level2 center"><h2>Let’s put that on a plot</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/logistic-sex-01_67e860fde92d8221f6b2bac4b56f6478">
 <div class="column">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, </span>
 <span>    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, y <span class="op">=</span> <span class="va">binarysex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -565,8 +562,73 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
 </section><section id="analysis-of-covariance-ancova" class="slide level2 center"><h2>Analysis of covariance (ANCOVA)</h2>
-</section><section class="slide level2 center">
-<img data-src="09-GLM-AIC_files/figure-revealjs/unnamed-chunk-8-1.png" width="1750" class="r-stretch"></section><section id="akaike-information-criteria-aic" class="slide level2 center"><h2>Akaike Information Criteria (AIC)</h2>
+</section><section class="slide level2 center"><p>ANCOVA is a particular case of a GLM where we have a <em>categorical</em> predictor and a <em>continuous</em> predictor. The continuous predictor is called a <em>covariate</em>.</p>
+</section><section class="slide level2 center"><p>Think in this example:</p>
+<div class="cell columns column-output-location" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/box01_bda09c4c54ebb2c47e41e14624f45e16">
+<div class="column">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, y <span class="op">=</span> <span class="va">flipper_length_mm</span>, color <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.7</span>, width <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">""</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Flipper length (mm)"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/box01-1.png" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2 center"><p>What other variable could be affecting the penguins’ flipper length?</p>
+<div class="fragment">
+<p>What if the Body mass has an effect on the flipper length? Let’s create an ANCOVA model</p>
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-model_cd693330bf899afd9662867ce0042254">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ancovamodel</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">flipper_length_mm</span>  <span class="op">~</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">body_mass_g</span>, data <span class="op">=</span> <span class="va">adelies</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-model_cd693330bf899afd9662867ce0042254">
+
+</div>
+</div>
+<div class="fragment">
+<p>Here is the result:</p>
+</div>
+<div class="fragment">
+<div class="cell" data-hash="09-GLM-AIC_cache/revealjs/unnamed-chunk-10_78a1266b0ec20b13dc5ac2c213657bcb">
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = flipper_length_mm ~ sex + body_mass_g, data = adelies)
+
+Terms:
+                     sex body_mass_g Residuals
+Sum of Squares   777.870     556.818  4832.771
+Deg. of Freedom        1           1       143
+
+Residual standard error: 5.813398
+Estimated effects may be unbalanced</code></pre>
+</div>
+</div>
+</div>
+</section><section id="lets-see-the-complete-report" class="slide level2 center"><h2>Let’s see the complete <code>report</code>:</h2>
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-report_1e048066231a88ec3d4740b6a84589b8">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">ancovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-report_1e048066231a88ec3d4740b6a84589b8">
+<div class="cell-output cell-output-stdout">
+<pre><code>The ANOVA (formula: flipper_length_mm ~ sex + body_mass_g) suggests that:
+
+  - The main effect of sex is statistically significant and medium (F(1, 143) =
+23.02, p &lt; .001; Eta2 (partial) = 0.14, 95% CI [0.06, 1.00])
+  - The main effect of body_mass_g is statistically significant and medium (F(1,
+143) = 16.48, p &lt; .001; Eta2 (partial) = 0.10, 95% CI [0.04, 1.00])
+
+Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
+</div>
+</div>
+</section><section id="akaike-information-criteria-aic" class="slide level2 center"><h2>Akaike Information Criteria (AIC)</h2>
 </section><section class="slide level2 center"><p>An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):</p>
 <p><span class="math display">\[AIC=−2*ln(L)+2*k\]</span></p>
 </section><section id="using-broom-to-evaluate-statistical-models." class="slide level2 center"><h2>Using Broom to evaluate statistical models.</h2>
@@ -578,8 +640,41 @@ computed using a Wald z-distribution approximation.</code></pre>
 <li class="fragment"><p><code>glance()</code> Summarizes the model performance (AIC, BIC, and others).</p></li>
 </ol>
 </div>
-<div class="cell">
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-01_e2399797bf1340bcc401d10329f010d2">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-01_e2399797bf1340bcc401d10329f010d2">
 <div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["std.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"(Intercept)","2":"-28.749639004","3":"4.819574409","4":"-5.965182","5":"2.443614e-09"},{"1":"body_mass_g","2":"0.007813783","3":"0.001311519","4":"5.957814","5":"2.556345e-09"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-02_830153a626cc5562c97e3328e4be2249">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-02_830153a626cc5562c97e3328e4be2249">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["binarysex"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["body_mass_g"],"name":[2],"type":["int"],"align":["right"]},{"label":[".fitted"],"name":[3],"type":["dbl"],"align":["right"]},{"label":[".resid"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[".hat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":[".sigma"],"name":[6],"type":["dbl"],"align":["right"]},{"label":[".cooksd"],"name":[7],"type":["dbl"],"align":["right"]},{"label":[".std.resid"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"3750","3":"0.5520481","4":"0.95367044","5":"0.0193196487","6":"0.7836399","7":"5.783129e-03","8":"0.96301840"},{"1":"0","2":"3800","3":"0.9427372","4":"-1.59481937","5":"0.0204847214","6":"0.7761563","7":"2.740332e-02","8":"-1.61140941"},{"1":"0","2":"3250","3":"-3.3548436","4":"-0.26198907","5":"0.0121986532","6":"0.7874585","7":"2.182492e-04","8":"-0.26360179"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"3650","3":"-0.2293303","4":"1.27622255","5":"0.0179349418","6":"0.7803711","7":"1.169463e-02","8":"1.28782332"},{"1":"0","2":"3625","3":"-0.4246748","4":"-1.00318089","5":"0.0180262052","6":"0.7832050","7":"6.112806e-03","8":"-1.01234677"},{"1":"1","2":"4675","3":"7.7797975","4":"0.02891399","5":"0.0007572868","6":"0.7877633","7":"1.585497e-07","8":"0.02892495"},{"1":"0","2":"3200","3":"-3.7455327","4":"-0.21609412","5":"0.0101589940","6":"0.7875576","7":"1.224688e-04","8":"-0.21720021"},{"1":"1","2":"3800","3":"0.9427372","4":"0.81115621","5":"0.0204847214","6":"0.7847799","7":"4.158647e-03","8":"0.81959422"},{"1":"1","2":"4400","3":"5.6310071","4":"0.08459967","5":"0.0035275976","6":"0.7877351","7":"6.368002e-06","8":"0.08474928"},{"1":"0","2":"3700","3":"0.1613589","4":"-1.24665768","5":"0.0183060764","6":"0.7807087","7":"1.116067e-02","8":"-1.25822748"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"4500","3":"6.4123855","4":"0.05726709","5":"0.0020606293","6":"0.7877524","7":"1.697845e-06","8":"0.05732619"},{"1":"0","2":"3325","3":"-2.7688098","4":"-0.34884755","5":"0.0153167981","6":"0.7872183","7":"4.955256e-04","8":"-0.35155025"},{"1":"1","2":"4200","3":"4.0682505","4":"0.18418800","5":"0.0092095585","6":"0.7876150","7":"8.024657e-05","8":"0.18504205"},{"1":"0","2":"3400","3":"-2.1827761","4":"-0.46220082","5":"0.0179017192","6":"0.7868010","7":"1.046134e-03","8":"-0.46639430"},{"1":"1","2":"3600","3":"-0.6200194","4":"1.44945464","5":"0.0182567287","6":"0.7782107","7":"1.760630e-02","8":"1.46286976"},{"1":"0","2":"3800","3":"0.9427372","4":"-1.59481937","5":"0.0204847214","6":"0.7761563","7":"2.740332e-02","8":"-1.61140941"},{"1":"1","2":"3950","3":"2.1148047","4":"0.47731538","5":"0.0199631940","6":"0.7867345","7":"1.253913e-03","8":"0.48215230"},{"1":"1","2":"3800","3":"0.9427372","4":"0.81115621","5":"0.0204847214","6":"0.7847799","7":"4.158647e-03","8":"0.81959422"},{"1":"0","2":"3800","3":"0.9427372","4":"-1.59481937","5":"0.0204847214","6":"0.7761563","7":"2.740332e-02","8":"-1.61140941"},{"1":"1","2":"3550","3":"-1.0107086","4":"1.62548549","5":"0.0188710553","6":"0.7757220","7":"2.693142e-02","8":"1.64104335"},{"1":"0","2":"3200","3":"-3.7455327","4":"-0.21609412","5":"0.0101589940","6":"0.7875576","7":"1.224688e-04","8":"-0.21720021"},{"1":"0","2":"3150","3":"-4.1362219","4":"-0.17808278","5":"0.0082933964","6":"0.7876251","7":"6.739035e-05","8":"-0.17882586"},{"1":"1","2":"3950","3":"2.1148047","4":"0.47731538","5":"0.0199631940","6":"0.7867345","7":"1.253913e-03","8":"0.48215230"},{"1":"0","2":"3250","3":"-3.3548436","4":"-0.26198907","5":"0.0121986532","6":"0.7874585","7":"2.182492e-04","8":"-0.26360179"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3300","3":"-2.9641544","4":"-0.31722768","5":"0.0142982799","6":"0.7873138","7":"3.797055e-04","8":"-0.31952020"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3325","3":"-2.7688098","4":"-0.34884755","5":"0.0153167981","6":"0.7872183","7":"4.955256e-04","8":"-0.35155025"},{"1":"1","2":"4150","3":"3.6775613","4":"0.22347346","5":"0.0113021380","6":"0.7875428","7":"1.461702e-04","8":"0.22474713"},{"1":"1","2":"3950","3":"2.1148047","4":"0.47731538","5":"0.0199631940","6":"0.7867345","7":"1.253913e-03","8":"0.48215230"},{"1":"0","2":"3550","3":"-1.0107086","4":"-0.78789969","5":"0.0188710553","6":"0.7849536","7":"3.567540e-03","8":"-0.79544084"},{"1":"0","2":"3300","3":"-2.9641544","4":"-0.31722768","5":"0.0142982799","6":"0.7873138","7":"3.797055e-04","8":"-0.31952020"},{"1":"1","2":"4650","3":"7.5844530","4":"0.03187989","5":"0.0008770972","6":"0.7877625","7":"2.233026e-07","8":"0.03189388"},{"1":"0","2":"3150","3":"-4.1362219","4":"-0.17808278","5":"0.0082933964","6":"0.7876251","7":"6.739035e-05","8":"-0.17882586"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3100","3":"-4.5269110","4":"-0.14666953","5":"0.0066594467","6":"0.7876709","7":"3.649214e-05","8":"-0.14716035"},{"1":"1","2":"4400","3":"5.6310071","4":"0.08459967","5":"0.0035275976","6":"0.7877351","7":"6.368002e-06","8":"0.08474928"},{"1":"0","2":"3000","3":"-5.3082894","4":"-0.09937983","5":"0.0041283399","6":"0.7877230","7":"1.030334e-05","8":"-0.09958560"},{"1":"1","2":"4600","3":"7.1937638","4":"0.03875498","5":"0.0011723527","6":"0.7877603","7":"4.414030e-07","8":"0.03877772"},{"1":"1","2":"3425","3":"-1.9874315","4":"2.05711741","5":"0.0185031808","6":"0.7683921","7":"7.007597e-02","8":"2.07641727"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"4150","3":"3.6775613","4":"0.22347346","5":"0.0113021380","6":"0.7875428","7":"1.461702e-04","8":"0.22474713"},{"1":"0","2":"3500","3":"-1.4013977","4":"-0.66353759","5":"0.0192238262","6":"0.7857720","7":"2.460655e-03","8":"-0.67000891"},{"1":"1","2":"4300","3":"4.8496288","4":"0.12490619","5":"0.0058348595","6":"0.7876974","7":"2.311619e-05","8":"0.12527220"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"4050","3":"2.8961830","4":"0.32790915","5":"0.0159539773","6":"0.7872819","7":"4.550005e-04","8":"0.33055660"},{"1":"0","2":"2900","3":"-6.0896677","4":"-0.06728444","5":"0.0024581600","6":"0.7877469","7":"2.799038e-06","8":"-0.06736729"},{"1":"1","2":"3700","3":"0.1613589","4":"1.10970158","5":"0.0183060764","6":"0.7821796","7":"8.082315e-03","8":"1.12000033"},{"1":"0","2":"3550","3":"-1.0107086","4":"-0.78789969","5":"0.0188710553","6":"0.7849536","7":"3.567540e-03","8":"-0.79544084"},{"1":"1","2":"3800","3":"0.9427372","4":"0.81115621","5":"0.0204847214","6":"0.7847799","7":"4.158647e-03","8":"0.81959422"},{"1":"0","2":"2850","3":"-6.4803568","4":"-0.05535502","5":"0.0018744333","6":"0.7877534","7":"1.442402e-06","8":"-0.05540697"},{"1":"1","2":"3750","3":"0.5520481","4":"0.95367044","5":"0.0193196487","6":"0.7836399","7":"5.783129e-03","8":"0.96301840"},{"1":"0","2":"3150","3":"-4.1362219","4":"-0.17808278","5":"0.0082933964","6":"0.7876251","7":"6.739035e-05","8":"-0.17882586"},{"1":"1","2":"4400","3":"5.6310071","4":"0.08459967","5":"0.0035275976","6":"0.7877351","7":"6.368002e-06","8":"0.08474928"},{"1":"0","2":"3600","3":"-0.6200194","4":"-0.92783614","5":"0.0182567287","6":"0.7838653","7":"5.094788e-03","8":"-0.93642353"},{"1":"1","2":"4050","3":"2.8961830","4":"0.32790915","5":"0.0159539773","6":"0.7872819","7":"4.550005e-04","8":"0.33055660"},{"1":"0","2":"2850","3":"-6.4803568","4":"-0.05535502","5":"0.0018744333","6":"0.7877534","7":"1.442402e-06","8":"-0.05540697"},{"1":"1","2":"3950","3":"2.1148047","4":"0.47731538","5":"0.0199631940","6":"0.7867345","7":"1.253913e-03","8":"0.48215230"},{"1":"0","2":"3350","3":"-2.5734652","4":"-0.38341125","5":"0.0162777462","6":"0.7871035","7":"6.414718e-04","8":"-0.38657041"},{"1":"1","2":"4100","3":"3.2868722","4":"0.27088447","5":"0.0135940552","6":"0.7874368","7":"2.610581e-04","8":"0.27274467"},{"1":"0","2":"3050","3":"-4.9176002","4":"-0.12074793","5":"0.0052740375","6":"0.7877020","7":"1.949933e-05","8":"-0.12106761"},{"1":"1","2":"4450","3":"6.0216963","4":"0.06960768","5":"0.0027061694","6":"0.7877455","7":"3.299812e-06","8":"0.06970206"},{"1":"0","2":"3600","3":"-0.6200194","4":"-0.92783614","5":"0.0182567287","6":"0.7838653","7":"5.094788e-03","8":"-0.93642353"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3550","3":"-1.0107086","4":"-0.78789969","5":"0.0188710553","6":"0.7849536","7":"3.567540e-03","8":"-0.79544084"},{"1":"1","2":"4150","3":"3.6775613","4":"0.22347346","5":"0.0113021380","6":"0.7875428","7":"1.461702e-04","8":"0.22474713"},{"1":"0","2":"3700","3":"0.1613589","4":"-1.24665768","5":"0.0183060764","6":"0.7807087","7":"1.116067e-02","8":"-1.25822748"},{"1":"1","2":"4250","3":"4.4589397","4":"0.15171128","5":"0.0073811731","6":"0.7876641","7":"4.335483e-05","8":"0.15227430"},{"1":"0","2":"3700","3":"0.1613589","4":"-1.24665768","5":"0.0183060764","6":"0.7807087","7":"1.116067e-02","8":"-1.25822748"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3550","3":"-1.0107086","4":"-0.78789969","5":"0.0188710553","6":"0.7849536","7":"3.567540e-03","8":"-0.79544084"},{"1":"1","2":"4000","3":"2.5054939","4":"0.39616672","5":"0.0181708582","6":"0.7870572","7":"7.693987e-04","8":"0.39981587"},{"1":"0","2":"3200","3":"-3.7455327","4":"-0.21609412","5":"0.0101589940","6":"0.7875576","7":"1.224688e-04","8":"-0.21720021"},{"1":"1","2":"4700","3":"7.9751421","4":"0.02622392","5":"0.0006531078","6":"0.7877640","7":"1.124507e-07","8":"0.02623248"},{"1":"0","2":"3800","3":"0.9427372","4":"-1.59481937","5":"0.0204847214","6":"0.7761563","7":"2.740332e-02","8":"-1.61140941"},{"1":"1","2":"4200","3":"4.0682505","4":"0.18418800","5":"0.0092095585","6":"0.7876150","7":"8.024657e-05","8":"0.18504205"},{"1":"0","2":"3350","3":"-2.5734652","4":"-0.38341125","5":"0.0162777462","6":"0.7871035","7":"6.414718e-04","8":"-0.38657041"},{"1":"1","2":"3550","3":"-1.0107086","4":"1.62548549","5":"0.0188710553","6":"0.7757220","7":"2.693142e-02","8":"1.64104335"},{"1":"1","2":"3800","3":"0.9427372","4":"0.81115621","5":"0.0204847214","6":"0.7847799","7":"4.158647e-03","8":"0.81959422"},{"1":"0","2":"3500","3":"-1.4013977","4":"-0.66353759","5":"0.0192238262","6":"0.7857720","7":"2.460655e-03","8":"-0.67000891"},{"1":"1","2":"3950","3":"2.1148047","4":"0.47731538","5":"0.0199631940","6":"0.7867345","7":"1.253913e-03","8":"0.48215230"},{"1":"0","2":"3600","3":"-0.6200194","4":"-0.92783614","5":"0.0182567287","6":"0.7838653","7":"5.094788e-03","8":"-0.93642353"},{"1":"0","2":"3550","3":"-1.0107086","4":"-0.78789969","5":"0.0188710553","6":"0.7849536","7":"3.567540e-03","8":"-0.79544084"},{"1":"1","2":"4300","3":"4.8496288","4":"0.12490619","5":"0.0058348595","6":"0.7876974","7":"2.311619e-05","8":"0.12527220"},{"1":"0","2":"3400","3":"-2.1827761","4":"-0.46220082","5":"0.0179017192","6":"0.7868010","7":"1.046134e-03","8":"-0.46639430"},{"1":"1","2":"4450","3":"6.0216963","4":"0.06960768","5":"0.0027061694","6":"0.7877455","7":"3.299812e-06","8":"0.06970206"},{"1":"0","2":"3300","3":"-2.9641544","4":"-0.31722768","5":"0.0142982799","6":"0.7873138","7":"3.797055e-04","8":"-0.31952020"},{"1":"1","2":"4300","3":"4.8496288","4":"0.12490619","5":"0.0058348595","6":"0.7876974","7":"2.311619e-05","8":"0.12527220"},{"1":"0","2":"3700","3":"0.1613589","4":"-1.24665768","5":"0.0183060764","6":"0.7807087","7":"1.116067e-02","8":"-1.25822748"},{"1":"1","2":"4350","3":"5.2403180","4":"0.10280646","5":"0.0045593241","6":"0.7877199","7":"1.218985e-05","8":"0.10304162"},{"1":"0","2":"2900","3":"-6.0896677","4":"-0.06728444","5":"0.0024581600","6":"0.7877469","7":"2.799038e-06","8":"-0.06736729"},{"1":"1","2":"4100","3":"3.2868722","4":"0.27088447","5":"0.0135940552","6":"0.7874368","7":"2.610581e-04","8":"0.27274467"},{"1":"0","2":"3725","3":"0.3567035","4":"-1.33215613","5":"0.0187556964","6":"0.7796984","7":"1.391436e-02","8":"-1.34482742"},{"1":"1","2":"4725","3":"8.1704867","4":"0.02378404","5":"0.0005626569","6":"0.7877645","7":"7.967191e-08","8":"0.02379073"},{"1":"0","2":"3075","3":"-4.7222556","4":"-0.13308466","5":"0.0059357780","6":"0.7876879","7":"2.671586e-05","8":"-0.13348141"},{"1":"1","2":"4250","3":"4.4589397","4":"0.15171128","5":"0.0073811731","6":"0.7876641","7":"4.335483e-05","8":"0.15227430"},{"1":"0","2":"2925","3":"-5.8943231","4":"-0.07417887","5":"0.0028072235","6":"0.7877425","7":"3.888810e-06","8":"-0.07428321"},{"1":"1","2":"3550","3":"-1.0107086","4":"1.62548549","5":"0.0188710553","6":"0.7757220","7":"2.693142e-02","8":"1.64104335"},{"1":"0","2":"3750","3":"0.5520481","4":"-1.41900790","5":"0.0193196487","6":"0.7786003","7":"1.744479e-02","8":"-1.43291714"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3175","3":"-3.9408773","4":"-0.19618759","5":"0.0091996924","6":"0.7875946","7":"9.104787e-05","8":"-0.19709630"},{"1":"1","2":"4775","3":"8.5611759","4":"0.01956404","5":"0.0004163383","6":"0.7877653","7":"3.987554e-08","8":"0.01956811"},{"1":"0","2":"3825","3":"1.1380818","4":"-1.68287942","5":"0.0209268190","6":"0.7748218","7":"3.406478e-02","8":"-1.70076936"},{"1":"1","2":"4600","3":"7.1937638","4":"0.03875498","5":"0.0011723527","6":"0.7877603","7":"4.414030e-07","8":"0.03877772"},{"1":"0","2":"3200","3":"-3.7455327","4":"-0.21609412","5":"0.0101589940","6":"0.7875576","7":"1.224688e-04","8":"-0.21720021"},{"1":"1","2":"4275","3":"4.6542842","4":"0.13766400","5":"0.0065729604","6":"0.7876823","7":"3.170510e-05","8":"0.13811868"},{"1":"0","2":"3900","3":"1.7241155","4":"-1.94330354","5":"0.0210341335","6":"0.7704550","7":"6.153659e-02","8":"-1.96406957"},{"1":"1","2":"4075","3":"3.0915276","4":"0.29809621","5":"0.0147767839","6":"0.7873666","7":"3.458177e-04","8":"0.30032337"},{"1":"0","2":"2900","3":"-6.0896677","4":"-0.06728444","5":"0.0024581600","6":"0.7877469","7":"2.799038e-06","8":"-0.06736729"},{"1":"1","2":"3775","3":"0.7473926","4":"0.88057736","5":"0.0199233885","6":"0.7842475","7":"4.911619e-03","8":"0.88948269"},{"1":"0","2":"3350","3":"-2.5734652","4":"-0.38341125","5":"0.0162777462","6":"0.7871035","7":"6.414718e-04","8":"-0.38657041"},{"1":"1","2":"3325","3":"-2.7688098","4":"2.37893132","5":"0.0153167981","6":"0.7618305","7":"1.258994e-01","8":"2.39736212"},{"1":"0","2":"3150","3":"-4.1362219","4":"-0.17808278","5":"0.0082933964","6":"0.7876251","7":"6.739035e-05","8":"-0.17882586"},{"1":"1","2":"3500","3":"-1.4013977","4":"1.80085469","5":"0.0192238262","6":"0.7729512","7":"4.057788e-02","8":"1.81841799"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"3875","3":"1.5287710","4":"0.62646001","5":"0.0212298341","6":"0.7859853","7":"2.402251e-03","8":"0.63321762"},{"1":"0","2":"3050","3":"-4.9176002","4":"-0.12074793","5":"0.0052740375","6":"0.7877020","7":"1.949933e-05","8":"-0.12106761"},{"1":"1","2":"4000","3":"2.5054939","4":"0.39616672","5":"0.0181708582","6":"0.7870572","7":"7.693987e-04","8":"0.39981587"},{"1":"0","2":"3275","3":"-3.1594990","4":"-0.28834298","5":"0.0132506635","6":"0.7873930","7":"2.888291e-04","8":"-0.29027254"},{"1":"1","2":"4300","3":"4.8496288","4":"0.12490619","5":"0.0058348595","6":"0.7876974","7":"2.311619e-05","8":"0.12527220"},{"1":"0","2":"3050","3":"-4.9176002","4":"-0.12074793","5":"0.0052740375","6":"0.7877020","7":"1.949933e-05","8":"-0.12106761"},{"1":"1","2":"4000","3":"2.5054939","4":"0.39616672","5":"0.0181708582","6":"0.7870572","7":"7.693987e-04","8":"0.39981587"},{"1":"0","2":"3325","3":"-2.7688098","4":"-0.34884755","5":"0.0153167981","6":"0.7872183","7":"4.955256e-04","8":"-0.35155025"},{"1":"1","2":"3500","3":"-1.4013977","4":"1.80085469","5":"0.0192238262","6":"0.7729512","7":"4.057788e-02","8":"1.81841799"},{"1":"0","2":"3500","3":"-1.4013977","4":"-0.66353759","5":"0.0192238262","6":"0.7857720","7":"2.460655e-03","8":"-0.67000891"},{"1":"1","2":"4475","3":"6.2170409","4":"0.06313719","5":"0.0023634999","6":"0.7877493","7":"2.368942e-06","8":"0.06321194"},{"1":"0","2":"3425","3":"-1.9874315","4":"-0.50682252","5":"0.0185031808","6":"0.7866046","7":"1.316158e-03","8":"-0.51157752"},{"1":"1","2":"3900","3":"1.7241155","4":"0.57288530","5":"0.0210341335","6":"0.7862776","7":"1.956977e-03","8":"0.57900712"},{"1":"0","2":"3175","3":"-3.9408773","4":"-0.19618759","5":"0.0091996924","6":"0.7875946","7":"9.104787e-05","8":"-0.19709630"},{"1":"1","2":"3975","3":"2.3101493","4":"0.43502847","5":"0.0191393513","6":"0.7869102","7":"9.871826e-04","8":"0.43925228"},{"1":"0","2":"3400","3":"-2.1827761","4":"-0.46220082","5":"0.0179017192","6":"0.7868010","7":"1.046134e-03","8":"-0.46639430"},{"1":"1","2":"4250","3":"4.4589397","4":"0.15171128","5":"0.0073811731","6":"0.7876641","7":"4.335483e-05","8":"0.15227430"},{"1":"0","2":"3400","3":"-2.1827761","4":"-0.46220082","5":"0.0179017192","6":"0.7868010","7":"1.046134e-03","8":"-0.46639430"},{"1":"1","2":"3475","3":"-1.5967423","4":"1.88742737","5":"0.0191703416","6":"0.7714779","7":"4.918912e-02","8":"1.90578302"},{"1":"0","2":"3050","3":"-4.9176002","4":"-0.12074793","5":"0.0052740375","6":"0.7877020","7":"1.949933e-05","8":"-0.12106761"},{"1":"1","2":"3725","3":"0.3567035","4":"1.03016164","5":"0.0187556964","6":"0.7829520","7":"6.817648e-03","8":"1.03996039"},{"1":"0","2":"3000","3":"-5.3082894","4":"-0.09937983","5":"0.0041283399","6":"0.7877230","7":"1.030334e-05","8":"-0.09958560"},{"1":"1","2":"3650","3":"-0.2293303","4":"1.27622255","5":"0.0179349418","6":"0.7803711","7":"1.169463e-02","8":"1.28782332"},{"1":"1","2":"4250","3":"4.4589397","4":"0.15171128","5":"0.0073811731","6":"0.7876641","7":"4.335483e-05","8":"0.15227430"},{"1":"0","2":"3475","3":"-1.5967423","4":"-0.60736927","5":"0.0191703416","6":"0.7860959","7":"2.018163e-03","8":"-0.61327607"},{"1":"0","2":"3450","3":"-1.7920869","4":"-0.55516468","5":"0.0189305601","6":"0.7863714","7":"1.638478e-03","8":"-0.56049527"},{"1":"1","2":"3750","3":"0.5520481","4":"0.95367044","5":"0.0193196487","6":"0.7836399","7":"5.783129e-03","8":"0.96301840"},{"1":"0","2":"3700","3":"0.1613589","4":"-1.24665768","5":"0.0183060764","6":"0.7807087","7":"1.116067e-02","8":"-1.25822748"},{"1":"1","2":"4000","3":"2.5054939","4":"0.39616672","5":"0.0181708582","6":"0.7870572","7":"7.693987e-04","8":"0.39981587"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2 center"><p>Now let’s see the AIC:</p>
+<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-03_c6eeb229c97ecc8121f6f2d9b2518f8f">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-03_c6eeb229c97ecc8121f6f2d9b2518f8f">
+<div class="cell-output-display">
+
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["null.deviance"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["df.null"],"name":[2],"type":["int"],"align":["right"]},{"label":["logLik"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["AIC"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["BIC"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["deviance"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["df.residual"],"name":[7],"type":["int"],"align":["right"]},{"label":["nobs"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"202.399","2":"145","3":"-44.37125","4":"92.74249","5":"98.70971","6":"88.74249","7":"144","8":"146"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -590,6 +685,201 @@ computed using a Wald z-distribution approximation.</code></pre>
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
+<pre class="{r}"><code><a href="https://tidyverse.tidyverse.org">#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+library(performance)
+library(ggpmisc)
+
+simple_theme &lt;- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "bottom",
+        axis.title = element_text(size = 14)
+    )
+
+theme_set(simple_theme)</a></code></pre>
+</section><section id="generalized-linear-models-glm-1" class="slide level2 center"><h2>Generalized Linear Models (GLM)</h2>
+</section><section class="slide level2 center"><p>We have assume data (and residuals) follow a <em>normal</em> distribution for regular lineal models, but what if that does not always happen?</p>
+<div>
+<ol type="1">
+<li class="fragment"><p>Structural component (<span class="math inline">\(\eta = \beta x\)</span>)</p></li>
+<li class="fragment"><p>Link function (<span class="math inline">\(\eta = g(\mu)\)</span>)<sup>1</sup></p></li>
+<li class="fragment"><p>Random component (Normal, Binomial, Poisson, Neg. Binomial, etc.)</p></li>
+</ol>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>An equation that delinearizes the mathematical relationship between the predictor and the outcome. It is a <em>transformation</em> of the predictors</p></li></ol></aside></section><section id="what-regression-should-we-apply-1" class="slide level2 smaller center"><h2>What regression should we apply?</h2>
+<p>It depends on the <em>outcome datatype</em> and on the <em>errors distribution</em> of the model.</p>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 33%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead><tr class="header">
+<th>Regression</th>
+<th>Outcome variable</th>
+<th>Errors distribution</th>
+<th>Link function</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Regular/Estandar</td>
+<td>Continuos</td>
+<td>Normal</td>
+<td>Indentity</td>
+</tr>
+<tr class="even">
+<td>Logistic</td>
+<td>Discrete (two-level factor - <strong>binary</strong>)</td>
+<td>Binomial</td>
+<td>Logit</td>
+</tr>
+<tr class="odd">
+<td>Poisson</td>
+<td>Skewed discrete (counts)</td>
+<td>Poisson</td>
+<td>Log</td>
+</tr>
+<tr class="even">
+<td>Neg. Binomial</td>
+<td>Discrete (counts)</td>
+<td>Neg. Binomial</td>
+<td>Inverse</td>
+</tr>
+<tr class="odd">
+<td>Gamma</td>
+<td>Skewed <strong>positive</strong> continuous</td>
+<td>Gamma</td>
+<td>Reciprocal</td>
+</tr>
+</tbody>
+</table></section><section id="lets-try-it-in-r-1" class="slide level2 center"><h2>Let’s try it in R:</h2>
+</section><section class="slide level2 center"><pre class="{r}"><code><a href="https://allisonhorst.github.io/palmerpenguins/">library(palmerpenguins)</a></code></pre>
+<pre class="{r}"><code>#| label: binsex
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+adelies &lt;- penguins |&gt;
+  filter(species == "Adelie") |&gt;
+  drop_na() |&gt;
+  mutate(binarysex = case_when(
+    sex == "male" ~ 1,
+    sex == "female" ~ 0
+  ))</code></pre>
+<p>Let’s create the GLM for to predict a penguin’s sex based on it’s body mass:</p>
+<div class="fragment">
+<pre class="{r}"><code>#| label: glm
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+binarysexmodel &lt;- glm(binarysex ~ body_mass_g, data = adelies, family = "binomial")</code></pre>
+</div>
+<div class="fragment">
+<p>Let’s see what the outout is:</p>
+</div>
+<div class="fragment">
+<pre class="{r}"><code>binarysexmodel</code></pre>
+</div>
+</section><section class="slide level2 center"><h4 id="what-did-we-do-1">What did we do?</h4>
+<pre class="{r}"><code>#| label: glm-report
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+report::report(binarysexmodel)</code></pre>
+</section><section id="lets-put-that-on-a-plot-1" class="slide level2 center"><h2>Let’s put that on a plot</h2>
+</section><section class="slide level2 center"><pre class="{r}"><code>#| label: logistic-sex-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+ggplot(adelies, 
+    aes(x = body_mass_g, y = binarysex)) +
+  geom_point() +
+  geom_smooth(
+    method = "glm", 
+    method.args = list(
+      family = "binomial"
+      )
+    )</code></pre>
+</section><section id="analysis-of-covariance-ancova-1" class="slide level2 center"><h2>Analysis of covariance (ANCOVA)</h2>
+</section><section class="slide level2 center"><p>ANCOVA is a particular case of a GLM where we have a <em>categorical</em> predictor and a <em>continuous</em> predictor. The continuous predictor is called a <em>covariate</em>.</p>
+</section><section class="slide level2 center"><p>Think in this example:</p>
+<pre class="{r}"><code>#| label: box01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+ggplot(adelies, aes(x = sex, y = flipper_length_mm, color = sex)) +
+  geom_boxplot() +
+  geom_jitter(size = 2, alpha = 0.7, width = 0.1) +
+  labs(
+    x = "",
+    y = "Flipper length (mm)"
+  )</code></pre>
+</section><section class="slide level2 center"><p>What other variable could be affecting the penguins’ flipper length?</p>
+<div class="fragment">
+<p>What if the Body mass has an effect on the flipper length? Let’s create an ANCOVA model</p>
+<pre class="{r}"><code>#| label: ancova-model
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+ancovamodel  &lt;- aov(flipper_length_mm  ~ sex + body_mass_g, data = adelies)</code></pre>
+</div>
+<div class="fragment">
+<p>Here is the result:</p>
+</div>
+<div class="fragment">
+<pre class="{r}"><code>ancovamodel</code></pre>
+</div>
+</section><section id="lets-see-the-complete-report-1" class="slide level2 center"><h2>Let’s see the complete <code>report</code>:</h2>
+<pre class="{r}"><code>#| label: ancova-report
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+report::report(ancovamodel)</code></pre>
+</section><section id="akaike-information-criteria-aic-1" class="slide level2 center"><h2>Akaike Information Criteria (AIC)</h2>
+</section><section class="slide level2 center"><p>An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):</p>
+<p><span class="math display">\[AIC=−2*ln(L)+2*k\]</span></p>
+</section><section id="using-broom-to-evaluate-statistical-models.-1" class="slide level2 center"><h2>Using Broom to evaluate statistical models.</h2>
+</section><section class="slide level2 center"><p>Tidying model’s statistical information and report their performance.</p>
+<div>
+<ol type="1">
+<li class="fragment"><p><code>tidy()</code> Summarizes and organize the model information</p></li>
+<li class="fragment"><p><code>augment()</code> Displays all model information for each data point.</p></li>
+<li class="fragment"><p><code>glance()</code> Summarizes the model performance (AIC, BIC, and others).</p></li>
+</ol>
+</div>
+</section><section class="slide level2 center"><pre class="{r}"><code>#| label: broom-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::tidy(binarysexmodel)</code></pre>
+<div class="fragment">
+<pre class="{r}"><code>#| label: broom-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::augment(binarysexmodel)</code></pre>
+</div>
+</section><section class="slide level2 center"><p>Now let’s see the AIC:</p>
+<pre class="{r}"><code>#| label: broom-03
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::glance(binarysexmodel)</code></pre>
 </section>
 </div>
   </div>

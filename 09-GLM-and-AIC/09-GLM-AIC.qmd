@@ -36,10 +36,7 @@ format:
 #| eval: true
 library(tidyverse)
 library(palmerpenguins)
-library(latex2exp)
 library(performance)
-library(statsExpressions)
-library(ggsignif)
 library(ggpmisc)
 
 simple_theme <- theme_bw() +
@@ -174,12 +171,64 @@ ggplot(adelies,
  
 ***
 
+ANCOVA is a particular case of a GLM where we have a *categorical* predictor and a *continuous* predictor. The continuous predictor is called a *covariate*.
+
+***
+
+Think in this example:
+
 ```{r}
-ggplot(adelies, aes(x = island, y = flipper_length_mm, color = island)) +
+#| label: box01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: column-fragment
+ggplot(adelies, aes(x = sex, y = flipper_length_mm, color = sex)) +
   geom_boxplot() +
-  geom_jitter(size = 2, alpha = 0.7, width = 0.1)
+  geom_jitter(size = 2, alpha = 0.7, width = 0.1) +
+  labs(
+    x = "",
+    y = "Flipper length (mm)"
+  )
 ```
 
+***
+
+What other variable could be affecting the penguins' flipper length?
+
+. . . 
+
+What if the Body mass has an effect on the flipper length? Let's create an ANCOVA model
+
+```{r}
+#| label: ancova-model
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+ancovamodel  <- aov(flipper_length_mm  ~ sex + body_mass_g, data = adelies)
+```
+
+. . .
+
+Here is the result:
+
+. . .
+
+```{r}
+ancovamodel
+```
+
+## Let's see the complete `report`:
+
+```{r}
+#| label: ancova-report
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+report::report(ancovamodel)
+```
 
 ## Akaike Information Criteria (AIC)
 
@@ -203,6 +252,37 @@ Tidying model's statistical information and report their performance.
 3.  `glance()` Summarizes the model performance (AIC, BIC, and others).
 :::
 
+***
+
 ```{r}
+#| label: broom-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::tidy(binarysexmodel)
+```
+
+. . . 
+
+```{r}
+#| label: broom-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::augment(binarysexmodel)
+```
+
+***
+
+Now let's see the AIC:
+
+```{r}
+#| label: broom-03
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
 broom::glance(binarysexmodel)
 ```
