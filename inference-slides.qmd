@@ -1,7 +1,14 @@
 ---
 title: "inference-slides"
+slide-format: revealjs
 ---
 
-## Quarto
+## Introduction
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="01-introduction/01-introduction.html"></iframe>
+```
+
+</div>
