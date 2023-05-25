@@ -1,6 +1,6 @@
 ---
 title: GLM & AIC
-subtitle: "https://bit.ly/3IlpxQ5"
+subtitle: "https://tinyurl.com/29wkzwwj"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
@@ -202,8 +202,6 @@ Tidying model's statistical information and report their performance.
 
 3.  `glance()` Summarizes the model performance (AIC, BIC, and others).
 :::
-
-
 
 ```{r}
 broom::glance(binarysexmodel)

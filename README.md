@@ -16,4 +16,4 @@ This repo will include several slides used during Informatics and Inference at U
 
 8. [Linear regression](https://camilogarciabotero.github.io/inference-slides/08-linear-regression/08-linear-regression.html#/title-slide)
 
-9. [GLM, ANCOVA and AIC](https://camilogarciabotero.github.io/inference-slides/09-GLM-AIC/09-GLM-AIC.html#/title-slide)
+9. [GLM, ANCOVA and AIC](https://camilogarciabotero.github.io/inference-slides/09-GLM-and-AIC/09-GLM-AIC.html#/title-slide)

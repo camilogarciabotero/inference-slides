@@ -7,19 +7,19 @@
 <link href="09-GLM-AIC_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="09-GLM-AIC_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="09-GLM-AIC_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="09-GLM-AIC_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.77">
-
-  <meta name="author" content="Camilo G.">
-  <meta name="author" content="Alejandro C.">
-  <meta name="author" content="Angie T.">
-  <title>GLM &amp; AIC</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/reveal.css">
-  <style>
+<link href="09-GLM-AIC_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.77">
+<meta name="author" content="Camilo G.">
+<meta name="author" content="Alejandro C.">
+<meta name="author" content="Angie T.">
+<title>GLM &amp; AIC</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-  <link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="09-GLM-AIC_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="09-GLM-AIC_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="09-GLM-AIC_files/libs/revealjs/dist/theme/quarto.css">
+<link href="09-GLM-AIC_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="09-GLM-AIC_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -299,7 +299,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -387,16 +387,15 @@
       margin-right: 0; 
     }
   </style>
-  <link href="09-GLM-AIC_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-  <script src="09-GLM-AIC_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="09-GLM-AIC_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="09-GLM-AIC_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">GLM &amp; AIC</h1>
-  <p class="subtitle">https://bit.ly/3IlpxQ5</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">GLM &amp; AIC</h1>
+  <p class="subtitle">https://tinyurl.com/29wkzwwj</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -425,13 +424,8 @@ Angie T.
 </div>
 </div>
 
-</section>
-<section id="generalized-linear-models-glm" class="slide level2 center">
-<h2>Generalized Linear Models (GLM)</h2>
-</section>
-<section class="slide level2 center">
-
-<p>We have assume data (and residuals) follow a <em>normal</em> distribution for regular lineal models, but what if that does not always happen?</p>
+</section><section id="generalized-linear-models-glm" class="slide level2 center"><h2>Generalized Linear Models (GLM)</h2>
+</section><section class="slide level2 center"><p>We have assume data (and residuals) follow a <em>normal</em> distribution for regular lineal models, but what if that does not always happen?</p>
 <div>
 <ol type="1">
 <li class="fragment"><p>Structural component (<span class="math inline">\(\eta = \beta x\)</span>)</p></li>
@@ -439,9 +433,7 @@ Angie T.
 <li class="fragment"><p>Random component (Normal, Binomial, Poisson, Neg. Binomial, etc.)</p></li>
 </ol>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>An equation that delinearizes the mathematical relationship between the predictor and the outcome. It is a <em>transformation</em> of the predictors</p></li></ol></aside></section>
-<section id="what-regression-should-we-apply" class="slide level2 smaller center">
-<h2>What regression should we apply?</h2>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>An equation that delinearizes the mathematical relationship between the predictor and the outcome. It is a <em>transformation</em> of the predictors</p></li></ol></aside></section><section id="what-regression-should-we-apply" class="slide level2 smaller center"><h2>What regression should we apply?</h2>
 <p>It depends on the <em>outcome datatype</em> and on the <em>errors distribution</em> of the model.</p>
 <table>
 <colgroup>
@@ -450,14 +442,12 @@ Angie T.
 <col style="width: 22%">
 <col style="width: 22%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Regression</th>
 <th>Outcome variable</th>
 <th>Errors distribution</th>
 <th>Link function</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Regular/Estandar</td>
@@ -490,21 +480,15 @@ Angie T.
 <td>Reciprocal</td>
 </tr>
 </tbody>
-</table>
-</section>
-<section id="lets-try-it-in-r" class="slide level2 center">
-<h2>Let’s try it in R:</h2>
-</section>
-<section class="slide level2 center">
-
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>adelies <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">binarysex =</span> <span class="fu">case_when</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    sex <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    sex <span class="sc">==</span> <span class="st">"female"</span> <span class="sc">~</span> <span class="dv">0</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</table></section><section id="lets-try-it-in-r" class="slide level2 center"><h2>Let’s try it in R:</h2>
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelies</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>binarysex <span class="op">=</span> <span class="fu">case_when</span><span class="op">(</span></span>
+<span>    <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>    <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">~</span> <span class="fl">0</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 
@@ -512,7 +496,7 @@ Angie T.
 <p>Let’s create the GLM for to predict a penguin’s sex based on it’s body mass:</p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>binarysexmodel <span class="ot">&lt;-</span> <span class="fu">glm</span>(binarysex <span class="sc">~</span> body_mass_g, <span class="at">data =</span> adelies, <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binarysexmodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">binarysex</span> <span class="op">~</span> <span class="va">body_mass_g</span>, data <span class="op">=</span> <span class="va">adelies</span>, family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 
@@ -537,12 +521,9 @@ Residual Deviance: 88.74    AIC: 92.74</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2 center">
-
-<h4 id="what-did-we-do">What did we do?</h4>
+</section><section class="slide level2 center"><h4 id="what-did-we-do">What did we do?</h4>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>report<span class="sc">::</span><span class="fu">report</span>(binarysexmodel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -561,55 +542,35 @@ version of the dataset. 95% Confidence Intervals (CIs) and p-values were
 computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
-</section>
-<section id="lets-put-that-on-a-plot" class="slide level2 center">
-<h2>Let’s put that on a plot</h2>
-</section>
-<section class="slide level2 center">
-
-<div class="cell columns column-output-location" data-layout-align="center">
+</section><section id="lets-put-that-on-a-plot" class="slide level2 center"><h2>Let’s put that on a plot</h2>
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(adelies, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> binarysex)) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"glm"</span>, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">family =</span> <span class="st">"binomial"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column fragment">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, </span>
+<span>    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, y <span class="op">=</span> <span class="va">binarysex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span></span>
+<span>    method <span class="op">=</span> <span class="st">"glm"</span>, </span>
+<span>    method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>      family <span class="op">=</span> <span class="st">"binomial"</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="09-GLM-AIC_files/figure-revealjs/logistic-sex-01-1.png" width="1750"></p>
+<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/logistic-sex-01-1.png" width="1750"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="analysis-of-covariance-ancova" class="slide level2 center">
-<h2>Analysis of covariance (ANCOVA)</h2>
-</section>
-<section class="slide level2 center">
-
-
-<img data-src="09-GLM-AIC_files/figure-revealjs/unnamed-chunk-8-1.png" width="1750" class="r-stretch"></section>
-<section id="akaike-information-criteria-aic" class="slide level2 center">
-<h2>Akaike Information Criteria (AIC)</h2>
-</section>
-<section class="slide level2 center">
-
-<p>An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):</p>
+</section><section id="analysis-of-covariance-ancova" class="slide level2 center"><h2>Analysis of covariance (ANCOVA)</h2>
+</section><section class="slide level2 center">
+<img data-src="09-GLM-AIC_files/figure-revealjs/unnamed-chunk-8-1.png" width="1750" class="r-stretch"></section><section id="akaike-information-criteria-aic" class="slide level2 center"><h2>Akaike Information Criteria (AIC)</h2>
+</section><section class="slide level2 center"><p>An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):</p>
 <p><span class="math display">\[AIC=−2*ln(L)+2*k\]</span></p>
-</section>
-<section id="using-broom-to-evaluate-statistical-models." class="slide level2 center">
-<h2>Using Broom to evaluate statistical models.</h2>
-</section>
-<section class="slide level2 center">
-
-<p>Tidying model’s statistical information and report their performance.</p>
+</section><section id="using-broom-to-evaluate-statistical-models." class="slide level2 center"><h2>Using Broom to evaluate statistical models.</h2>
+</section><section class="slide level2 center"><p>Tidying model’s statistical information and report their performance.</p>
 <div>
 <ol type="1">
 <li class="fragment"><p><code>tidy()</code> Summarizes and organize the model information</p></li>
@@ -630,27 +591,10 @@ computed using a Wald z-distribution approximation.</code></pre>
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
 </div>
 </section>
-
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="09-GLM-AIC_files/libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="09-GLM-AIC_files/libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="09-GLM-AIC_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="09-GLM-AIC_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/notes/notes.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/search/search.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="09-GLM-AIC_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -841,9 +785,7 @@ computed using a Wald z-distribution approximation.</code></pre>
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -878,9 +820,7 @@ computed using a Wald z-distribution approximation.</code></pre>
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1177,6 +1117,6 @@ computed using a Wald z-distribution approximation.</code></pre>
       }
     });
     </script>
-    
+
 
 </body></html>
