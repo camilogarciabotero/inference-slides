@@ -1,14 +1,38 @@
 ---
 title: "inference-slides"
-slide-format: revealjs
+# slide-format: revealjs
 ---
 
-## Introduction
+## 1 . Introduction to R
 
-<div>
+Here we explore the basics of the R programming language and from its syntax, operators, data structures etc.
+We also introduce the RStudio IDE, to facilitate the use of R.
 
-```{=html}
-<iframe class="slide-deck" src="01-introduction/01-introduction.html"></iframe>
+```{r}
+#| label: intro-slides
+#| echo: false
+#| 
+# xaringanExtra::slide_buttons("/slides/03-slides")
+
+xaringanExtra::embed_xaringan(
+  "https://bit.ly/3ZRsbnA",
+  ratio = "16:9",
+  border = "none",
+  margin = "0 auto"
+)
 ```
 
-</div>
+## 2. An introduction to the Tidyverse
+
+Here we navigate the fundamentals of the Tidyverse, which is a neat ecosystem for data science, that is manipulation of data, transformation and visualization.
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+# xaringanExtra::slide_buttons("/slides/03-slides")
+
+xaringanExtra::embed_xaringan(
+  "02-intro-tidyverse/02-intro-tidyverse.html",
+  ratio = "16:9",
+  border = "none",
+  margin = "0 auto"
+)
+```
