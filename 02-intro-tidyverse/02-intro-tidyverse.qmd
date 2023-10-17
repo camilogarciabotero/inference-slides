@@ -130,7 +130,7 @@ library(palmerpenguins)
 
 ## Data wrangling and cleaning {.smaller }
 
-![](figs/data-wrangling.png){fig-align="center" width="500"}
+![](figs/data-wrangling-transparent.png){fig-align="center" width="500"}
 
 ***
 :::{.incremental}
