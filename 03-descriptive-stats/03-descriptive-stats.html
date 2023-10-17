@@ -8,11 +8,11 @@
 <link href="03-descriptive-stats_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="03-descriptive-stats_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.376">
+  <meta name="generator" content="quarto-1.4.422">
 
   <meta name="author" content="Camilo G.">
-  <meta name="author" content="Alejandro C.">
-  <meta name="author" content="Angie T.">
+  <meta name="author" content="Daniel V.">
+  <meta name="author" content="Victor A.">
   <title>Descriptive Stats</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -410,18 +410,18 @@ Camilo G.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Alejandro C. 
+Daniel V. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:a.castellanoss@uniandes.edu.co">a.castellanoss@uniandes.edu.co</a>
+<a href="mailto:d.vivasb@uniandes.edu.co">d.vivasb@uniandes.edu.co</a>
 </div>
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Angie T. 
+Victor A. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:am.tovar11@uniandes.edu.co">am.tovar11@uniandes.edu.co</a>
+<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -440,7 +440,7 @@ Angie T.
 <section class="slide level2 center">
 
 
-<img data-src="../02-intro-tidyverse/figs/palmer-penguins.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="r-stretch quarto-figure-center"></section></section>
+<img data-src="../02-intro-tidyverse/figs/palmer-penguins.png" class="r-stretch"></section></section>
 <section>
 <section id="mean-median" class="title-slide slide level1 center">
 <h1>Mean &amp; Median</h1>
@@ -453,12 +453,12 @@ Angie T.
 \]</span></p>
 <div class="fragment">
 <p>You can create the function:</p>
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-3_d92f22297d87fa038a8ea8cc3b0e2b81">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>new_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x){<span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/sample_mean_47acf0ee2aae0d41ca0797baca482aa1">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">new_mean</span>(penguins<span class="sc">$</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2008.029</code></pre>
@@ -467,7 +467,7 @@ Angie T.
 </div>
 <div class="fragment">
 <p>Or simply use a predefined <code>mean</code>:</p>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/mean_64c6afe284ed57279bd1caa81a22686b">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(penguins<span class="sc">$</span>year, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2008.029</code></pre>
@@ -486,7 +486,7 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 \]</span></p>
 <div class="fragment">
 <p>In R a freshly defined function:</p>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/new-median-function_975fc10184b90ff7f25b5ef8f575a839">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>new_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(x) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>){</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>   (<span class="fu">sort</span>(x)[<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>] <span class="sc">+</span> <span class="fu">sort</span>(x)[(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>])<span class="sc">/</span><span class="dv">2</span></span>
@@ -513,7 +513,7 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/new-median_26edd950e7eb59923e74ecdd902e6e43">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">new_median</span>(penguins<span class="sc">$</span>body_mass_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4050</code></pre>
@@ -522,7 +522,7 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 </div>
 <div class="fragment">
 <p>Or the predefined function</p>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/median_5b867424f62068927cb7c7c04bb8493f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4050</code></pre>
@@ -541,7 +541,7 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}
 \]</span></p>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/variance_2c156babce12c454fb2ee491f60dd353">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 643131.1</code></pre>
@@ -556,7 +556,7 @@ S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}
 S = \sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}}
 \]</span></p>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/sd_559da9b4672bbe4db49905d4e2e1d885">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 801.9545</code></pre>
@@ -571,12 +571,12 @@ S = \sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}}
 CV = \frac{S}{\overline{x}} \times 100
 \]</span></p>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/cv-function_d2246a27915d9e3f50a7d3aca9c66e59">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>){(<span class="fu">sd</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">mean</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">*</span><span class="dv">100</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/cv_6e3f348ee6c4fc0d5bd6d1eb8747baaa">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cv</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19.08618</code></pre>
@@ -586,7 +586,13 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section id="confidence-intervals" class="slide level2 center">
 <h2>Confidence intervals</h2>
-<p>pending</p>
+<p>Estimates the range within which a population parameter is likely to fall. It provides a way to express the uncertainty or margin of error associated with a sample estimate. <span class="math display">\[
+\text{IC} = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)
+\]</span></p>
+<p>Or if the population standar deviation of the population is unknown:</p>
+<p><span class="math display">\[
+\text{IC} = \bar{x} \pm t \left( \frac{s}{\sqrt{n}} \right)
+\]</span></p>
 </section></section>
 <section>
 <section id="using-dplyr-for-summarizing-stats" class="title-slide slide level1 center">
@@ -595,13 +601,13 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section class="slide level2 center">
 
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-13_c076d4e869abc2b809a5d55ddee793b8">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="section" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/summary-01_32fae5f494fdeb0876e66bdfd2b61ca0">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb18-1" class="hljs-ln-code"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb18-2" class="hljs-ln-code"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -615,7 +621,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section id="section-1" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/summary-02_08dd26a3b8a9afb5041e438703b44252">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb19-1" class="hljs-ln-code"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb19-2" class="hljs-ln-code"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
 <span id="cb19-3" class="hljs-ln-code"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
@@ -632,7 +638,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section id="section-2" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/summary-03_ec9daaf9ecb1ac9a6e4e090ae29e6bb5">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb20-1" class="hljs-ln-code"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb20-2" class="hljs-ln-code"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
 <span id="cb20-3" class="hljs-ln-code"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
@@ -650,7 +656,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section id="section-3" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/summary-04_bb946b1724d858e6173e4fa102c827cd">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb21-1" class="hljs-ln-code"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb21-2" class="hljs-ln-code"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
 <span id="cb21-3" class="hljs-ln-code"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
@@ -669,7 +675,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section id="section-4" class="slide level2 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/summary-05_ad2452d53004e5a04a9121ec7a8452d7">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb22-2" class="hljs-ln-code"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span></span>
 <span id="cb22-3" class="hljs-ln-code"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
@@ -690,13 +696,13 @@ CV = \frac{S}{\overline{x}} \times 100
 <section>
 <section id="informative-plots" class="title-slide slide level1 center">
 <h1>Informative plots</h1>
-<div class="cell" data-hash="03-descriptive-stats_cache/revealjs/unnamed-chunk-19_c133e20ae17d68275d4e88acf6486b9a">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="histograms" class="slide level2 center">
 <h2>Histograms</h2>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/histogram_ed7737e2fcd99d933d93cf60d225adb6">
+<div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gghistogram</span>(penguins,</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"body_mass_g"</span>,</span>
@@ -712,20 +718,14 @@ CV = \frac{S}{\overline{x}} \times 100
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center" data-fig-align="center" width="2560">
-<figure class="quarto-float quarto-float-fig">
-<div>
-<img data-src="03-descriptive-stats_files/figure-revealjs/histogram-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure-center" width="2560">
-</div>
-</figure>
-</div>
+<p><img data-src="03-descriptive-stats_files/figure-revealjs/histogram-1.png" class="quarto-figure-center" width="2560"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="box-and-violin-plots" class="slide level2 center">
 <h2>Box and Violin plots</h2>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/boxplot_8d00b0bcbdfa2afb7ce782438f9a9415">
+<div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggboxplot</span>(penguins,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"species"</span>, </span>
@@ -741,20 +741,14 @@ CV = \frac{S}{\overline{x}} \times 100
 <span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center" data-fig-align="center" width="2560">
-<figure class="quarto-float quarto-float-fig">
-<div>
-<img data-src="03-descriptive-stats_files/figure-revealjs/boxplot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure-center" width="2560">
-</div>
-</figure>
-</div>
+<p><img data-src="03-descriptive-stats_files/figure-revealjs/boxplot-1.png" class="quarto-figure-center" width="2560"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-with-stats" class="slide level2 center">
 <h2>Violin plots (with stats)</h2>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/violinplot_89f1e5d873ac0a8e61be2d9c896040d5">
+<div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggviolin</span>(penguins,</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"species"</span>, </span>
@@ -770,20 +764,14 @@ CV = \frac{S}{\overline{x}} \times 100
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center" data-fig-align="center" width="2560">
-<figure class="quarto-float quarto-float-fig">
-<div>
-<img data-src="03-descriptive-stats_files/figure-revealjs/violinplot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure-center" width="2560">
-</div>
-</figure>
-</div>
+<p><img data-src="03-descriptive-stats_files/figure-revealjs/violinplot-1.png" class="quarto-figure-center" width="2560"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="scatter-plot" class="slide level2 center">
 <h2>Scatter plot</h2>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/scatterplot_079cfb552ab70d5298a14224be52e9c6">
+<div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(penguins,</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"bill_length_mm"</span>,</span>
@@ -806,13 +794,7 @@ CV = \frac{S}{\overline{x}} \times 100
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center" data-fig-align="center" width="2560">
-<figure class="quarto-float quarto-float-fig">
-<div>
-<img data-src="03-descriptive-stats_files/figure-revealjs/scatterplot-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure-center" width="2560">
-</div>
-</figure>
-</div>
+<p><img data-src="03-descriptive-stats_files/figure-revealjs/scatterplot-1.png" class="quarto-figure-center" width="2560"></p>
 </div>
 </div>
 </div>
@@ -823,7 +805,7 @@ CV = \frac{S}{\overline{x}} \times 100
 </section>
 <section class="slide level2 center">
 
-<div class="cell" data-layout-align="center" data-hash="03-descriptive-stats_cache/revealjs/across_802813dcd4bb97590c98a9b8554d74e6">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="annotated-cell-22"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-22-1"><a href="#annotated-cell-22-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span> </span>
 <span id="annotated-cell-22-2"><a href="#annotated-cell-22-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-22" data-target-annotation="1">1</button><span id="annotated-cell-22-3" class="code-annotation-target"><a href="#annotated-cell-22-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">.by =</span> species,</span>
@@ -1301,7 +1283,6 @@ CV = \frac{S}{\overline{x}} \times 100
         window.addEventListener(
           "resize",
           throttle(() => {
-            console.log("RESIZE");
             elRect = undefined;
             if (selectedAnnoteEl) {
               selectCodeLines(selectedAnnoteEl);
