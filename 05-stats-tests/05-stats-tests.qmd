@@ -4,10 +4,12 @@ subtitle: "https://bit.ly/3V7CMsZ"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
-  - name: Alejandro C.
-    email: a.castellanoss@uniandes.edu.co
-  - name: Angie T.
-    email: am.tovar11@uniandes.edu.co
+
+  - name: "Daniel V."
+    email: d.vivasb@uniandes.edu.co
+
+  - name: "Victor A."
+    email: v.nascimento@uniandes.edu.co
 format:
   revealjs:
     footer: |
@@ -211,11 +213,9 @@ $$
 ![](figs/t-test-plot.png){.absolute bottom=200 right=20 width="500"}
 
 
-
 # Testing the hypothesis in R
 
-## The **parametric** *T-test*
-------------------------------------------------------------------------
+## The parametric *T-test*
 
 A way to test the hypothesis is using the `t.test()` function:
 
