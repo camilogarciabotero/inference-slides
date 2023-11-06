@@ -429,10 +429,13 @@ Victor A.
 </section><section id="permutation-tests" class="slide level2 center"><h2>Permutation tests</h2>
 <p>Simulate replications of rearrangements of the observations to draw a possible null distribution.</p>
 </section><section id="bootstrap" class="slide level2 center"><h2>Bootstrap</h2>
-<p>Randomly re-sample the observations with <em>replacement</em> (allowing duplications) to re-calculate the test statistic of interest.</p>
+<p>Randomly re-sample the observations with <em>replacement</em> (allowing duplication) to re-calculate the test statistic of interest.</p>
 </section><section id="the-infer-package" class="slide level2 smaller center"><h2>The <code>infer</code> package</h2>
+</section><section class="slide level2 center"><div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="figs/infer-logo.png" width="3" height="4"></p>
+</figure>
+</div>
 </section><section class="slide level2 center">
-<img data-src="figs/infer-logo.png" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
 <img data-src="figs/infer-pipeline.png" width="8" class="r-stretch quarto-figure-center"></section><section class="slide level2 center"><p>The four infer verbs:</p>
 
 <img data-src="figs/infer-verbs-fig.png" width="8" class="r-stretch quarto-figure-center"><p class="caption">See <a href="https://github.com/ismayc/talks/tree/master/ness-infer">Chester Ismay’s talk</a></p></section><section class="slide level2 center"><ul>
@@ -445,7 +448,7 @@ Victor A.
 </section><section class="slide level2 center"><div class="columns">
 <div class="column" style="width:50%;">
 <p>Adelie and Gentoo</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/simple-barplots-01_11c7e8269cc5ac3dfb07e13f8a4c1cd6">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/simple-barplots-01-1.png" width="2100"></p>
@@ -455,7 +458,7 @@ Victor A.
 </div>
 </div><div class="column" style="width:50%;">
 <p>Adelie and Chinstrap</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/simple-barplots-02_3b9d01daab197ea6a897ca3b219a8039">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="06-permutation-bootstrap_files/figure-revealjs/simple-barplots-02-1.png" width="2100"></p>
@@ -485,11 +488,11 @@ Victor A.
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_gentoo_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-5_f629b90e7a8df6a4e2941dbad8fd31f8">
 
 </div>
 </div>
-<div class="cell fragment quarto-layout-panel">
+<div class="cell fragment quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-5_f629b90e7a8df6a4e2941dbad8fd31f8">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -512,11 +515,11 @@ Victor A.
 <span>      <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_chinstrap_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-6_0483fc201c3d5f4e8114cee4206c99fb">
 
 </div>
 </div>
-<div class="cell fragment quarto-layout-panel">
+<div class="cell fragment quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-6_0483fc201c3d5f4e8114cee4206c99fb">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -557,7 +560,7 @@ Victor A.
 <span>    obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, </span>
 <span>    direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-7_5cd8008d48f5c916270a451ba04a7f10">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
@@ -587,13 +590,13 @@ Victor A.
 <span>      obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, </span>
 <span>      direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel">
+<div class="cell quarto-layout-panel" data-hash="06-permutation-bootstrap_cache/revealjs/unnamed-chunk-8_f8285ae49f850594ab875b15c63ed33f">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.604"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.65"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -610,7 +613,7 @@ Victor A.
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Adelie and Gentoo</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/null-dist-01_eaa65ad2f4d19000316500d85e0eedc2">
 <details><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">visualize</span><span class="op">(</span><span class="va">adelie_gentoo_null</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">shade_p_value</span><span class="op">(</span></span>
 <span>    obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, </span>
@@ -625,7 +628,7 @@ Victor A.
 </div>
 </div><div class="column" style="width:50%;">
 <p>Adelie and Chinstrap</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/null-dist-02_13c620a149a27c04ab61ecf8cfaf25f5">
 <details><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">visualize</span><span class="op">(</span><span class="va">adelie_chinstrap_null</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">shade_p_value</span><span class="op">(</span></span>
 <span>    obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, </span>
@@ -648,7 +651,7 @@ Victor A.
 </ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/bootstrap-01_187b1593d91065d29d88cc18e2d3c16c">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_chinstrap_bootstrap</span> <span class="op">&lt;-</span> <span class="va">adelie_chinstrap</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">specify</span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">1000</span>, type <span class="op">=</span> <span class="st">"bootstrap"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -665,14 +668,14 @@ Victor A.
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-140.415","2":"88.81905"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-146.6903","2":"90.35135"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/bootstrap-02_8daa3582b98c4fa2e20fa1d5530b6c1a">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_gentoo_bootstrap</span> <span class="op">&lt;-</span> <span class="va">adelie_gentoo</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">specify</span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">species</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">generate</span><span class="op">(</span>reps <span class="op">=</span> <span class="fl">1000</span>, type <span class="op">=</span> <span class="st">"bootstrap"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -689,7 +692,7 @@ Victor A.
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-1499.119","2":"-1271.146"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-1500.552","2":"-1278.305"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -700,7 +703,7 @@ Victor A.
 </section><section class="slide level2 center"><div class="columns">
 <div class="column" style="width:50%;">
 <p>Adelie and Chinstrap</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/ci-01_b664d1ce97a52b54157e04fb2e3e254f">
 <details><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_chinstrap_bootstrap</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">visualize</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">shade_confidence_interval</span><span class="op">(</span>endpoints <span class="op">=</span> <span class="va">ac_ci</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -713,7 +716,7 @@ Victor A.
 </div>
 </div><div class="column" style="width:50%;">
 <p>Adelie and Gentoo</p>
-<div class="cell" data-layout-align="center">
+<div class="cell" data-layout-align="center" data-hash="06-permutation-bootstrap_cache/revealjs/ci-02_91134a1e018a0f94895c5505b6111f6c">
 <details><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelie_gentoo_bootstrap</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">visualize</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">shade_confidence_interval</span><span class="op">(</span>endpoints <span class="op">=</span> <span class="va">ag_ci</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

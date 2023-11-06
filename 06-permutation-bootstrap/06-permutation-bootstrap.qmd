@@ -63,13 +63,13 @@ Simulate replications of rearrangements of the observations to draw a possible n
 
 ## Bootstrap
 
-Randomly re-sample the observations with *replacement* (allowing duplications) to re-calculate the test statistic of interest.
+Randomly re-sample the observations with *replacement* (allowing duplication) to re-calculate the test statistic of interest.
 
 ## The `infer` package {.smaller}
 
 ------------------------------------------------------------------------
 
-![](figs/infer-logo.png){fig-align="center"}
+![](figs/infer-logo.png){fig-align="center" width="3" height="4"}
 
 ------------------------------------------------------------------------
 
@@ -83,7 +83,6 @@ The four infer verbs:
 
 ------------------------------------------------------------------------
 
-
 -   `specify()` allows you to specify the variable, or relationship between variables, that you're interested in.
 
 -   `hypothesize()` allows you to declare the null hypothesis.
@@ -92,11 +91,11 @@ The four infer verbs:
 
 -   `generate()` data reflecting the null hypothesis (byr permutation or bootstrap).
 
-- `visualize()` is a set of custom functions to plot results from the infer package.
+-   `visualize()` is a set of custom functions to plot results from the infer package.
 
 ## Let's see an example of permutation
 
-***
+------------------------------------------------------------------------
 
 ```{r}
 library(palmerpenguins)
@@ -104,11 +103,10 @@ library(infer)
 library(tidyverse)
 ```
 
-
 ::: columns
-
 ::: {.column width="50%"}
 Adelie and Gentoo
+
 ```{r}
 #| label: simple-barplots-01
 #| fig-align: center
@@ -143,13 +141,11 @@ ggplot(adelie_chinstrap, aes(species, body_mass_g, fill = species)) +
 :::
 :::
 
-
 ------------------------------------------------------------------------
 
 1.  **Calculate** the observed statistic of interest:
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Adelie and Gentoo
 
 ```{r}
@@ -186,12 +182,14 @@ adelie_chinstrap_observed <- adelie_chinstrap |>
 adelie_chinstrap_observed
 ```
 :::
+
 ------------------------------------------------------------------------
 
 2.  **Generate** the null distribution of the permuted data and the p-values:
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Adelie and Gentoo
+
 ```{r}
 #| layout-ncol: 2
 #| echo: true
@@ -214,6 +212,7 @@ adelie_gentoo_null |>
 ```
 
 ## Adelie and Chinstrap
+
 ```{r}
 #| layout-ncol: 2
 #| echo: true
@@ -241,9 +240,9 @@ adelie_chinstrap_null |>
 3.  **Visualize** the observed statistic against the null distribution:
 
 ::: columns
-
 ::: {.column width="50%"}
 Adelie and Gentoo
+
 ```{r}
 #| label: null-dist-01
 #| fig-align: center
@@ -260,6 +259,7 @@ visualize(adelie_gentoo_null) +
 
 ::: {.column width="50%"}
 Adelie and Chinstrap
+
 ```{r}
 #| label: null-dist-02
 #| fig-align: center
@@ -277,10 +277,11 @@ visualize(adelie_chinstrap_null) +
 
 ## Let's see an example of Bootstrap
 
-***
+------------------------------------------------------------------------
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Adelie and Chinstrap
+
 ```{r}
 #| label: bootstrap-01
 #| fig-align: center
@@ -299,7 +300,6 @@ ac_ci  <- adelie_chinstrap_bootstrap |>
 
 ac_ci
 ```
-
 
 ## Adelie and Gentoo
 
@@ -321,14 +321,14 @@ ag_ci  <- adelie_gentoo_bootstrap |>
 
 ag_ci
 ```
-
 :::
 
-***
+------------------------------------------------------------------------
 
 ::: columns
 ::: {.column width="50%"}
 Adelie and Chinstrap
+
 ```{r}
 #| label: ci-01
 #| fig-align: center
@@ -340,8 +340,10 @@ adelie_chinstrap_bootstrap |>
   shade_confidence_interval(endpoints = ac_ci)
 ```
 :::
+
 ::: {.column width="50%"}
 Adelie and Gentoo
+
 ```{r}
 #| label: ci-02
 #| fig-align: center
@@ -355,6 +357,6 @@ adelie_gentoo_bootstrap |>
 :::
 :::
 
-***
+------------------------------------------------------------------------
 
 It tells us how the averages in body mass between Adelie and Chinstrap penguins change if we redid the experiment many times.
