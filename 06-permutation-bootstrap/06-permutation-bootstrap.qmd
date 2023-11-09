@@ -69,7 +69,7 @@ Randomly re-sample the observations with *replacement* (allowing duplication) to
 
 ------------------------------------------------------------------------
 
-![](figs/infer-logo.png){fig-align="center" width="3" height="4"}
+![](figs/infer-logo.png){fig-align="center" width="60"}
 
 ------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ Randomly re-sample the observations with *replacement* (allowing duplication) to
 
 The four infer verbs:
 
-![See [Chester Ismay's talk](https://github.com/ismayc/talks/tree/master/ness-infer)](figs/infer-verbs-fig.png){fig-align="center" width="8"}
+![See [Chester Ismay's talk](https://github.com/ismayc/talks/tree/master/ness-infer)](figs/infer-verbs-fig.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 
