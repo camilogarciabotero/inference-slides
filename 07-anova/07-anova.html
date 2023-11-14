@@ -9,10 +9,10 @@
 <link href="07-anova_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="07-anova_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.89">
+<meta name="generator" content="quarto-1.3.450">
 <meta name="author" content="Camilo G.">
-<meta name="author" content="Alejandro C.">
-<meta name="author" content="Angie T.">
+<meta name="author" content="Daniel V.">
+<meta name="author" content="Victor A.">
 <title>ANOVA</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -408,18 +408,18 @@ Camilo G.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Alejandro C. 
+Daniel V. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:a.castellanoss@uniandes.edu.co">a.castellanoss@uniandes.edu.co</a>
+<a href="mailto:d.vivasb@uniandes.edu.co">d.vivasb@uniandes.edu.co</a>
 </div>
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Angie T. 
+Victor A. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:am.tovar11@uniandes.edu.co">am.tovar11@uniandes.edu.co</a>
+<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -441,8 +441,8 @@ Angie T.
 
 <img data-src="figs/total.png" class="r-stretch"></section><section id="understanding-the-fisher-distribution" class="slide level2 center"><h2>Understanding the fisher distribution</h2>
 
-<img data-src="figs/fisher-test.png" width="400" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
-<img data-src="figs/fisher.png" width="400" class="r-stretch quarto-figure-center"></section><section id="anova-assumptions" class="slide level2 center"><h2>ANOVA assumptions</h2>
+<img data-src="figs/fisher-test.png" width="350" class="r-stretch quarto-figure-center"></section><section class="slide level2 center">
+<img data-src="figs/fisher.png" width="350" class="r-stretch quarto-figure-center"></section><section id="anova-assumptions" class="slide level2 center"><h2>ANOVA assumptions</h2>
 <ol type="1">
 <li>Samples are independent (randomly sampled)</li>
 <li>Variance is homogenous/constant</li>
@@ -495,6 +495,7 @@ Gentoo-Chinstrap 1545.8655 1374.6810 1717.04996 0.0000000</code></pre>
 </div>
 <div class="cell fragment" data-layout-align="center" data-hash="07-anova_cache/revealjs/anova-02_3cf86a06878fcb417ab1a604e0800ba5">
 <div class="cell-output-display">
+
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["statistic"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["df"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["df.error"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[5],"type":["chr"],"align":["left"]},{"label":["effectsize"],"name":[6],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["conf.level"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["conf.method"],"name":[11],"type":["chr"],"align":["left"]},{"label":["conf.distribution"],"name":[12],"type":["chr"],"align":["left"]},{"label":["n.obs"],"name":[13],"type":["int"],"align":["right"]},{"label":["expression"],"name":[14],"type":["list"],"align":["right"]}],"data":[{"1":"317.5723","2":"2","3":"189.4784","4":"3.093701e-61","5":"One-way analysis of means (not assuming equal variances)","6":"Omega2","7":"0.7668689","8":"0.95","9":"0.7231757","10":"1","11":"ncp","12":"F","13":"342","14":"<language>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -570,7 +571,7 @@ Gentoo-Chinstrap 1545.8655 1374.6810 1717.04996 0.0000000</code></pre>
 <div class="cell" data-layout-align="center" data-hash="07-anova_cache/revealjs/independence0_256b1dbff8939461e2bcf6b04d62f773">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">check_autocorrelation</span><span class="op">(</span><span class="va">anovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>OK: Residuals appear to be independent and not autocorrelated (p = 0.072).</code></pre>
+<pre><code>OK: Residuals appear to be independent and not autocorrelated (p = 0.088).</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><ol start="2" type="1">
@@ -965,9 +966,10 @@ Kruskal-Wallis chi-squared = 116.5, df = 2, p-value &lt; 2.2e-16</code></pre>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -977,17 +979,8 @@ Kruskal-Wallis chi-squared = 116.5, df = 2, p-value &lt; 2.2e-16</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
