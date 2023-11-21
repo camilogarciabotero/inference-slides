@@ -9,10 +9,10 @@
 <link href="09-GLM-AIC_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="09-GLM-AIC_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.89">
+<meta name="generator" content="quarto-1.4.506">
 <meta name="author" content="Camilo G.">
-<meta name="author" content="Alejandro C.">
-<meta name="author" content="Angie T.">
+<meta name="author" content="Daniel V.">
+<meta name="author" content="Victor A.">
 <title>GLM &amp; AIC</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -408,18 +409,18 @@ Camilo G.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Alejandro C. 
+Daniel V. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:a.castellanoss@uniandes.edu.co">a.castellanoss@uniandes.edu.co</a>
+<a href="mailto:d.vivasb@uniandes.edu.co">d.vivasb@uniandes.edu.co</a>
 </div>
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Angie T. 
+Victor A. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:am.tovar11@uniandes.edu.co">am.tovar11@uniandes.edu.co</a>
+<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -481,7 +482,7 @@ Angie T.
 </tr>
 </tbody>
 </table></section><section id="lets-try-it-in-r" class="slide level2 center"><h2>Let’s try it in R:</h2>
-</section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/binsex_caf5a8e1527cb20888cc7cab641ece59">
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">adelies</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">drop_na</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -490,15 +491,15 @@ Angie T.
 <span>    <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">~</span> <span class="fl">0</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/binsex_caf5a8e1527cb20888cc7cab641ece59">
+<div class="cell fragment" data-layout-align="center">
 
 </div>
 <p>Let’s create the GLM for to predict a penguin’s sex based on it’s body mass:</p>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm_c12ca4b6f2a623abe74b6cb815503a81">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binarysexmodel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">binarysex</span> <span class="op">~</span> <span class="va">body_mass_g</span>, data <span class="op">=</span> <span class="va">adelies</span>, family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm_c12ca4b6f2a623abe74b6cb815503a81">
+<div class="cell fragment" data-layout-align="center">
 
 </div>
 </div>
@@ -506,7 +507,7 @@ Angie T.
 <p>Let’s see what the outout is:</p>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="09-GLM-AIC_cache/revealjs/unnamed-chunk-5_ee1a52747c546fe2e7ed1fc2072c429d">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:  glm(formula = binarysex ~ body_mass_g, family = "binomial", data = adelies)
@@ -522,10 +523,10 @@ Residual Deviance: 88.74    AIC: 92.74</code></pre>
 </div>
 </div>
 </section><section class="slide level2 center"><h4 id="what-did-we-do">What did we do?</h4>
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm-report_5f854ba92c990434d3321626b002aecf">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/glm-report_5f854ba92c990434d3321626b002aecf">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>We fitted a logistic model (estimated using ML) to predict binarysex with
 body_mass_g (formula: binarysex ~ body_mass_g). The model's explanatory power
@@ -543,7 +544,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </div>
 </section><section id="lets-put-that-on-a-plot" class="slide level2 center"><h2>Let’s put that on a plot</h2>
-</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/logistic-sex-01_67e860fde92d8221f6b2bac4b56f6478">
+</section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, </span>
 <span>    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, y <span class="op">=</span> <span class="va">binarysex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -558,7 +559,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 <div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/logistic-sex-01-1.png" width="1750"></p>
+<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/logistic-sex-01-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
 </figure>
 </div>
 </div>
@@ -567,7 +568,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 </section><section id="analysis-of-covariance-ancova" class="slide level2 center"><h2>Analysis of covariance (ANCOVA)</h2>
 </section><section class="slide level2 center"><p>ANCOVA is a particular case of a GLM where we have a <em>categorical</em> predictor and a <em>continuous</em> predictor. The continuous predictor is called a <em>covariate</em>.</p>
 </section><section class="slide level2 center"><p>Think in this example:</p>
-<div class="cell columns column-output-location" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/box01_bda09c4c54ebb2c47e41e14624f45e16">
+<div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, y <span class="op">=</span> <span class="va">flipper_length_mm</span>, color <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -580,7 +581,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 <div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/box01-1.png" width="1750"></p>
+<figure><p><img data-src="09-GLM-AIC_files/figure-revealjs/box01-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
 </figure>
 </div>
 </div>
@@ -589,10 +590,10 @@ computed using a Wald z-distribution approximation.</code></pre>
 </section><section class="slide level2 center"><p>What other variable could be affecting the penguins’ flipper length?</p>
 <div class="fragment">
 <p>What if the Body mass has an effect on the flipper length? Let’s create an ANCOVA model</p>
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-model_cd693330bf899afd9662867ce0042254">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ancovamodel</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">flipper_length_mm</span>  <span class="op">~</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">body_mass_g</span>, data <span class="op">=</span> <span class="va">adelies</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-model_cd693330bf899afd9662867ce0042254">
+<div class="cell fragment" data-layout-align="center">
 
 </div>
 </div>
@@ -600,7 +601,7 @@ computed using a Wald z-distribution approximation.</code></pre>
 <p>Here is the result:</p>
 </div>
 <div class="fragment">
-<div class="cell" data-hash="09-GLM-AIC_cache/revealjs/unnamed-chunk-10_78a1266b0ec20b13dc5ac2c213657bcb">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
    aov(formula = flipper_length_mm ~ sex + body_mass_g, data = adelies)
@@ -616,10 +617,10 @@ Estimated effects may be unbalanced</code></pre>
 </div>
 </div>
 </section><section id="lets-see-the-complete-report" class="slide level2 center"><h2>Let’s see the complete <code>report</code>:</h2>
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-report_1e048066231a88ec3d4740b6a84589b8">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">ancovamodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/ancova-report_1e048066231a88ec3d4740b6a84589b8">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>The ANOVA (formula: flipper_length_mm ~ sex + body_mass_g) suggests that:
 
@@ -643,10 +644,10 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
 <li class="fragment"><p><code>glance()</code> Summarizes the model performance (AIC, BIC, and others).</p></li>
 </ol>
 </div>
-</section><section class="slide level2 center"><div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-01_e2399797bf1340bcc401d10329f010d2">
+</section><section class="slide level2 center"><div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-01_e2399797bf1340bcc401d10329f010d2">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -656,10 +657,10 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
 </div>
 </div>
 <div class="fragment">
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-02_830153a626cc5562c97e3328e4be2249">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-02_830153a626cc5562c97e3328e4be2249">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -670,10 +671,10 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
 </div>
 </div>
 </section><section class="slide level2 center"><p>Now let’s see the AIC:</p>
-<div class="cell" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-03_c6eeb229c97ecc8121f6f2d9b2518f8f">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">binarysexmodel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-layout-align="center" data-hash="09-GLM-AIC_cache/revealjs/broom-03_c6eeb229c97ecc8121f6f2d9b2518f8f">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -696,7 +697,6 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': true,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1071,6 +1071,7 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
                 }
                 div.style.top = top - 2 + "px";
                 div.style.height = height + 4 + "px";
+                div.style.left = 0;
                 let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
                 if (gutterDiv === null) {
                   gutterDiv = window.document.createElement("div");
@@ -1096,8 +1097,8 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
             });
             selectedAnnoteEl = undefined;
           };
-          // Handle positioning of the toggle
-          window.addEventListener(
+            // Handle positioning of the toggle
+        window.addEventListener(
           "resize",
           throttle(() => {
             elRect = undefined;
@@ -1105,23 +1106,23 @@ Effect sizes were labelled following Field's (2013) recommendations.</code></pre
               selectCodeLines(selectedAnnoteEl);
             }
           }, 10)
-          );
-          function throttle(fn, ms) {
-          let throttle = false;
-          let timer;
-            return (...args) => {
-              if(!throttle) { // first call gets through
+        );
+        function throttle(fn, ms) {
+        let throttle = false;
+        let timer;
+          return (...args) => {
+            if(!throttle) { // first call gets through
+                fn.apply(this, args);
+                throttle = true;
+            } else { // all the others get throttled
+                if(timer) clearTimeout(timer); // cancel #2
+                timer = setTimeout(() => {
                   fn.apply(this, args);
-                  throttle = true;
-              } else { // all the others get throttled
-                  if(timer) clearTimeout(timer); // cancel #2
-                  timer = setTimeout(() => {
-                    fn.apply(this, args);
-                    timer = throttle = false;
-                  }, ms);
-              }
-            };
-          }
+                  timer = throttle = false;
+                }, ms);
+            }
+          };
+        }
           const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
           for (let i=0; i<annoteTargets.length; i++) {
             const annoteTarget = annoteTargets[i];
