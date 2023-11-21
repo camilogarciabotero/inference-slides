@@ -4,10 +4,12 @@ subtitle: "https://bit.ly/3IlpxQ5"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
-  - name: Alejandro C.
-    email: a.castellanoss@uniandes.edu.co
-  - name: Angie T.
-    email: am.tovar11@uniandes.edu.co
+
+  - name: "Daniel V."
+    email: d.vivasb@uniandes.edu.co
+
+  - name: "Victor A."
+    email: v.nascimento@uniandes.edu.co
 format:
   revealjs:
     footer: |
