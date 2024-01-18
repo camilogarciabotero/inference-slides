@@ -5,7 +5,7 @@ author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
 
-  - name: "Daniel V."
+  - name: "Kevin J."
     email: d.vivasb@uniandes.edu.co
 
   - name: "Victor A."
