@@ -6,7 +6,7 @@ author:
     email: ca.garcia2@uniandes.edu.co
 
   - name: "Kevin J."
-    email: d.vivasb@uniandes.edu.co
+    email: ks.jaramillo1905@uniandes.edu.co
 
   - name: "Victor A."
     email: v.nascimento@uniandes.edu.co

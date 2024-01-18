@@ -9,9 +9,9 @@
 <link href="08-linear-regression_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="08-linear-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.506">
+<meta name="generator" content="quarto-1.4.543">
 <meta name="author" content="Camilo G.">
-<meta name="author" content="Daniel V.">
+<meta name="author" content="Kevin J.">
 <meta name="author" content="Victor A.">
 <title>Correlation &amp; Lineal regression</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -409,10 +409,10 @@ Camilo G.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Daniel V. 
+Kevin J. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:d.vivasb@uniandes.edu.co">d.vivasb@uniandes.edu.co</a>
+<a href="mailto:ks.jaramillo1905@uniandes.edu.co">ks.jaramillo1905@uniandes.edu.co</a>
 </div>
 </div>
 <div class="quarto-title-author">
@@ -634,14 +634,14 @@ computed using a Wald t-distribution approximation.</code></pre>
 </div>
 </div>
 </section><section id="testing-the-regression-assumtions" class="slide level2 center"><h2>Testing the regression assumtions</h2>
-</section><section class="slide level2 center"><ol type="1">
+</section><section class="slide level2 center scrollable"><ol type="1">
 <li>Linearity: function behaves linearly outside the range of the data.</li>
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">model</span>, check <span class="op">=</span> <span class="st">"linearity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-linear-regression_files/figure-revealjs/linearity-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section class="slide level2 center"><ol start="2" type="1">
+<img data-src="08-linear-regression_files/figure-revealjs/linearity-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section class="slide level2 center scrollable"><ol start="2" type="1">
 <li>Normality: residuals are normally distributed.</li>
 </ol>
 <div class="cell" data-layout-align="center">
@@ -652,7 +652,7 @@ computed using a Wald t-distribution approximation.</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_normality</span><span class="op">(</span><span class="va">model</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"qq"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-linear-regression_files/figure-revealjs/normality-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section class="slide level2 center"><ol start="3" type="1">
+<img data-src="08-linear-regression_files/figure-revealjs/normality-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section class="slide level2 center scrollable"><ol start="3" type="1">
 <li>Variance homogeneity: residuals have constant variance.</li>
 </ol>
 <div class="cell" data-layout-align="center">
@@ -663,8 +663,10 @@ computed using a Wald t-distribution approximation.</code></pre>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">check_heteroskedasticity</span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="08-linear-regression_files/figure-revealjs/heteroskedasticity-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"><div class="footer footer-default">
+<img data-src="08-linear-regression_files/figure-revealjs/heteroskedasticity-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"><div class="quarto-auto-generated-content">
+<div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>
+</div>
 </div>
 </section></section>
 </div>
@@ -1147,7 +1149,7 @@ computed using a Wald t-distribution approximation.</code></pre>
                   options: {
                     flipVariations: false, // true by default
                     allowedAutoPlacements: ['right'],
-                    fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                    fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
                   },
                 },
                 {

@@ -6,7 +6,7 @@ author:
     email: ca.garcia2@uniandes.edu.co
 
   - name: "Kevin J."
-    email: d.vivasb@uniandes.edu.co
+    email: ks.jaramillo1905@uniandes.edu.co
 
   - name: "Victor A."
     email: v.nascimento@uniandes.edu.co
@@ -153,7 +153,6 @@ ggplot(adelie_chinstrap, aes(species, body_mass_g, fill = species)) +
 #| echo: true
 #| eval: true
 #| fig-align: center
-#| output-location: fragment
 adelie_gentoo_observed <- adelie_gentoo |>
     specify(body_mass_g ~ species) |>
     calculate(
@@ -171,7 +170,6 @@ adelie_gentoo_observed
 #| echo: true
 #| eval: true
 #| fig-align: center
-#| output-location: fragment
 adelie_chinstrap_observed <- adelie_chinstrap |> 
     specify(body_mass_g ~ species) |> 
     calculate(

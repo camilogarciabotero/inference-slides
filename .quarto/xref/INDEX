@@ -1,38 +1,29 @@
 {
-  "inference-slides.qmd": {
-    "inference-slides.html": "a8d733fc"
-  },
-  "01-introduction.qmd": {
-    "01-introduction.html": "e255a3a0"
+  "06-permutation-bootstrap/06-permutation-bootstrap.qmd": {
+    "06-permutation-bootstrap.html": "adeeca6d"
   },
   "01-introduction/01-introduction.qmd": {
-    "01-introduction.html": "1310d12c"
+    "01-introduction.html": "c9f5a009"
   },
   "02-intro-tidyverse/02-intro-tidyverse.qmd": {
-    "02-intro-tidyverse.html": "6c97e578"
+    "02-intro-tidyverse.html": "aa500986"
   },
   "03-descriptive-stats/03-descriptive-stats.qmd": {
-    "03-descriptive-stats.html": "381c328c"
+    "03-descriptive-stats.html": "6695ab0a"
   },
   "04-normal-distribution/04-normal-distribution.qmd": {
-    "04-normal-distribution.html": "c96c2127"
+    "04-normal-distribution.html": "5ce17f45"
   },
   "05-stats-tests/05-stats-tests.qmd": {
-    "05-stats-tests.html": "2dfcbf84"
-  },
-  "06-permutation-bootstrap/06-permutation-bootstrap.qmd": {
-    "06-permutation-bootstrap.html": "0d5f6204"
+    "05-stats-tests.html": "36b2958d"
   },
   "07-anova/07-anova.qmd": {
-    "07-anova.html": "693bf069"
-  },
-  "08-linear-regression/08-lineal-regression.qmd": {
-    "08-lineal-regression.html": "1ef7bbdd"
+    "07-anova.html": "d915c2ba"
   },
   "08-linear-regression/08-linear-regression.qmd": {
-    "08-linear-regression.html": "8af11a22"
+    "08-linear-regression.html": "e5ddb0b3"
   },
   "09-GLM-and-AIC/09-GLM-AIC.qmd": {
-    "09-GLM-AIC.html": "e30f0f93"
+    "09-GLM-AIC.html": "762c7a74"
   }
 }
