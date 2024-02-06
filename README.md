@@ -4,7 +4,7 @@ This repo will include several slides used during Informatics and Inference at U
 
 2. [Introduction to the Tidyverse](https://camilogarciabotero.github.io/inference-slides/02-intro-tidyverse/02-intro-tidyverse.html#/title-slide)
 
-3. [Descriptive Stats](https://camilogarciabotero.github.io/inference-slides/03-descriptive-stats/03-descriptive-stats.html#/title-slide)
+3. [Descriptive Stats & Distributions](https://camilogarciabotero.github.io/inference-slides/03-descriptive-stats-dist/03-descriptive-stats-dist.html#/title-slide)
 
 4. [Normality and Transformations](https://camilogarciabotero.github.io/inference-slides/04-normal-distribution/04-normal-distribution.html#/title-slide)
 
