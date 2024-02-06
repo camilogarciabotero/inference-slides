@@ -468,7 +468,8 @@ pnorm(40, mean = 38.8, sd = 2.6)
 ***
 
 When the frequencies of a random variable $X$ cluster around a central value, it is said that it follows a *normal* distribution.
-In summary a data set variable that appears to follow a normal distribution display three properties:
+
+In summary a variable that appears to follow a normal distribution displays three properties:
 
 1.  Most values clustered around the average.
 2.  Extreme values are less frequent, but not impossibles.
