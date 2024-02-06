@@ -1,6 +1,6 @@
 ---
 title: Descriptive Stats & Distributions
-subtitle: "https://bit.ly/43qQQ4y"
+subtitle: "http://tinyurl.com/4dfuycvt"
 author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
