@@ -58,11 +58,10 @@ When the frequencies of a random variable $X$ cluster around a central value, it
 
 ```{r}
 #| label: 01-normality
-#| echo: true
 #| eval: true
+#| layout-ncol: 2
 #| fig-align: center
 #| code-fold: true
-#| layout-ncol: 2
 
 adelie  <- penguins |> 
   filter(species == "Adelie") |> 
@@ -106,7 +105,7 @@ ggplot(adelie, aes(bill_length_mm)) +
   ) 
 ```
 
-------------------------------------------------------------------------
+***
 
 In summary a data set variable that appears to follow a normal distribution display three properties:
 
@@ -114,58 +113,10 @@ In summary a data set variable that appears to follow a normal distribution disp
 2.  Extreme values are less frequent, but not impossibles.
 3.  Distribution display are quite symmetric from the mean.
 
-# The *standard* normal distribution
-
-------------------------------------------------------------------------
-
-![Where $z = \frac{x - \mu} {\sigma}$ is the standardization function, the result is that $\sigma = 1$ and $\mu = 0$](figs/standard-normal.png){fig-align="center"}
-
-# family of normality functions in `R` {.smaller}
-
-------------------------------------------------------------------------
-
-![](figs/normality-family-functions.png){fig-align="center" width="600"}
-
--   `rnorm()` generates pseudorandom normal numbers.
--   `dnorm()` is the probability density function (PDF)
--   `pnorm()` is the cumulative density function
--   `qnorm()` calculates the quantile of the normal distribution
-
-------------------------------------------------------------------------
-
-```{r}
-#| label: 03-density
-#| echo: true
-#| eval: true
-#| fig-align: center
-#| code-fold: true
-#| include: false
-set.seed(123)
-
-normal  <-  data.frame(x = rnorm(1000, 0,1))
-
-ggplot(normal, aes(x = x)) +
-  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "#6FC1FF", bins = 20) +
-  geom_density(alpha=.2, fill="#FF6666") 
-```
-
-------------------------------------------------------------------------
-
-Let's try with an example:
-
-Now, the Adelie penguins display an average bill length of `38.8` mm and its standard variation is `2.6` mm. What's the percentage of penguins of `40` mm or smaller?
-
-```{r}
-#| label: pnorm
-#| echo: true
-#| eval: true
-#| fig-align: center
-pnorm(40, mean = 38.8, sd = 2.6)
-```
 
 # Normality assessment
 
-------------------------------------------------------------------------
+***
 
 ## The Q-Q plot
 
@@ -201,11 +152,11 @@ By applying a log transformation to a log-normal distribution, we can go back to
 
 ```{r}
 #| label: lognomals
-#| echo: true
 #| eval: true
 #| fig-align: center
 #| code-fold: true
 #| layout-ncol: 2
+#| 
 lognormal  <-  data.frame(x = rlnorm(5000, meanlog = 0, sdlog = 1))
 
 ggplot(lognormal, aes(x = x)) +
@@ -229,3 +180,108 @@ ggplot(normal, aes(x = x)) +
 | Square root              | $x'=\sqrt{x+\frac{1}{2}}$ | `sqrt(x+1/2)`   | Counts                             |
 | Exponential              | $x'=e^{x}$                | `exp(x)`        | skewed to the left                 |
 | Reciprocal               | $x=\frac{1}{x}$           | `1/x`           | skewed to the right                |
+
+
+
+
+# Informative plots
+
+```{r}
+#| echo: true
+library(ggpubr)
+```
+## Histograms
+
+```{r}
+#| label: histogram
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+gghistogram(penguins,
+    x = "body_mass_g",
+    add = "mean", 
+    rug = TRUE,
+    color = "species", 
+    fill = "species",
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
+
+## Box and Violin plots
+
+```{r}
+#| label: boxplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggboxplot(penguins,
+    x = "species", 
+    y = "body_mass_g",
+    color = "species",
+    add = "jitter", 
+    shape = "species",
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
+
+## Violin plots (with stats)
+
+```{r}
+#| label: violinplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggviolin(penguins,
+    x = "species", 
+    y = "body_mass_g",
+    color = "species",
+    shape = "species",
+    add = "boxplot", 
+    palette = c(
+        "#00AFBB", 
+        "#E7B800", 
+        "#FC4E07"
+    )
+)
+```
+
+## Scatter plot
+
+```{r}
+#| label: scatterplot
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: column-fragment
+ggscatter(penguins,
+    x = "bill_length_mm",
+    y = "body_mass_g",
+    color = "black", 
+    shape = 21, 
+    size = 3,
+    add = "reg.line", 
+    conf.int = TRUE, 
+    cor.coef = TRUE,
+        add.params = list(
+        color = "blue", 
+        fill = "lightgray"
+        ),
+    cor.coeff.args = list(
+        method = "pearson", 
+        label.x = 30, 
+        label.sep = "\n"
+        )
+)
+
+```

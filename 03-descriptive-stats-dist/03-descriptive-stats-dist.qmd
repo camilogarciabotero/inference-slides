@@ -1,0 +1,477 @@
+---
+title: Descriptive Stats & Distributions
+subtitle: "https://bit.ly/43qQQ4y"
+author:
+  - name: Camilo G.
+    email: ca.garcia2@uniandes.edu.co
+
+  - name: "Kevin J."
+    email: ks.jaramillo1905@uniandes.edu.co
+
+  - name: "Victor A."
+    email: v.nascimento@uniandes.edu.co
+format:
+  revealjs:
+    footer: |
+      BIOL2205 - IeI - Universidad de los Andes
+    standalone: true
+    preview-links: auto
+    center: true
+    slide-number: true
+    fig-align: center
+    code-line-numbers: false
+    overview: true
+    code-link: true
+    code-annotations: hover
+    highlight-style: ayu
+    df-print: paged
+    scrollable: true
+    fig-height: 5
+    fig-width: 5
+    fig-dpi: 320
+    theme: ../theme.scss
+    bibliography: ../references.bib
+---
+
+```{r}
+#| label: theme-set
+#| eval: true
+library(tidyverse)
+library(palmerpenguins)
+
+simple_theme <- theme_bw() +
+    theme(
+        plot.background = element_rect(fill = "#FDF6E3"),
+        panel.background = element_rect(fill = "#FDF6E3"),
+        legend.background = element_rect(fill = "#FDF6E3"),
+        legend.position = "top",
+        axis.title = element_text(size = 14)
+    )
+
+theme_set(simple_theme)
+```
+
+# Descriptive stats
+
+***
+
+![](../02-intro-tidyverse/figs/palmer-penguins.png)
+
+```{r}
+#| eval: true
+library(palmerpenguins)
+```
+# Mean & Median
+
+***
+
+**Sample mean:**
+$$
+\overline{x} = \frac{1}{n}\sum^{n}_{i=1}x_{i}
+$$
+
+. . .
+
+You can create the function:
+```{r}
+#| echo: true
+new_mean <- function(x){sum(x)/length(x)}
+```
+
+. . .
+
+```{r}
+#| label: sample_mean
+#| echo: true
+#| eval: true
+#| fig-align: center
+new_mean(penguins$year)
+```
+
+. . .
+
+Or simply use a predefined `mean`:
+```{r}
+#| label: mean
+#| echo: true
+#| eval: true
+#| fig-align: center
+mean(penguins$year, na.rm=TRUE)
+```
+
+
+***
+
+**Sample median:**
+$$
+median=
+\begin{cases}
+x_{(n+1)/2} &\text{if $n \equiv 1$}     \\
+\frac{(x_{n/2} + x_{((n/2)+1)})}{2} &\text{if $n \equiv 0$}
+\end{cases}
+$$
+
+. . . 
+
+In R a freshly defined function:
+
+```{r}
+#| label: new-median-function
+#| echo: true
+#| eval: true
+#| fig-align: center
+
+new_median <- function(x) {
+  if(length(x) %% 2 != 0){ #<1>
+   (sort(x)[length(x)/2] + sort(x)[(length(x)/2)+1])/2 #<2> 
+      } else{
+       sort(x)[ceiling(length(x)/2)] #<3>
+    }
+   }
+```
+1. The operator `%%` is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.
+2. Equation for n if it is odd
+3. Equation for n if it is even
+
+. . .
+
+```{r}
+#| label: new-median
+#| echo: true
+#| eval: true
+#| fig-align: center
+new_median(penguins$body_mass_g)
+```
+
+. . .
+
+Or the predefined function
+
+```{r}
+#| label: median
+#| echo: true
+#| eval: true
+#| fig-align: center
+median(penguins$body_mass_g, na.rm = TRUE)
+```
+
+# Variance, Standard deviation & Variation coefficient
+
+***
+
+**Sample variance (unbiased):**
+$$
+S^{2} = \frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}
+$$
+
+. . .
+
+```{r}
+#| label: variance
+#| echo: true
+#| eval: true
+#| fig-align: center
+var(penguins$body_mass_g, na.rm=TRUE)
+```
+
+***
+
+**Standard deviation**
+
+$$
+S = \sqrt{\frac{1}{n-1}\sum^{n}_{i=1}(x_{i}-\overline{x})^{2}}
+$$
+
+. . .
+
+```{r}
+#| label: sd
+#| echo: true
+#| eval: true
+#| fig-align: center
+sd(penguins$body_mass_g, na.rm=TRUE)
+```
+
+***
+
+**Variation coefficient**
+
+$$
+CV = \frac{S}{\overline{x}} \times 100
+$$
+
+. . .
+
+```{r}
+#| label: cv-function
+#| echo: true
+#| eval: true
+#| fig-align: center
+cv <- function(x, na.rm=TRUE){(sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))*100}
+```
+
+. . .
+
+```{r}
+#| label: cv
+#| echo: true
+#| eval: true
+#| fig-align: center
+cv(penguins$body_mass_g, na.rm=TRUE)
+```
+
+
+## Confidence intervals
+
+Estimates the range within which a population parameter is likely to fall. It provides a way to express the uncertainty or margin of error associated with a sample estimate.
+$$
+\text{IC} = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+Or if the population standar devuariation of the population is unknown:
+
+$$
+\text{IC} = \bar{x} \pm t \left( \frac{s}{\sqrt{n}} \right)
+$$
+
+
+# Using `dplyr` for summarizing stats
+
+***
+
+```{r}
+#| echo: true
+library(dplyr)
+```
+
+. . .
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-01
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species)
+```
+
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-02
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)
+        )
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-03
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE)
+        )
+
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-04
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE)
+        )
+```
+
+##  {auto-animate="true"}
+
+```{r}
+#| label: summary-05
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| output-location: default
+penguins |>
+    group_by(species) |>
+    summarise(
+        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE),
+        cv_body_mass_g = cv(body_mass_g, na.rm = TRUE)
+        )
+```
+
+# Distributions {.smaller}
+
+***
+
+```{r}
+#| label: dist01
+#| echo: true
+#| output-location: column-fragment
+
+dfuniform <- runif(1000, min = 0, max = 1)
+
+ggplot(data.frame(x = dfuniform), aes(x)) +
+  geom_histogram(
+    binwidth = 0.1, 
+    fill = "green", 
+    color = "black", 
+    alpha = 0.7
+  ) +
+  labs(
+    title = "Uniform Distribution",
+    x = "Values",
+    y = "Frequency"
+  )
+```
+
+***
+
+```{r}
+#| label: dist03
+#| echo: true
+#| output-location: column-fragment
+
+dfbin <- rbinom(1000, size = 20, prob = 0.8)
+
+ggplot(data.frame(x = dfbin), aes(x)) +
+  geom_histogram(
+    binwidth = 1, 
+    fill = "purple", 
+    color = "black", 
+    alpha = 0.7
+  ) +
+  labs(
+    title = "Binomial Distribution",
+    x = "Values",
+    y = "Frequency"
+  )
+```
+
+***
+
+```{r}
+#| label: dist02
+#| echo: true
+#| output-location: column-fragment
+dfexp <- rexp(1000, rate = 0.5)
+
+ggplot(data.frame(x = dfexp), aes(x)) +
+  geom_histogram(
+    binwidth = 0.2,
+    fill = "orange", 
+    color = "black", 
+    alpha = 0.7
+  ) +
+  labs(
+    title = "Exponential Distribution",
+    x = "Values",
+    y = "Frequency"
+  )
+```
+
+***
+
+```{r}
+#| label: dist04
+#| echo: true
+#| output-location: column-fragment
+
+dfnormal <- rnorm(1000, mean = 0, sd = 1)
+
+ggplot(data.frame(x = dfnormal), aes(x)) +
+  geom_histogram(
+    binwidth = 0.2, 
+    fill = "blue", 
+    color = "black", 
+    alpha = 0.7
+  ) +
+  labs(
+    title = "Normal Distribution",
+    x = "Values",
+    y = "Frequency"
+  )
+```
+
+## The *standard* normal distribution
+
+![Where $z = \frac{x - \mu} {\sigma}$ is the standardization function, the result is that $\sigma = 1$ and $\mu = 0$](figs/standard-normal.png){fig-align="center"}
+
+# family of normality functions in `R` {.smaller}
+
+------------------------------------------------------------------------
+
+![](figs/normality-family-functions.png){fig-align="center" width="600"}
+
+-   `rnorm()` generates pseudorandom normal numbers.
+-   `dnorm()` is the probability density function (PDF)
+-   `pnorm()` is the cumulative density function
+-   `qnorm()` calculates the quantile of the normal distribution
+
+***
+
+```{r}
+#| label: 03-density
+#| echo: true
+#| eval: true
+#| fig-align: center
+#| code-fold: true
+#| include: false
+set.seed(123)
+
+normal  <-  data.frame(x = rnorm(1000, 0,1))
+
+ggplot(normal, aes(x = x)) +
+  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "#6FC1FF", bins = 20) +
+  geom_density(alpha=.2, fill="#FF6666") 
+```
+
+
+Let's try with an example:
+
+Now, the Adelie penguins display an average bill length of `38.8` mm and its standard variation is `2.6` mm. What's the percentage of penguins of `40` mm or smaller?
+
+```{r}
+#| label: pnorm
+#| echo: true
+#| eval: true
+#| fig-align: center
+pnorm(40, mean = 38.8, sd = 2.6)
+```
+
+***
+
+When the frequencies of a random variable $X$ cluster around a central value, it is said that it follows a *normal* distribution.
+In summary a data set variable that appears to follow a normal distribution display three properties:
+
+1.  Most values clustered around the average.
+2.  Extreme values are less frequent, but not impossibles.
+3.  Distribution display are quite symmetric from the mean.
+
+<!-- code-line-numbers: "3|4,5|6,7|8|9|10,11" -->
