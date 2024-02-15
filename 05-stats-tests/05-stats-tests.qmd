@@ -361,7 +361,7 @@ adelie_wilcox_table <- two_sample_test(
   x = sex, 
   y = body_mass_g,
   type = "np",
-  paired = TRUE
+  paired = FALSE
   )
 
 adelie_wilcox_table
