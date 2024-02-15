@@ -617,15 +617,15 @@ mean in group female   mean in group male
 <li>The two samples could display different variances (and sample sizes).</li>
 </ol></section><section class="slide level2 center"><p>A way to test the hypothesis is using the <code>wilkox.test()</code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span>, <span class="va">adelie_penguins</span>, paired <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Wilcoxon signed rank test with continuity correction
+    Wilcoxon rank sum test with continuity correction
 
 data:  body_mass_g by sex
-V = 13.5, p-value = 2.961e-13
+W = 310.5, p-value &lt; 2.2e-16
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 </div>

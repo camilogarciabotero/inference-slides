@@ -342,7 +342,7 @@ A way to test the hypothesis is using the `wilkox.test()` function:
 #| echo: true
 #| eval: true
 #| output-location: fragment
-wilcox.test(body_mass_g ~ sex, adelie_penguins, paired = TRUE)
+wilcox.test(body_mass_g ~ sex, adelie_penguins, paired = FALSE)
 ```
 
 ***
