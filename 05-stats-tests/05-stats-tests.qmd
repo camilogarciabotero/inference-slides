@@ -247,7 +247,7 @@ adelie_ttest_table <- two_sample_test(
   x = sex, 
   y = body_mass_g,
   type = "p",
-  paired = TRUE
+  paired = FALSE
   )
 
 adelie_ttest_table

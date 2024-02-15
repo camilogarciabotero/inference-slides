@@ -448,36 +448,12 @@ Victor A.
 <li>Most values clustered around the average.</li>
 <li>Extreme values are less frequent, but not impossibles.</li>
 <li>Distribution display are quite symmetric from the mean.</li>
-</ol></section></section><section><section id="the-standard-normal-distribution" class="title-slide slide level1 center"><h1>The <em>standard</em> normal distribution</h1>
-
-</section><section class="slide level2 center">
-<img data-src="figs/standard-normal.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">Where <span class="math inline">\(z = \frac{x - \mu} {\sigma}\)</span> is the standardization function, the result is that <span class="math inline">\(\sigma = 1\)</span> and <span class="math inline">\(\mu = 0\)</span></p></section></section><section><section id="family-of-normality-functions-in-r" class="title-slide slide level1 smaller center"><h1>family of normality functions in <code>R</code>
-</h1>
-
-</section><section class="slide level2 center">
-<img data-src="figs/normality-family-functions.png" class="quarto-figure quarto-figure-center r-stretch" width="600"><ul>
-<li>
-<code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> generates pseudorandom normal numbers.</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Normal.html">dnorm()</a></code> is the probability density function (PDF)</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code> is the cumulative density function</li>
-<li>
-<code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> calculates the quantile of the normal distribution</li>
-</ul></section><section class="slide level2 center"></section><section class="slide level2 center"><p>Let’s try with an example:</p>
-<p>Now, the Adelie penguins display an average bill length of <code>38.8</code> mm and its standard variation is <code>2.6</code> mm. What’s the percentage of penguins of <code>40</code> mm or smaller?</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="fl">40</span>, mean <span class="op">=</span> <span class="fl">38.8</span>, sd <span class="op">=</span> <span class="fl">2.6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6777938</code></pre>
-</div>
-</div>
-</section></section><section><section id="normality-assessment" class="title-slide slide level1 center"><h1>Normality assessment</h1>
+</ol></section></section><section><section id="normality-assessment" class="title-slide slide level1 center"><h1>Normality assessment</h1>
 
 </section><section id="the-q-q-plot" class="slide level2 center"><h2>The Q-Q plot</h2>
 <p>Is my data really normal? Let’s see the quntile-quantile (Q-Q) plot:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span>sample <span class="op">=</span> <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelie</span>, <span class="fu">aes</span><span class="op">(</span>sample <span class="op">=</span> <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_qq</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_qq_line</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
@@ -485,7 +461,7 @@ Victor A.
 <img data-src="04-normal-distribution_files/figure-revealjs/qqplot-body-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section id="the-shapiro-wilk-normality-test" class="slide level2 center"><h2>The <em>Shapiro-Wilk</em> normality test:</h2>
 <p>In the <em>Shapiro-Wilk</em> normality test, normality is the null hypothesis. The alternative is that data <em>do not</em> follow a normal distribution. Therefore, if <span class="math inline">\(p\)</span>-value <span class="math inline">\(\geq \alpha\)</span> there is no evidence against normality.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">adelie</span><span class="op">$</span><span class="va">bill_length_mm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">adelie</span><span class="op">$</span><span class="va">bill_length_mm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -560,7 +536,117 @@ W = 0.99289, p-value = 0.6848</code></pre>
 <td>skewed to the right</td>
 </tr>
 </tbody>
-</table>
+</table></section></section><section><section id="informative-plots" class="title-slide slide level1 center"><h1>Informative plots</h1>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="histograms" class="slide level2 center"><h2>Histograms</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/gghistogram.html">gghistogram</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"body_mass_g"</span>,</span>
+<span>    add <span class="op">=</span> <span class="st">"mean"</span>, </span>
+<span>    rug <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"species"</span>, </span>
+<span>    fill <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span>    palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>        <span class="st">"#00AFBB"</span>, </span>
+<span>        <span class="st">"#E7B800"</span>, </span>
+<span>        <span class="st">"#FC4E07"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/histogram-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="box-and-violin-plots" class="slide level2 center"><h2>Box and Violin plots</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggboxplot.html">ggboxplot</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"species"</span>, </span>
+<span>    y <span class="op">=</span> <span class="st">"body_mass_g"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span>    add <span class="op">=</span> <span class="st">"jitter"</span>, </span>
+<span>    shape <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span>    palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>        <span class="st">"#00AFBB"</span>, </span>
+<span>        <span class="st">"#E7B800"</span>, </span>
+<span>        <span class="st">"#FC4E07"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/boxplot-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="violin-plots-with-stats" class="slide level2 center"><h2>Violin plots (with stats)</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggviolin.html">ggviolin</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"species"</span>, </span>
+<span>    y <span class="op">=</span> <span class="st">"body_mass_g"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span>    shape <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span>    add <span class="op">=</span> <span class="st">"boxplot"</span>, </span>
+<span>    palette <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>        <span class="st">"#00AFBB"</span>, </span>
+<span>        <span class="st">"#E7B800"</span>, </span>
+<span>        <span class="st">"#FC4E07"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/violinplot-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="scatter-plot" class="slide level2 center"><h2>Scatter plot</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"bill_length_mm"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"body_mass_g"</span>,</span>
+<span>    color <span class="op">=</span> <span class="st">"black"</span>, </span>
+<span>    shape <span class="op">=</span> <span class="fl">21</span>, </span>
+<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    add <span class="op">=</span> <span class="st">"reg.line"</span>, </span>
+<span>    conf.int <span class="op">=</span> <span class="cn">TRUE</span>, </span>
+<span>    cor.coef <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>        add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>        color <span class="op">=</span> <span class="st">"blue"</span>, </span>
+<span>        fill <span class="op">=</span> <span class="st">"lightgray"</span></span>
+<span>        <span class="op">)</span>,</span>
+<span>    cor.coeff.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>        method <span class="op">=</span> <span class="st">"pearson"</span>, </span>
+<span>        label.x <span class="op">=</span> <span class="fl">30</span>, </span>
+<span>        label.sep <span class="op">=</span> <span class="st">"\n"</span></span>
+<span>        <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="04-normal-distribution_files/figure-revealjs/scatterplot-1.png" class="quarto-figure quarto-figure-center" width="1750"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>BIOL2205 - IeI - Universidad de los Andes</p>

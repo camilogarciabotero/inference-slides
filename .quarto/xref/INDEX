@@ -28,5 +28,8 @@
   },
   "03-descriptive-stats-dist/03-descriptive-stats-dist.qmd": {
     "03-descriptive-stats-dist.html": "ecb468b0"
+  },
+  "inference-slides.qmd": {
+    "inference-slides.html": "a959f3d8"
   }
 }

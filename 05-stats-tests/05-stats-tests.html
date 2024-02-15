@@ -9,7 +9,7 @@
 <link href="05-stats-tests_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="05-stats-tests_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.543">
+<meta name="generator" content="quarto-1.4.549">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Kevin J.">
 <meta name="author" content="Victor A.">
@@ -528,7 +528,7 @@ mean in group female   mean in group male
 <span>  x <span class="op">=</span> <span class="va">sex</span>, </span>
 <span>  y <span class="op">=</span> <span class="va">body_mass_g</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"p"</span>,</span>
-<span>  paired <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  paired <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_ttest_table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -537,7 +537,7 @@ mean in group female   mean in group male
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group"],"name":[2],"type":["chr"],"align":["left"]},{"label":["statistic"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["df.error"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[6],"type":["chr"],"align":["left"]},{"label":["alternative"],"name":[7],"type":["chr"],"align":["left"]},{"label":["effectsize"],"name":[8],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["conf.level"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["conf.method"],"name":[13],"type":["chr"],"align":["left"]},{"label":["conf.distribution"],"name":[14],"type":["chr"],"align":["left"]},{"label":["n.obs"],"name":[15],"type":["int"],"align":["right"]},{"label":["expression"],"name":[16],"type":["list"],"align":["right"]}],"data":[{"1":"body_mass_g","2":"sex","3":"-14.26403","4":"72","5":"1.140835e-22","6":"Paired t-test","7":"two.sided","8":"Hedges' g","9":"-1.652017","10":"0.95","11":"-2.001704","12":"-1.297282","13":"ncp","14":"t","15":"73","16":"<language>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term"],"name":[1],"type":["chr"],"align":["left"]},{"label":["group"],"name":[2],"type":["chr"],"align":["left"]},{"label":["mean.group1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["mean.group2"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["df.error"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[8],"type":["chr"],"align":["left"]},{"label":["alternative"],"name":[9],"type":["chr"],"align":["left"]},{"label":["effectsize"],"name":[10],"type":["chr"],"align":["left"]},{"label":["estimate"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["conf.level"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["conf.low"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["conf.method"],"name":[15],"type":["chr"],"align":["left"]},{"label":["conf.distribution"],"name":[16],"type":["chr"],"align":["left"]},{"label":["n.obs"],"name":[17],"type":["int"],"align":["right"]},{"label":["expression"],"name":[18],"type":["list"],"align":["right"]}],"data":[{"1":"body_mass_g","2":"sex","3":"3368.836","4":"4043.493","5":"-13.12629","6":"135.6936","7":"6.40232e-26","8":"Welch Two Sample t-test","9":"two.sided","10":"Hedges' g","11":"-2.160644","12":"0.95","13":"-2.570489","14":"-1.745781","15":"ncp","16":"t","17":"146","18":"<language>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
