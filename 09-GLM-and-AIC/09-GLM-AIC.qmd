@@ -169,7 +169,65 @@ ggplot(adelies,
     )
 ```
 
-## Analysis of covariance (ANCOVA)
+## Akaike Information Criteria (AIC)
+
+------------------------------------------------------------------------
+
+An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):
+
+$$AIC=−2*ln(L)+2*k$$
+
+## Using Broom to evaluate statistical models.
+
+------------------------------------------------------------------------
+
+Tidying model's statistical information and report their performance.
+
+::: incremental
+1.  `tidy()` Summarizes and organize the model information
+
+2.  `augment()` Displays all model information for each data point.
+
+3.  `glance()` Summarizes the model performance (AIC, BIC, and others).
+:::
+
+***
+
+```{r}
+#| label: broom-01
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::tidy(binarysexmodel)
+```
+
+. . . 
+
+```{r}
+#| label: broom-02
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::augment(binarysexmodel)
+```
+
+***
+
+Now let's see the AIC:
+
+```{r}
+#| label: broom-03
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+broom::glance(binarysexmodel)
+```
+
+
+<!-- ## Analysis of covariance (ANCOVA)
  
 ***
 
@@ -230,61 +288,4 @@ ancovamodel
 #| eval: true
 #| output-location: fragment
 report::report(ancovamodel)
-```
-
-## Akaike Information Criteria (AIC)
-
-------------------------------------------------------------------------
-
-An information theory concept that evaluates mathematical models in terms of its complexity and performance (prediction):
-
-$$AIC=−2*ln(L)+2*k$$
-
-## Using Broom to evaluate statistical models.
-
-------------------------------------------------------------------------
-
-Tidying model's statistical information and report their performance.
-
-::: incremental
-1.  `tidy()` Summarizes and organize the model information
-
-2.  `augment()` Displays all model information for each data point.
-
-3.  `glance()` Summarizes the model performance (AIC, BIC, and others).
-:::
-
-***
-
-```{r}
-#| label: broom-01
-#| fig-align: center
-#| echo: true
-#| eval: true
-#| output-location: fragment
-broom::tidy(binarysexmodel)
-```
-
-. . . 
-
-```{r}
-#| label: broom-02
-#| fig-align: center
-#| echo: true
-#| eval: true
-#| output-location: fragment
-broom::augment(binarysexmodel)
-```
-
-***
-
-Now let's see the AIC:
-
-```{r}
-#| label: broom-03
-#| fig-align: center
-#| echo: true
-#| eval: true
-#| output-location: fragment
-broom::glance(binarysexmodel)
-```
+``` -->
