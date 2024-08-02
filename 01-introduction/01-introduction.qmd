@@ -8,8 +8,8 @@ author:
   - name: "Kevin J."
     email: ks.jaramillo1905@uniandes.edu.co
 
-  - name: "Victor A."
-    email: v.nascimento@uniandes.edu.co
+  - name: "Ronald D."
+    email: r.diazf@uniandes.edu.co
 
 format:
   revealjs:

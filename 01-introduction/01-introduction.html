@@ -9,10 +9,10 @@
 <link href="01-introduction_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="01-introduction_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.53">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Kevin J.">
-<meta name="author" content="Victor A.">
+<meta name="author" content="Ronald D.">
 <title>An introduction to R</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -417,10 +417,10 @@ Kevin J.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Victor A. 
+Ronald D. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
+<a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -428,7 +428,7 @@ Victor A.
 </section><section><section id="r-and-rstudio" class="title-slide slide level1 center"><h1>R and Rstudio</h1>
 
 </section><section class="slide level2 center">
-<img data-src="figs/r-fig.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">R console</p></section><section class="slide level2 center">
+<img data-src="figs/r-fig.png" class="r-stretch quarto-figure-center"><p class="caption">R console</p></section><section class="slide level2 center">
 <img data-src="figs/rstudio-fig.png" class="r-stretch quarto-figure-center"><p class="caption">Rstudio IDE</p></section><section class="slide level2 center">
 <img data-src="figs/script-fig.png" class="r-stretch quarto-figure-center"><p class="caption">An script example</p></section></section><section><section id="rmarkdown-and-dynamic-documents" class="title-slide slide level1 smaller center"><h1>Rmarkdown and Dynamic Documents</h1>
 
@@ -1068,18 +1068,7 @@ Levels: Control Treat</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1111,7 +1100,47 @@ Levels: Control Treat</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1148,7 +1177,11 @@ Levels: Control Treat</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
           let selectedAnnoteEl;
