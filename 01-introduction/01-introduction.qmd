@@ -270,9 +270,9 @@ You can also generate factors/levels using the `gl()` function.
 #| eval: false
 gl(
     n, # levels 
-    k, # replications
+    k, # replicates
     length = n * k,
-    labels = c("contro", "treatment"),
+    labels = c("control", "treatment"),
     ordered = FALSE
 )
 ```
@@ -285,8 +285,8 @@ let's try an example:
 #| label: gl-data
 #| echo: true
 #| eval: true
-## First control, then treatment:
 #| output-location: fragment
+## First control, then treatment:
 experiment <- gl(2, 8, labels = c("Control", "Treat"))
 
 experiment
