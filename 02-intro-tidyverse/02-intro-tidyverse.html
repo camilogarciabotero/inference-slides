@@ -9,10 +9,10 @@
 <link href="02-intro-tidyverse_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="02-intro-tidyverse_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.53">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Kevin J.">
-<meta name="author" content="Victor A.">
+<meta name="author" content="Ronald D.">
 <title>An introduction to the Tidyverse</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -437,10 +437,10 @@ Kevin J.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Victor A. 
+Ronald D. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
+<a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -460,10 +460,10 @@ Victor A.
 
 <img data-src="figs/summary-data.png" class="quarto-figure quarto-figure-center r-stretch" width="600"></section><section id="true-horror-data" class="slide level2 center"><h2>7. True Horror data</h2>
 
-<img data-src="figs/horror-data.png" class="quarto-figure quarto-figure-center r-stretch" width="700"><p class="caption">Horror data</p></section></section><section><section id="a-tidy-data-set" class="title-slide slide level1 center"><h1>A Tidy data set</h1>
+<img data-src="figs/horror-data.png" width="700" class="r-stretch quarto-figure-center"><p class="caption">Horror data</p></section></section><section><section id="a-tidy-data-set" class="title-slide slide level1 center"><h1>A Tidy data set</h1>
 
-<img data-src="figs/tidy-data.png" class="quarto-figure quarto-figure-center r-stretch" width="800"><p class="caption">Tidy data</p></section><section class="slide level2 center">
-<img data-src="https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">Tidy data principles. Fuente: https://r4ds.had.co.nz/tidy-data.html</p></section><section class="slide level2 center">
+<img data-src="figs/tidy-data.png" width="800" class="r-stretch quarto-figure-center"><p class="caption">Tidy data</p></section><section class="slide level2 center">
+<img data-src="https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png" class="r-stretch quarto-figure-center"><p class="caption">Tidy data principles. Fuente: https://r4ds.had.co.nz/tidy-data.html</p></section><section class="slide level2 center">
 <img data-src="figs/tidy-data-cartoon.png" class="r-stretch quarto-figure-center"><p class="caption">Make friends with tidy data</p></section></section><section><section id="the-tidyverse" class="title-slide slide level1 center"><h1>The Tidyverse</h1>
 
 </section><section class="slide level2 center">
@@ -654,16 +654,14 @@ Victor A.
 <span id="cb12-4" class="hljs-ln-code"><a href=""></a>        <span class="at">y =</span> bill_length_mm</span>
 <span id="cb12-5" class="hljs-ln-code"><a href=""></a>    )</span>
 <span id="cb12-6" class="hljs-ln-code"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="02-intro-tidyverse_files/figure-revealjs/00-plot-1.png" class="quarto-figure quarto-figure-center" width="2560"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section id="section-8" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
@@ -686,8 +684,7 @@ Victor A.
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section id="section-9" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
@@ -717,8 +714,7 @@ Victor A.
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section id="section-10" class="slide level2 center" data-auto-animate="true"><h2 data-id="quarto-animate-title"></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
@@ -756,12 +752,11 @@ Victor A.
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section class="slide level2 center">
 <img data-src="figs/ggplot-geoms-cartoon.png" class="quarto-figure quarto-figure-center r-stretch"></section><section class="slide level2 center">
 <img data-src="figs/ggplot-theme-reference.png" class="quarto-figure quarto-figure-center r-stretch"></section><section class="slide level2 center">
-<img data-src="figs/ggplot-gallery.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">visit in https://exts.ggplot2.tidyverse.org/gallery/</p></section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
+<img data-src="figs/ggplot-gallery.png" class="r-stretch quarto-figure-center"><p class="caption">visit in https://exts.ggplot2.tidyverse.org/gallery/</p></section><section id="references" class="slide level2 smaller scrollable"><h2>References</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>BIOL2205 - Inferencia e Informática - Uniandes</p>
@@ -1033,18 +1028,7 @@ Broman, Karl W, and Kara H Woo. 2018. <span>“Data Organization in Spreadsheets
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1076,7 +1060,47 @@ Broman, Karl W, and Kara H Woo. 2018. <span>“Data Organization in Spreadsheets
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1113,7 +1137,11 @@ Broman, Karl W, and Kara H Woo. 2018. <span>“Data Organization in Spreadsheets
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
           let selectedAnnoteEl;
