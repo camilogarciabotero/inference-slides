@@ -457,11 +457,14 @@ Let's try with an example:
 
 Now, the Adelie penguins display an average bill length of `38.8` mm and its standard variation is `2.6` mm. What's the percentage of penguins of `40` mm or smaller?
 
+***
+
 ```{r}
 #| label: pnorm
 #| echo: true
 #| eval: true
 #| fig-align: center
+#| output-location: fragment
 pnorm(40, mean = 38.8, sd = 2.6)
 ```
 
