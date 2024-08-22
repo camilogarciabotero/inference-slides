@@ -228,7 +228,7 @@ $$
 \text{IC} = \bar{x} \pm Z \left( \frac{\sigma}{\sqrt{n}} \right)
 $$
 
-Or if the population standar devuariation of the population is unknown:
+Or if the population standard deviation of the population is unknown:
 
 $$
 \text{IC} = \bar{x} \pm t \left( \frac{s}{\sqrt{n}} \right)
