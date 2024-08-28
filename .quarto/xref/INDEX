@@ -31,5 +31,8 @@
   },
   "inference-slides.qmd": {
     "inference-slides.html": "a959f3d8"
+  },
+  "04-stats-tests/04-stats-tests.qmd": {
+    "04-stats-tests.html": "e5d4942b"
   }
 }
