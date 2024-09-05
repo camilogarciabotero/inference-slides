@@ -34,5 +34,8 @@
   },
   "04-stats-tests/04-stats-tests.qmd": {
     "04-stats-tests.html": "e5d4942b"
+  },
+  "05-normal-distribution/05-normal-distribution.qmd": {
+    "05-normal-distribution.html": "9109101c"
   }
 }
