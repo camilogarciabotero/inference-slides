@@ -6,13 +6,13 @@
 <script src="06-permutation-bootstrap_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="06-permutation-bootstrap_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="06-permutation-bootstrap_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="06-permutation-bootstrap_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="06-permutation-bootstrap_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="06-permutation-bootstrap_files/libs/quarto-html/quarto-html-68b329da9893e34099c7d8ad5cb9c940.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="06-permutation-bootstrap_files/libs/quarto-html/quarto-syntax-highlighting-e67ff5f79a98c6389aa7c0b9e6712459.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.9">
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Kevin J.">
-<meta name="author" content="Victor A.">
+<meta name="author" content="Ronald D.">
 <title>Permutation tests &amp; Bootstrap</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -97,7 +97,7 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-<link rel="stylesheet" href="06-permutation-bootstrap_files/libs/revealjs/dist/theme/quarto.css">
+<link rel="stylesheet" href="06-permutation-bootstrap_files/libs/revealjs/dist/theme/quarto-f4746e54a6efacbfc19673bc05032678.css">
 <link href="06-permutation-bootstrap_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="06-permutation-bootstrap_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="06-permutation-bootstrap_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -417,10 +417,10 @@ Kevin J.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Victor A. 
+Ronald D. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
+<a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -436,7 +436,7 @@ Victor A.
 <img data-src="figs/infer-logo.png" class="quarto-figure quarto-figure-center r-stretch" width="60"></section><section class="slide level2 center">
 <img data-src="figs/infer-pipeline.png" class="quarto-figure quarto-figure-center r-stretch" width="8"></section><section class="slide level2 center"><p>The four infer verbs:</p>
 
-<img data-src="figs/infer-verbs-fig.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">See <a href="https://github.com/ismayc/talks/tree/master/ness-infer">Chester Ismay’s talk</a></p></section><section class="slide level2 center"><ul>
+<img data-src="figs/infer-verbs-fig.png" class="r-stretch quarto-figure-center"><p class="caption">See <a href="https://github.com/ismayc/talks/tree/master/ness-infer">Chester Ismay’s talk</a></p></section><section class="slide level2 center"><ul>
 <li><p><code>specify()</code> allows you to specify the variable, or relationship between variables, that you’re interested in.</p></li>
 <li><p><code>hypothesize()</code> allows you to declare the null hypothesis.</p></li>
 <li><p><code>calculate()</code> a distribution of statistics from the generated data to form the null distribution.</p></li>
@@ -464,8 +464,7 @@ Victor A.
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section class="slide level2 center scrollable"><ol type="1">
 <li>
 <strong>Calculate</strong> the observed statistic of interest:</li>
@@ -485,7 +484,7 @@ Victor A.
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_gentoo_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div data-pagedtable="false">
@@ -506,7 +505,7 @@ Victor A.
 <span>      <span class="op">)</span></span>
 <span></span>
 <span><span class="va">adelie_chinstrap_observed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div data-pagedtable="false">
@@ -545,7 +544,7 @@ Victor A.
 <span>    obs_stat <span class="op">=</span> <span class="va">adelie_gentoo_observed</span>, </span>
 <span>    direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div data-pagedtable="false">
@@ -572,12 +571,12 @@ Victor A.
 <span>      obs_stat <span class="op">=</span> <span class="va">adelie_chinstrap_observed</span>, </span>
 <span>      direction <span class="op">=</span> <span class="st">"two-sided"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="cell quarto-layout-panel" data-layout-align="center" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.712"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["p_value"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.66"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -621,8 +620,7 @@ Victor A.
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section id="lets-see-an-example-of-bootstrap" class="slide level2 center"><h2>Let’s see an example of Bootstrap</h2>
 </section><section class="slide level2 center"><div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby">
@@ -647,7 +645,7 @@ Victor A.
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-146.0112","2":"92.27422"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-140.4836","2":"95.40692"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -670,7 +668,7 @@ Victor A.
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-1509.117","2":"-1270.611"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["lower_ci"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["upper_ci"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"-1502.074","2":"-1265.755"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -705,8 +703,7 @@ Victor A.
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section class="slide level2 center"><p>It tells us how the averages in body mass between Adelie and Chinstrap penguins change if we redid the experiment many times.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -974,18 +971,7 @@ Victor A.
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1017,7 +1003,47 @@ Victor A.
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1054,7 +1080,11 @@ Victor A.
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
           let selectedAnnoteEl;
