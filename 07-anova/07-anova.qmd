@@ -173,13 +173,30 @@ ggplot(males) +
 #| eval: true
 #| output-location: fragment
 anovamodel <- aov(data = males, body_mass_g ~ species)
-anovamodel
+```
+
+***
+
+### 1. Using `aov()` function:
+
+```{r}
+#| label: anova-01-summary
+#| fig-align: center
+#| echo: true
+#| eval: true
+#| output-location: fragment
+anovamodel <- aov(data = males, body_mass_g ~ species)
+summary(anovamodel)
 ```
 
 ***
 
 The Tukey-Krammer test to make pairwise comparisons:
 ```{r}
+#| label: tukey
+#| fig-align: center
+#| echo: true
+#| eval: true
 TukeyHSD(anovamodel)
 ```
 
