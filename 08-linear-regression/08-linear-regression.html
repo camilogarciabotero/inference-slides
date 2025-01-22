@@ -6,13 +6,13 @@
 <script src="08-linear-regression_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="08-linear-regression_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="08-linear-regression_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="08-linear-regression_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="08-linear-regression_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="08-linear-regression_files/libs/quarto-html/quarto-html-68b329da9893e34099c7d8ad5cb9c940.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="08-linear-regression_files/libs/quarto-html/quarto-syntax-highlighting-e67ff5f79a98c6389aa7c0b9e6712459.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.6.9">
 <meta name="author" content="Camilo G.">
-<meta name="author" content="Kevin J.">
-<meta name="author" content="Victor A.">
+<meta name="author" content="Ada A.">
+<meta name="author" content="Ronald D.">
 <title>Correlation &amp; Lineal regression</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -97,7 +97,7 @@
     code span.vs { color: #86b300; } /* VerbatimString */
     code span.wa { color: #f07171; } /* Warning */
   </style>
-<link rel="stylesheet" href="08-linear-regression_files/libs/revealjs/dist/theme/quarto.css">
+<link rel="stylesheet" href="08-linear-regression_files/libs/revealjs/dist/theme/quarto-f4746e54a6efacbfc19673bc05032678.css">
 <link href="08-linear-regression_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="08-linear-regression_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -409,18 +409,18 @@ Camilo G.
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Kevin J. 
+Ada A. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:ks.jaramillo1905@uniandes.edu.co">ks.jaramillo1905@uniandes.edu.co</a>
+<a href="mailto:a.acevedoa2@uniandes.edu.co">a.acevedoa2@uniandes.edu.co</a>
 </div>
 </div>
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Victor A. 
+Ronald D. 
 </div>
 <div class="quarto-title-author-email">
-<a href="mailto:v.nascimento@uniandes.edu.co">v.nascimento@uniandes.edu.co</a>
+<a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
 </div>
@@ -502,16 +502,14 @@ sample estimates:
 <p><img data-src="figs/uniform-01.png"></p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="figs/uniform-02.png"></p>
-</div>
-</div>
+</div></div>
 </section><section class="slide level2 center"><h3 id="sample-range-uniformly">2. Sample range uniformly</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="figs/responses-01.png"></p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="figs/responses-02.png"></p>
-</div>
-</div>
+</div></div>
 </section><section id="linear-regression-model" class="slide level2 center"><h2>Linear regression model</h2>
 </section><section class="slide level2 center"><p>The linear regression model is a statistical model that allows us to predict the value of a dependent variable <span class="math inline">\(Y\)</span> based on the value of an independent variable <span class="math inline">\(X\)</span>.</p>
 </section><section class="slide level2 center">
@@ -555,16 +553,14 @@ X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
 <span>        y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
 <span>    <span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="08-linear-regression_files/figure-revealjs/lm-01-1.png" class="quarto-figure quarto-figure-center" width="2450"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section class="slide level2 center"><p>Let’s investigate the model:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">flipper_length_mm</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -623,16 +619,14 @@ computed using a Wald t-distribution approximation.</code></pre>
 <span>    <span class="fu">stat_poly_eq</span><span class="op">(</span><span class="fu">use_label</span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eq"</span>, <span class="st">"R2"</span>, <span class="st">"F"</span>, <span class="st">"p.value"</span><span class="op">)</span>,</span>
 <span>    <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="column fragment">
+</div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="08-linear-regression_files/figure-revealjs/lm-04-1.png" class="quarto-figure quarto-figure-center" width="2450"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section><section id="testing-the-regression-assumtions" class="slide level2 center"><h2>Testing the regression assumtions</h2>
 </section><section class="slide level2 center scrollable"><ol type="1">
 <li>Linearity: function behaves linearly outside the range of the data.</li>
@@ -929,18 +923,7 @@ computed using a Wald t-distribution approximation.</code></pre>
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -972,7 +955,47 @@ computed using a Wald t-distribution approximation.</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1009,7 +1032,11 @@ computed using a Wald t-distribution approximation.</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
           let selectedAnnoteEl;
