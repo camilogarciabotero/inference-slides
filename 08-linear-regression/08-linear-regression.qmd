@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -45,13 +51,13 @@ library(ggsignif)
 library(ggpmisc)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "bottom",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "bottom",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -75,13 +81,13 @@ Correlation is a measurement of the extent of which two variables relate to each
 #| eval: true
 #| code-fold: true
 ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
-    geom_point(size = 2, alpha = 0.6) +
-    labs(
-        title = "Penguin bill dimensions (omit species)",
-        x = "Bill length (mm)",
-        y = "Bill depth (mm)"
-    ) +
-    geom_smooth(method = "lm", se = FALSE, color = "gray50")
+  geom_point(size = 2, alpha = 0.6) +
+  labs(
+    title = "Penguin bill dimensions (omit species)",
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)"
+  ) +
+  geom_smooth(method = "lm", se = FALSE, color = "gray50")
 ```
 
 ***
@@ -266,18 +272,20 @@ $$
 #| eval: true
 #| output-location: column-fragment
 #| fig-width: 7
-ggplot(penguins, 
+ggplot(
+  penguins,
   aes(
-      x = flipper_length_mm, 
-      y = body_mass_g)
-      ) +
-    geom_point(size = 2, alpha = 0.6) +
-    labs(
-        title = "Penguin bill dimensions",
-        x = "flipper length (mm)",
-        y = "Body mass (g)"
-    ) +
-    geom_smooth(method = "lm")
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(
+    title = "Penguin bill dimensions",
+    x = "flipper length (mm)",
+    y = "Body mass (g)"
+  ) +
+  geom_smooth(method = "lm")
 ```
 
 ***
@@ -290,7 +298,7 @@ Let's investigate the model:
 #| fig-align: center
 #| echo: true
 #| output-location: fragment
-model  <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
+model <- lm(body_mass_g ~ flipper_length_mm, data = penguins)
 ```
 
 
@@ -321,21 +329,23 @@ We can also include the complete model in the plot with the `ggpmisc`:
 #| eval: true
 #| output-location: column-fragment
 #| fig-width: 7
-ggplot(penguins, 
+ggplot(
+  penguins,
   aes(
-      x = flipper_length_mm, 
-      y = body_mass_g)
-      ) +
-    geom_point(size = 2, alpha = 0.6) +
-    labs(
-        title = "Penguin bill dimensions",
-        x = "flipper length (mm)",
-        y = "Body mass (g)"
-    ) +
-    geom_smooth(method = "lm") +
-    stat_poly_eq(use_label(
-      c("eq", "R2", "F", "p.value"),
-    ))
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point(size = 2, alpha = 0.6) +
+  labs(
+    title = "Penguin bill dimensions",
+    x = "flipper length (mm)",
+    y = "Body mass (g)"
+  ) +
+  geom_smooth(method = "lm") +
+  stat_poly_eq(use_label(
+    c("eq", "R2", "F", "p.value"),
+  ))
 ```
 
 ## Testing the regression assumtions

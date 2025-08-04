@@ -12,6 +12,8 @@
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Alejandra S.">
 <meta name="author" content="Ronald D.">
+<meta name="author" content="Andrew C.">
+<meta name="author" content="Mauricio S.">
 <title>GLM &amp; AIC</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -225,6 +227,22 @@ Ronald D.
 <a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Andrew C. 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:aj.crawford244@uniandes.edu.co">aj.crawford244@uniandes.edu.co</a>
+</div>
+</div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mauricio S. 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:om.santos@uniandes.edu.co">om.santos@uniandes.edu.co</a>
+</div>
+</div>
 </div>
 
 </section><section id="generalized-linear-models-glm" class="slide level2 center"><h2>Generalized Linear Models (GLM)</h2>
@@ -345,15 +363,17 @@ computed using a Wald z-distribution approximation.</code></pre>
 </section><section id="lets-put-that-on-a-plot" class="slide level2 center"><h2>Let’s put that on a plot</h2>
 </section><section class="slide level2 center"><div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">adelies</span>, </span>
-<span>    <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, y <span class="op">=</span> <span class="va">binarysex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span></span>
+<span>  <span class="va">adelies</span>,</span>
+<span>  <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">body_mass_g</span>, y <span class="op">=</span> <span class="va">binarysex</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_smooth</span><span class="op">(</span></span>
-<span>    method <span class="op">=</span> <span class="st">"glm"</span>, </span>
+<span>    method <span class="op">=</span> <span class="st">"glm"</span>,</span>
 <span>    method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
 <span>      family <span class="op">=</span> <span class="st">"binomial"</span></span>
-<span>      <span class="op">)</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -451,7 +471,7 @@ What if the Body mass has an effect on the flipper length? Let's create an ANCOV
 ::: {.cell layout-align="center" output-location='fragment'}
 
 ```{.r .cell-code}
-ancovamodel  <- aov(flipper_length_mm  ~ sex + body_mass_g, data = adelies)
+ancovamodel <- aov(flipper_length_mm ~ sex + body_mass_g, data = adelies)
 ```
 :::
 
@@ -498,7 +518,7 @@ report::report(ancovamodel)
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>BIOL2205 - IeI - Universidad de los Andes</p>
+<p>BIOL2205 - Inferencia e Informática - DCB - Uniandes</p>
 </div>
 </div></div>
 

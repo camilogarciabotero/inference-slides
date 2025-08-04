@@ -10,10 +10,17 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
+    
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -42,13 +49,13 @@ library(performance)
 library(ggpmisc)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "bottom",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "bottom",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -158,15 +165,17 @@ report::report(binarysexmodel)
 #| echo: true
 #| eval: true
 #| output-location: column-fragment
-ggplot(adelies, 
-    aes(x = body_mass_g, y = binarysex)) +
+ggplot(
+  adelies,
+  aes(x = body_mass_g, y = binarysex)
+) +
   geom_point() +
   geom_smooth(
-    method = "glm", 
+    method = "glm",
     method.args = list(
       family = "binomial"
-      )
     )
+  )
 ```
 
 ## Akaike Information Criteria (AIC)
@@ -266,7 +275,7 @@ What if the Body mass has an effect on the flipper length? Let's create an ANCOV
 #| echo: true
 #| eval: true
 #| output-location: fragment
-ancovamodel  <- aov(flipper_length_mm  ~ sex + body_mass_g, data = adelies)
+ancovamodel <- aov(flipper_length_mm ~ sex + body_mass_g, data = adelies)
 ```
 
 . . .

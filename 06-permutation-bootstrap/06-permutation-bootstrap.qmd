@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true

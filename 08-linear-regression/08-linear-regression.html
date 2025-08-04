@@ -12,6 +12,8 @@
 <meta name="author" content="Camilo G.">
 <meta name="author" content="Alejandra S.">
 <meta name="author" content="Ronald D.">
+<meta name="author" content="Andrew C.">
+<meta name="author" content="Mauricio S.">
 <title>Correlation &amp; Lineal regression</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -225,6 +227,22 @@ Ronald D.
 <a href="mailto:r.diazf@uniandes.edu.co">r.diazf@uniandes.edu.co</a>
 </div>
 </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Andrew C. 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:aj.crawford244@uniandes.edu.co">aj.crawford244@uniandes.edu.co</a>
+</div>
+</div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mauricio S. 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:om.santos@uniandes.edu.co">om.santos@uniandes.edu.co</a>
+</div>
+</div>
 </div>
 
 </section><section><section id="correlation" class="title-slide slide level1 center"><h1>Correlation</h1>
@@ -233,13 +251,13 @@ Ronald D.
 </section><section class="slide level2 center">
 <img data-src="figs/culmen_depth.png" class="r-stretch"></section><section class="slide level2 center"><div class="cell" data-layout-align="center">
 <details class="code-fold"><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">bill_length_mm</span>, y <span class="op">=</span> <span class="va">bill_depth_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">labs</span><span class="op">(</span></span>
-<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,</span>
-<span>        x <span class="op">=</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span>        y <span class="op">=</span> <span class="st">"Bill depth (mm)"</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Penguin bill dimensions (omit species)"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Bill depth (mm)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <img data-src="08-linear-regression_files/figure-revealjs/correlation-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1750"></section><section class="slide level2 center"><h3 id="how-much-are-those-variables-correlated">How much are those variables correlated?</h3>
@@ -343,18 +361,20 @@ X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
 </section><section id="lets-do-it-in-r" class="slide level2 center"><h2>Let’s do it in R</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span></span>
+<span>  <span class="va">penguins</span>,</span>
 <span>  <span class="fu">aes</span><span class="op">(</span></span>
-<span>      x <span class="op">=</span> <span class="va">flipper_length_mm</span>, </span>
-<span>      y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span></span>
-<span>      <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">labs</span><span class="op">(</span></span>
-<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
-<span>        x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
-<span>        y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">body_mass_g</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -365,7 +385,7 @@ X \sim F_{(1,n)} \Rightarrow X \sim T_{n}
 </div></div>
 </section><section class="slide level2 center"><p>Let’s investigate the model:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">flipper_length_mm</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">flipper_length_mm</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 
@@ -406,21 +426,23 @@ computed using a Wald t-distribution approximation.</code></pre>
 </section><section class="slide level2 center"><p>We can also include the complete model in the plot with the <code>ggpmisc</code>:</p>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, </span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span></span>
+<span>  <span class="va">penguins</span>,</span>
 <span>  <span class="fu">aes</span><span class="op">(</span></span>
-<span>      x <span class="op">=</span> <span class="va">flipper_length_mm</span>, </span>
-<span>      y <span class="op">=</span> <span class="va">body_mass_g</span><span class="op">)</span></span>
-<span>      <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">labs</span><span class="op">(</span></span>
-<span>        title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
-<span>        x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
-<span>        y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu">stat_poly_eq</span><span class="op">(</span><span class="fu">use_label</span><span class="op">(</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eq"</span>, <span class="st">"R2"</span>, <span class="st">"F"</span>, <span class="st">"p.value"</span><span class="op">)</span>,</span>
-<span>    <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">body_mass_g</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span>, alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Penguin bill dimensions"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"flipper length (mm)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Body mass (g)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">stat_poly_eq</span><span class="op">(</span><span class="fu">use_label</span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eq"</span>, <span class="st">"R2"</span>, <span class="st">"F"</span>, <span class="st">"p.value"</span><span class="op">)</span>,</span>
+<span>  <span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -464,7 +486,7 @@ computed using a Wald t-distribution approximation.</code></pre>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>BIOL2205 - IeI - Universidad de los Andes</p>
+<p>BIOL2205 - Inferencia e Informática - DCB - Uniandes</p>
 </div>
 </div></div>
 

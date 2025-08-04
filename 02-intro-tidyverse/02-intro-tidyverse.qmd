@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - Inferencia e Informática - Uniandes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -40,13 +46,13 @@ library(tidyverse)
 library(palmerpenguins)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "top",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "top",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -121,7 +127,7 @@ Importing libraries:
 ```{r}
 #| label: libraries
 #| echo: true
-#| 
+#|
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -173,7 +179,7 @@ penguins
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
+penguins |>
   filter(species == "Adelie" | species == "Gentoo")
 ```
 
@@ -184,8 +190,8 @@ penguins |>
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
-  filter(species ==  "Adelie" | species == "Gentoo") |>
+penguins |>
+  filter(species == "Adelie" | species == "Gentoo") |>
   select(species, body_mass_g)
 ```
 
@@ -196,10 +202,10 @@ penguins |>
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
+penguins |>
   filter(species == "Adelie" | species == "Gentoo") |>
   select(species, body_mass_g) |>
-  group_by(species) 
+  group_by(species)
 ```
 
 
@@ -210,10 +216,10 @@ penguins |>
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
+penguins |>
   filter(species == "Adelie" | species == "Gentoo") |>
   select(species, body_mass_g) |>
-  group_by(species) |> 
+  group_by(species) |>
   drop_na(body_mass_g)
 ```
 
@@ -224,11 +230,11 @@ penguins |>
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
+penguins |>
   filter(species == "Adelie" | species == "Gentoo") |>
   select(species, body_mass_g) |>
-  group_by(species) |> 
-  drop_na(body_mass_g) |> 
+  group_by(species) |>
+  drop_na(body_mass_g) |>
   summarise(max_weight_g = max(body_mass_g), min_weight_g = min(body_mass_g))
 ```
 
@@ -239,13 +245,13 @@ penguins |>
 #| echo: true
 #| eval: true
 #| fig-align: center
-penguins |> 
+penguins |>
   filter(species == "Adelie" | species == "Gentoo") |>
   select(species, body_mass_g) |>
-  group_by(species) |> 
-  drop_na(body_mass_g) |> 
+  group_by(species) |>
+  drop_na(body_mass_g) |>
   summarise(max_weight_g = max(body_mass_g), min_weight_g = min(body_mass_g)) |>
-  mutate(max_wight_kg = max_weight_g/1000)
+  mutate(max_wight_kg = max_weight_g / 1000)
 ```
 
 
@@ -278,34 +284,34 @@ library(palmerpenguins)
 #| output-location: default
 #| code-fold: true
 ggplot(
-    data = penguins,
-    aes(
-        x = flipper_length_mm,
-        y = bill_length_mm
-    )
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = bill_length_mm
+  )
 ) +
   geom_point(
-      aes(
-          color = species,
-          shape = species
-      ),
-      size = 3,
-      alpha = 0.8
+    aes(
+      color = species,
+      shape = species
+    ),
+    size = 3,
+    alpha = 0.8
   ) +
   scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
   labs(
-      title = "Flipper and bill length",
-      subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
-      x = "Flipper length (mm)",
-      y = "Bill length (mm)",
-      color = "Penguin species",
-      shape = "Penguin species"
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+    x = "Flipper length (mm)",
+    y = "Bill length (mm)",
+    color = "Penguin species",
+    shape = "Penguin species"
   ) +
   theme(
-      legend.position = c(0.85, 0.15),
-      plot.title.position = "plot",
-      plot.caption = element_text(hjust = 0, face = "italic"),
-      plot.caption.position = "plot"
+    legend.position = c(0.85, 0.15),
+    plot.title.position = "plot",
+    plot.caption = element_text(hjust = 0, face = "italic"),
+    plot.caption.position = "plot"
   )
 ```
 
@@ -318,11 +324,12 @@ ggplot(
 #| fig-align: center
 #| output-location: column-fragment
 #| code-line-numbers: "1-6"
-ggplot(data = penguins,
-    aes(
-        x = flipper_length_mm,
-        y = bill_length_mm
-    )
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = bill_length_mm
+  )
 )
 ```
 
@@ -335,17 +342,18 @@ ggplot(data = penguins,
 #| fig-align: center
 #| output-location: column
 #| code-line-numbers: "7-12"
-ggplot(data = penguins,
-    aes(
-        x = flipper_length_mm,
-        y = bill_length_mm
-    )
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = bill_length_mm
+  )
 ) +
   geom_point(
-      aes(
-          color = species,
-          shape = species
-      )
+    aes(
+      color = species,
+      shape = species
+    )
   )
 ```
 
@@ -358,24 +366,25 @@ ggplot(data = penguins,
 #| fig-align: center
 #| output-location: column
 #| code-line-numbers: "13-19"
-ggplot(data = penguins,
-    aes(
-        x = flipper_length_mm,
-        y = bill_length_mm
-    )
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = bill_length_mm
+  )
 ) +
   geom_point(
-      aes(
-          color = species,
-          shape = species
-      )
+    aes(
+      color = species,
+      shape = species
+    )
   ) +
   scale_color_manual(
     values = c(
-      "darkorange", 
+      "darkorange",
       "purple",
       "cyan4"
-      )
+    )
   )
 ```
 
@@ -388,32 +397,33 @@ ggplot(data = penguins,
 #| fig-align: center
 #| output-location: column
 #| code-line-numbers: "20-28"
-ggplot(data = penguins,
-    aes(
-        x = flipper_length_mm,
-        y = bill_length_mm
-    )
+ggplot(
+  data = penguins,
+  aes(
+    x = flipper_length_mm,
+    y = bill_length_mm
+  )
 ) +
   geom_point(
-      aes(
-          color = species,
-          shape = species
-      )
+    aes(
+      color = species,
+      shape = species
+    )
   ) +
   scale_color_manual(
     values = c(
-      "darkorange", 
+      "darkorange",
       "purple",
       "cyan4"
-      )
+    )
   ) +
   labs(
-      title = "Flipper and bill length",
-      subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
-      x = "Flipper length (mm)",
-      y = "Bill length (mm)",
-      color = "Penguin species",
-      shape = "Penguin species"
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+    x = "Flipper length (mm)",
+    y = "Bill length (mm)",
+    color = "Penguin species",
+    shape = "Penguin species"
   )
 ```
 

@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -42,13 +48,13 @@ library(latex2exp)
 library(ggsignif)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "top",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "top",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -101,7 +107,7 @@ Alternative hypothesis: $$H_{A}: \mu_{1} \neq \mu_{2}$$ **Variation** between me
 #| fig-align: center
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
-    labs(
+  labs(
     x = "Body mass (g)",
     y = "Density"
   )
@@ -116,7 +122,7 @@ ggplot(adelie_penguins, aes(x = body_mass_g)) +
 #| fig-align: center
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
-    labs(
+  labs(
     x = "Body mass (g)",
     y = "Density"
   ) +
@@ -141,7 +147,7 @@ Then,
 
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
-    labs(
+  labs(
     x = "Body mass (g)",
     y = "Density"
   ) +
@@ -161,7 +167,7 @@ And,
 
 ggplot(adelie_penguins, aes(x = body_mass_g)) +
   geom_density(aes(fill = sex), alpha = 0.5) +
-    labs(
+  labs(
     x = "Body mass (g)",
     y = "Density"
   ) +
@@ -244,11 +250,11 @@ library(statsExpressions)
 
 adelie_ttest_table <- two_sample_test(
   data = adelie_penguins,
-  x = sex, 
+  x = sex,
   y = body_mass_g,
   type = "p",
   paired = FALSE
-  )
+)
 
 adelie_ttest_table
 ```
@@ -281,7 +287,7 @@ ggplot(
     x = "",
     subtitle = parse(
       text = adelie_ttest_table$expression
-      )
+    )
   )
 ```
 
@@ -301,11 +307,14 @@ ggplot(
 #| fig-align: center
 #| code-line-numbers: "15-19"
 #| output-location: column-fragment
-ggplot(adelie_penguins, 
+ggplot(
+  adelie_penguins,
   aes(
-    x = sex, 
-    y = body_mass_g, 
-    fill = sex)) +
+    x = sex,
+    y = body_mass_g,
+    fill = sex
+  )
+) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2) +
   labs(
@@ -313,10 +322,10 @@ ggplot(adelie_penguins,
     x = "",
     subtitle = parse(
       text = adelie_ttest_table$expression
-      )
-  ) + 
+    )
+  ) +
   geom_signif(
-    comparisons = list(c("female", "male")), 
+    comparisons = list(c("female", "male")),
     test = "t.test",
     map_signif_level = TRUE
   )
@@ -358,11 +367,11 @@ library(statsExpressions)
 
 adelie_wilcox_table <- two_sample_test(
   data = adelie_penguins,
-  x = sex, 
+  x = sex,
   y = body_mass_g,
   type = "np",
   paired = FALSE
-  )
+)
 
 adelie_wilcox_table
 ```
@@ -393,7 +402,7 @@ ggplot(
     x = "",
     subtitle = parse(
       text = adelie_wilcox_table$expression
-      )
+    )
   )
 ```
 
@@ -408,11 +417,14 @@ ggplot(
 #| fig-align: center
 #| code-line-numbers: "15-19"
 #| output-location: column-fragment
-ggplot(adelie_penguins, 
+ggplot(
+  adelie_penguins,
   aes(
-    x = sex, 
-    y = body_mass_g, 
-    fill = sex)) +
+    x = sex,
+    y = body_mass_g,
+    fill = sex
+  )
+) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2) +
   labs(
@@ -420,10 +432,10 @@ ggplot(adelie_penguins,
     x = "",
     subtitle = parse(
       text = adelie_wilcox_table$expression
-      )
-  ) + 
+    )
+  ) +
   geom_signif(
-    comparisons = list(c("female", "male")), 
+    comparisons = list(c("female", "male")),
     test = "wilcox.test",
     map_signif_level = TRUE
   )

@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -44,13 +50,13 @@ library(statsExpressions)
 library(ggsignif)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "bottom",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "bottom",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -137,7 +143,7 @@ ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
 #| eval: true
 #| output-location: fragment
 
-males  <- penguins |> 
+males <- penguins |>
   filter(sex == "male")
 
 ggplot(males) +
@@ -226,18 +232,20 @@ anovatbl
 #| eval: true
 #| output-location: column-fragment
 
-ggplot(males, 
+ggplot(
+  males,
   aes(
-    x = species, 
-    y = body_mass_g, 
+    x = species,
+    y = body_mass_g,
     fill = species
-    )) +
+  )
+) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2, alpha = 0.7) +
   labs(
     y = "Body mass (g)",
     subtitle = anovatbl$expression[[1]]
-    )
+  )
 ```
 
 ## But why there are not comparisons?
@@ -252,18 +260,20 @@ ggplot(males,
 #| eval: true
 #| output-location: column-fragment
 
-ggplot(males, 
+ggplot(
+  males,
   aes(
-    x = species, 
-    y = body_mass_g, 
+    x = species,
+    y = body_mass_g,
     fill = species
-    )) +
+  )
+) +
   geom_boxplot(alpha = 0.5) +
   geom_jitter(width = 0.2, alpha = 0.7) +
   labs(
     y = "Body mass (g)",
     subtitle = anovatbl$expression[[1]]
-    ) +
+  ) +
   geom_signif(
     comparisons = list(
       c("Gentoo", "Chinstrap"),

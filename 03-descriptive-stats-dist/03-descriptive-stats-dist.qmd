@@ -10,10 +10,16 @@ author:
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
+  
+  - name: "Andrew C."
+    email: aj.crawford244@uniandes.edu.co
+
+  - name: "Mauricio S."
+    email: om.santos@uniandes.edu.co
 format:
   revealjs:
     footer: |
-      BIOL2205 - IeI - Universidad de los Andes
+      BIOL2205 - Inferencia e Informática - DCB - Uniandes
     standalone: true
     preview-links: auto
     center: true
@@ -40,13 +46,13 @@ library(tidyverse)
 library(palmerpenguins)
 
 simple_theme <- theme_bw() +
-    theme(
-        plot.background = element_rect(fill = "#FDF6E3"),
-        panel.background = element_rect(fill = "#FDF6E3"),
-        legend.background = element_rect(fill = "#FDF6E3"),
-        legend.position = "top",
-        axis.title = element_text(size = 14)
-    )
+  theme(
+    plot.background = element_rect(fill = "#FDF6E3"),
+    panel.background = element_rect(fill = "#FDF6E3"),
+    legend.background = element_rect(fill = "#FDF6E3"),
+    legend.position = "top",
+    axis.title = element_text(size = 14)
+  )
 
 theme_set(simple_theme)
 ```
@@ -61,6 +67,7 @@ theme_set(simple_theme)
 #| eval: true
 library(palmerpenguins)
 ```
+
 # Mean & Median
 
 ***
@@ -96,7 +103,7 @@ Or simply use a predefined `mean`:
 #| echo: true
 #| eval: true
 #| fig-align: center
-mean(penguins$year, na.rm=TRUE)
+mean(penguins$year, na.rm = TRUE)
 ```
 
 
@@ -171,7 +178,7 @@ $$
 #| echo: true
 #| eval: true
 #| fig-align: center
-var(penguins$body_mass_g, na.rm=TRUE)
+var(penguins$body_mass_g, na.rm = TRUE)
 ```
 
 ***
@@ -189,7 +196,7 @@ $$
 #| echo: true
 #| eval: true
 #| fig-align: center
-sd(penguins$body_mass_g, na.rm=TRUE)
+sd(penguins$body_mass_g, na.rm = TRUE)
 ```
 
 ***
@@ -207,7 +214,9 @@ $$
 #| echo: true
 #| eval: true
 #| fig-align: center
-cv <- function(x, na.rm=TRUE){(sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))*100}
+cv <- function(x, na.rm = TRUE) {
+  (sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)) * 100
+}
 ```
 
 . . .
@@ -217,9 +226,8 @@ cv <- function(x, na.rm=TRUE){(sd(x, na.rm=TRUE)/mean(x, na.rm=TRUE))*100}
 #| echo: true
 #| eval: true
 #| fig-align: center
-cv(penguins$body_mass_g, na.rm=TRUE)
+cv(penguins$body_mass_g, na.rm = TRUE)
 ```
-
 
 ## Confidence intervals
 
@@ -255,7 +263,7 @@ library(dplyr)
 #| fig-align: center
 #| output-location: default
 penguins |>
-    group_by(species)
+  group_by(species)
 ```
 
 
@@ -268,10 +276,10 @@ penguins |>
 #| fig-align: center
 #| output-location: default
 penguins |>
-    group_by(species) |>
-    summarise(
-        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)
-        )
+  group_by(species) |>
+  summarise(
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)
+  )
 ```
 
 ##  {auto-animate="true"}
@@ -283,11 +291,11 @@ penguins |>
 #| fig-align: center
 #| output-location: default
 penguins |>
-    group_by(species) |>
-    summarise(
-        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
-        variance_body_mass_g = var(body_mass_g, na.rm = TRUE)
-        )
+  group_by(species) |>
+  summarise(
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+    variance_body_mass_g = var(body_mass_g, na.rm = TRUE)
+  )
 
 ```
 
@@ -300,12 +308,12 @@ penguins |>
 #| fig-align: center
 #| output-location: default
 penguins |>
-    group_by(species) |>
-    summarise(
-        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
-        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
-        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE)
-        )
+  group_by(species) |>
+  summarise(
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+    variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+    std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE)
+  )
 ```
 
 ##  {auto-animate="true"}
@@ -317,13 +325,13 @@ penguins |>
 #| fig-align: center
 #| output-location: default
 penguins |>
-    group_by(species) |>
-    summarise(
-        mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
-        variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
-        std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE),
-        cv_body_mass_g = cv(body_mass_g, na.rm = TRUE)
-        )
+  group_by(species) |>
+  summarise(
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
+    variance_body_mass_g = var(body_mass_g, na.rm = TRUE),
+    std_dev_body_mass_g = sd(body_mass_g, na.rm = TRUE),
+    cv_body_mass_g = cv(body_mass_g, na.rm = TRUE)
+  )
 ```
 
 # Distributions {.smaller}
@@ -339,9 +347,9 @@ dfuniform <- runif(1000, min = 0, max = 1)
 
 ggplot(data.frame(x = dfuniform), aes(x)) +
   geom_histogram(
-    binwidth = 0.1, 
-    fill = "green", 
-    color = "black", 
+    binwidth = 0.1,
+    fill = "green",
+    color = "black",
     alpha = 0.7
   ) +
   labs(
@@ -362,9 +370,9 @@ dfbin <- rbinom(1000, size = 20, prob = 0.8)
 
 ggplot(data.frame(x = dfbin), aes(x)) +
   geom_histogram(
-    binwidth = 1, 
-    fill = "purple", 
-    color = "black", 
+    binwidth = 1,
+    fill = "purple",
+    color = "black",
     alpha = 0.7
   ) +
   labs(
@@ -385,8 +393,8 @@ dfexp <- rexp(1000, rate = 0.5)
 ggplot(data.frame(x = dfexp), aes(x)) +
   geom_histogram(
     binwidth = 0.2,
-    fill = "orange", 
-    color = "black", 
+    fill = "orange",
+    color = "black",
     alpha = 0.7
   ) +
   labs(
@@ -407,9 +415,9 @@ dfnormal <- rnorm(1000, mean = 0, sd = 1)
 
 ggplot(data.frame(x = dfnormal), aes(x)) +
   geom_histogram(
-    binwidth = 0.2, 
-    fill = "blue", 
-    color = "black", 
+    binwidth = 0.2,
+    fill = "blue",
+    color = "black",
     alpha = 0.7
   ) +
   labs(
@@ -445,11 +453,16 @@ ggplot(data.frame(x = dfnormal), aes(x)) +
 #| include: false
 set.seed(123)
 
-normal  <-  data.frame(x = rnorm(1000, 0,1))
+normal <- data.frame(x = rnorm(1000, 0, 1))
 
 ggplot(normal, aes(x = x)) +
-  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "#6FC1FF", bins = 20) +
-  geom_density(alpha=.2, fill="#FF6666") 
+  geom_histogram(
+    aes(y = after_stat(density)),
+    color = "black",
+    fill = "#6FC1FF",
+    bins = 20
+  ) +
+  geom_density(alpha = .2, fill = "#FF6666")
 ```
 
 
