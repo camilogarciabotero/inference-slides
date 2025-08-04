@@ -5,8 +5,8 @@ author:
   - name: Camilo G.
     email: ca.garcia2@uniandes.edu.co
     
-  - name: "Ada A."
-    email: a.acevedoa2@uniandes.edu.co
+  - name: "Alejandra S."
+    email: m.soto2@uniandes.edu.co
 
   - name: "Ronald D."
     email: r.diazf@uniandes.edu.co
