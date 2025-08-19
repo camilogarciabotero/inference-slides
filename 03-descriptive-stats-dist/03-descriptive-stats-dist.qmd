@@ -137,8 +137,8 @@ new_median <- function(x) {
 }
 ```
 1. The expression `length(x) %% 2 != 0` checks whether the sample size is odd (**impar**). The modulus operator `%%` returns the remainder of `length(x)` divided by 2; if the remainder is 1 (non-zero), the condition is TRUE and the function uses the odd-case formula.
-2. Equation for n if it is odd (impar): $x_{(n+1)/2}$
-3. Equation for n if it is even (par): $\frac{(x_{n/2} + x_{((n/2)+1)})}{2}$
+2. Equation for n if it is odd (impar)
+3. Equation for n if it is even (par)
 
 . . .
 
