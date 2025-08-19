@@ -304,24 +304,24 @@ x_{(n+1)/2} &amp;\text{if $n \equiv 1$}     \\
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>new_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1">1</button><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(x) <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>){</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>   (<span class="fu">sort</span>(x)[<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>] <span class="sc">+</span> <span class="fu">sort</span>(x)[(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>])<span class="sc">/</span><span class="dv">2</span></span>
-<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span>{</span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3">3</button><span id="annotated-cell-4-5" class="code-annotation-target"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">sort</span>(x)[<span class="fu">ceiling</span>(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)]</span>
-<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>   }</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2">2</button><span id="annotated-cell-4-3" class="code-annotation-target"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sort</span>(x)[<span class="fu">ceiling</span>(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)]</span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3">3</button><span id="annotated-cell-4-5" class="code-annotation-target"><a href="#annotated-cell-4-5" aria-hidden="true" tabindex="-1"></a>    (<span class="fu">sort</span>(x)[<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>] <span class="sc">+</span> <span class="fu">sort</span>(x)[(<span class="fu">length</span>(x)<span class="sc">/</span><span class="dv">2</span>)<span class="sc">+</span><span class="dv">1</span>])<span class="sc">/</span><span class="dv">2</span></span>
+<span id="annotated-cell-4-6"><a href="#annotated-cell-4-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="annotated-cell-4-7"><a href="#annotated-cell-4-7" aria-hidden="true" tabindex="-1"></a>}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">The operator <code>%%</code> is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">The expression <code>length(x) %% 2 != 0</code> checks whether the sample size is odd (<strong>impar</strong>). The modulus operator <code>%%</code> returns the remainder of <code>length(x)</code> divided by 2; if the remainder is 1 (non-zero), the condition is TRUE and the function uses the odd-case formula.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">Equation for n if it is odd</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="3" data-code-annotation="2">Equation for n if it is odd (impar): <span class="math inline">\(x_{(n+1)/2}\)</span></span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">Equation for n if it is even</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="5" data-code-annotation="3">Equation for n if it is even (par): <span class="math inline">\(\frac{(x_{n/2} + x_{((n/2)+1)})}{2}\)</span></span>
 </dd>
 </dl>
 </div>

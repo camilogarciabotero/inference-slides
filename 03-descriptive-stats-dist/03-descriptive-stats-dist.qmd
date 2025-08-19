@@ -130,15 +130,15 @@ In R a freshly defined function:
 
 new_median <- function(x) {
   if(length(x) %% 2 != 0){ #<1>
-   (sort(x)[length(x)/2] + sort(x)[(length(x)/2)+1])/2 #<2> 
-      } else{
-       sort(x)[ceiling(length(x)/2)] #<3>
-    }
-   }
+    sort(x)[ceiling(length(x)/2)] #<2>
+  } else{
+    (sort(x)[length(x)/2] + sort(x)[(length(x)/2)+1])/2 #<3>
+  }
+}
 ```
-1. The operator `%%` is called modulus. In this case, will return the remainder of the division (in this case by 2), and then will check if this value is different than 0. If so, then will apply the equation for the odd-numbered list.
-2. Equation for n if it is odd
-3. Equation for n if it is even
+1. The expression `length(x) %% 2 != 0` checks whether the sample size is odd (**impar**). The modulus operator `%%` returns the remainder of `length(x)` divided by 2; if the remainder is 1 (non-zero), the condition is TRUE and the function uses the odd-case formula.
+2. Equation for n if it is odd (impar): $x_{(n+1)/2}$
+3. Equation for n if it is even (par): $\frac{(x_{n/2} + x_{((n/2)+1)})}{2}$
 
 . . .
 
