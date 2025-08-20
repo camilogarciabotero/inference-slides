@@ -37,6 +37,10 @@ format:
     fig-dpi: 320
     theme: ../theme.scss
     bibliography: ../references.bib
+filters: 
+  - webr
+webr:
+    packages: ["dplyr", "tidyr", "tidyselect", "palmerpenguins"]
 ---
 
 ```{r}
@@ -82,7 +86,9 @@ $$
 You can create the function:
 ```{r}
 #| echo: true
-new_mean <- function(x){sum(x)/length(x)}
+new_mean <- function(x) {
+  sum(x) / length(x)
+}
 ```
 
 . . .
@@ -129,13 +135,14 @@ In R a freshly defined function:
 #| fig-align: center
 
 new_median <- function(x) {
-  if(length(x) %% 2 != 0){ #<1>
-    sort(x)[ceiling(length(x)/2)] #<2>
-  } else{
-    (sort(x)[length(x)/2] + sort(x)[(length(x)/2)+1])/2 #<3>
+  if (length(x) %% 2 != 0) {        #<1>
+    sort(x)[ceiling(length(x) / 2)] #<2>
+  } else {
+    (sort(x)[length(x) / 2] + sort(x)[(length(x) / 2) + 1]) / 2 #<3>
   }
 }
 ```
+
 1. The expression `length(x) %% 2 != 0` checks whether the sample size is odd (**impar**). The modulus operator `%%` returns the remainder of `length(x)` divided by 2; if the remainder is 1 (non-zero), the condition is TRUE and the function uses the odd-case formula.
 2. Equation for n if it is odd (impar)
 3. Equation for n if it is even (par)
@@ -333,6 +340,62 @@ penguins |>
     cv_body_mass_g = cv(body_mass_g, na.rm = TRUE)
   )
 ```
+
+# How to compute all summary statistics for all numeric variables in a dataset? {.smaller}
+
+***
+
+```{webr-r}
+penguins |>
+  summarise(
+    .by = ________, #<1>
+    ________(
+      ________, #<2>
+      list(
+        mean_calc = ________. #<3>
+      ),
+      .names = "{.fn}_{.col}"
+    )
+  )
+```
+
+1. Hint: a variable that groups the data.
+2. The functions to calculate *across* all *numeric* variables.
+
+***
+
+Solution in the next slide, but before take your time, breath and go back to previous slide...
+
+***
+
+```{r}
+#| label: summary-all-solutions
+#| echo: true
+#| eval: true
+allsummaries <- penguins |>
+  summarise(
+    .by = species,
+    across(
+      where(is.numeric),
+      list(
+        mean_calc = \(x) (mean(x, na.rm = TRUE)),
+        median_calc = \(x) (median(x, na.rm = TRUE)),
+        sd_calc = \(x) (sd(x, na.rm = TRUE)),
+        cv_calc = \(x) (cv(x, na.rm = TRUE))
+      ),
+      .names = "{.fn}_{.col}"
+    )
+  )
+
+```
+
+***
+
+```{r}
+allsummaries
+```
+
+
 
 # Distributions {.smaller}
 
