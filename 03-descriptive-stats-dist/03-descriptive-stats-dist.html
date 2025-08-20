@@ -494,7 +494,7 @@
   };
 
   // Store cell data
-  globalThis.qwebrCellDetails = [{"code":"penguins |>\n  summarise(\n    .by = ________,\n    ________(\n      ________,\n      list(\n        mean_calc = ________\n      ),\n      .names = \"{.fn}_{.col}\"\n    )\n  )","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+  globalThis.qwebrCellDetails = [{"code":"penguins |>\n  summarise(\n    .by = ________,\n    _______(______,\n      list(\n        mean_calc = ________\n      ),\n      .names = \"{.fn}_{.col}\"\n    )\n  )","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"0.5","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
   </script>
   <script type="module">
@@ -2369,17 +2369,16 @@ CV = \frac{S}{\overline{x}} \times 100
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a>allsummaries <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb23-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species,</span>
-<span id="cb23-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
-<span id="cb23-5"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="fu">where</span>(is.numeric),</span>
-<span id="cb23-6"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
-<span id="cb23-7"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean_calc =</span> \(x) (<span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb23-8"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">median_calc =</span> \(x) (<span class="fu">median</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb23-9"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd_calc =</span> \(x) (<span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb23-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">cv_calc =</span> \(x) (<span class="fu">cv</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb23-11"><a href="" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb23-12"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="at">.names =</span> <span class="st">"{.fn}_{.col}"</span></span>
-<span id="cb23-13"><a href="" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb23-14"><a href="" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">where</span>(is.numeric),</span>
+<span id="cb23-5"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb23-6"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">mean_calc =</span> \(x) (<span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb23-7"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">median_calc =</span> \(x) (<span class="fu">median</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb23-8"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd_calc =</span> \(x) (<span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb23-9"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="at">cv_calc =</span> \(x) (<span class="fu">cv</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb23-10"><a href="" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb23-11"><a href="" aria-hidden="true" tabindex="-1"></a>      <span class="at">.names =</span> <span class="st">"{.fn}_{.col}"</span></span>
+<span id="cb23-12"><a href="" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-13"><a href="" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2 center">

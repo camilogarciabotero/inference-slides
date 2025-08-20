@@ -349,8 +349,7 @@ penguins |>
 penguins |>
   summarise(
     .by = ________,
-    ________(
-      ________,
+    _______(______,
       list(
         mean_calc = ________
       ),
@@ -373,8 +372,7 @@ Solution in the next slide, but before take your time, breath and go back to pre
 allsummaries <- penguins |>
   summarise(
     .by = species,
-    across(
-      where(is.numeric),
+    across(where(is.numeric),
       list(
         mean_calc = \(x) (mean(x, na.rm = TRUE)),
         median_calc = \(x) (median(x, na.rm = TRUE)),
@@ -392,8 +390,6 @@ allsummaries <- penguins |>
 ```{r}
 allsummaries
 ```
-
-
 
 # Distributions {.smaller}
 
