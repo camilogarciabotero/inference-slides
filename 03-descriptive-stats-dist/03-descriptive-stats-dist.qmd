@@ -348,19 +348,17 @@ penguins |>
 ```{webr-r}
 penguins |>
   summarise(
-    .by = ________, #<1>
+    .by = ________,
     ________(
-      ________, #<2>
+      ________,
       list(
-        mean_calc = ________. #<3>
+        mean_calc = ________
       ),
       .names = "{.fn}_{.col}"
     )
   )
 ```
 
-1. Hint: a variable that groups the data.
-2. The functions to calculate *across* all *numeric* variables.
 
 ***
 
